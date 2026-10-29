@@ -1,0 +1,35 @@
+# Secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Customer data and databases
+*.db
+*.sqlite
+*.sqlite3
+*.db-*
+*.sqlite-*
+*.sqlite3-*
+data/
+**/data/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Backups
+*.backup
+*.bak
+*.before-*
+*.logo-backup
+*.zip
+
+# System files
+.DS_Store
+Thumbs.db

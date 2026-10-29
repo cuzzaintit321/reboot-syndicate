@@ -1,0 +1,20 @@
+name: circuit-syndicate
+services:
+  website:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8160:8000"
+    environment:
+      - DATABASE_PATH=/data/requests.sqlite3
+      - ADMIN_USER=${ADMIN_USER:-}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD:-}
+    volumes:
+      - requests_data:/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+volumes:
+  requests_data:
