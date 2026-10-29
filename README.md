@@ -1,3 +1,5 @@
+![Reboot Syndicate Cover](cover-photo.png)
+
 # Circuit Syndicate
 
 **Computer Repair · Networking · Tech Support**
