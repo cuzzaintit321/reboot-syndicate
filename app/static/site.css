@@ -14,3 +14,99 @@ a.service{display:block;color:inherit;text-decoration:none;cursor:pointer;isolat
 .hero-photo {background-image:linear-gradient(90deg,rgba(8,11,13,.25),rgba(8,11,13,.12)),url('/static/hero-workshop.png');background-size:cover;background-position:center;}
 .hero-photo::before{pointer-events:none;}
 .wordmark:focus-visible,.service:focus-visible,a:focus-visible,button:focus-visible{outline:3px solid #ff5c2a;outline-offset:4px;}
+
+/* Reboot Syndicate marketing division */
+.marketing-feature{background:#0c1013;border-block:1px solid #394347;display:grid;grid-template-columns:1.1fr 1fr;gap:6%;align-items:center}
+.marketing-feature h2,.marketing-page h1,.marketing-page h2{font:900 clamp(55px,6.6vw,110px)/.87 'Barlow Condensed',Impact,sans-serif;letter-spacing:-.015em;margin:25px 0}
+.marketing-feature h2 em,.marketing-page em{font-style:normal;color:var(--accent)}
+.marketing-feature-copy p{max-width:590px;color:#b7c1bb;line-height:1.8;font-size:16px}
+.marketing-feature-button{display:inline-flex;justify-content:space-between;gap:30px;margin-top:22px;padding:19px 24px;background:var(--accent);color:#101315;font:800 12px 'DM Mono',monospace}
+.marketing-feature-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #3a4348;border-left:1px solid #3a4348}
+.marketing-feature-grid>div{display:flex;flex-direction:column;min-height:170px;gap:14px;padding:24px;border-right:1px solid #3a4348;border-bottom:1px solid #3a4348;background:#171c20}
+.marketing-feature-grid b,.marketing-service b{color:var(--accent);font:11px 'DM Mono',monospace}
+.marketing-feature-grid strong,.marketing-service h3{font:800 25px 'Barlow Condensed',Impact,sans-serif}
+.marketing-feature-grid span{font-size:13px;line-height:1.5;color:#acb8b2}
+.marketing-page{padding:85px 6%;min-height:80vh}.marketing-page>p{max-width:770px;line-height:1.8;color:#b7c1bb;font-size:18px}.marketing-services{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-left:1px solid #3a4348;border-top:1px solid #3a4348;margin:50px 0}
+.marketing-service{padding:32px;border-right:1px solid #3a4348;border-bottom:1px solid #3a4348;background:#171c20;min-height:220px}.marketing-service p{color:#b7c1bb;line-height:1.65;font-size:14px}
+.marketing-disclosure{border-left:3px solid var(--accent);padding:20px 25px;background:#1b2225;max-width:850px;font-size:14px;color:#c2cfc8;line-height:1.7;margin-bottom:28px}
+@media(max-width:900px){.marketing-feature{grid-template-columns:1fr}.marketing-services{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.marketing-feature-grid,.marketing-services{grid-template-columns:1fr}.marketing-page{padding:70px 5%}}
+
+/* Clickable Marketing Service Tiles */
+
+.marketing-tile-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+}
+
+.marketing-tile-link:hover {
+    background: #20282c;
+}
+
+.marketing-tile-link:hover h3 {
+    color: #ff5c2a;
+}
+
+.marketing-tile-link:focus-visible {
+    outline: 2px solid #ff5c2a;
+    outline-offset: -2px;
+}
+
+/* Marketing service links */
+a.service,
+a.marketing-card,
+a.marketing-tile {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .2s, border-color .2s;
+}
+
+a.service:hover,
+a.marketing-card:hover,
+a.marketing-tile:hover {
+    background: #232b2e;
+    border-color: #ff5c2a;
+}
+
+a.service:focus-visible,
+a.marketing-card:focus-visible,
+a.marketing-tile:focus-visible {
+    outline: 2px solid #ff5c2a;
+    outline-offset: -2px;
+}
+
+/* Clickable workshop gallery */
+.gallery-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.gallery-link figure {
+    height: 100%;
+    margin: 0;
+}
+
+.gallery-link img {
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.gallery-link:hover img {
+    transform: scale(1.035);
+    filter: brightness(1.12);
+}
+
+.gallery-link:hover figcaption {
+    color: #ff5c2a;
+}
+
+.gallery-link:focus-visible {
+    outline: 2px solid #ff5c2a;
+    outline-offset: -2px;
+}

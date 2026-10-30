@@ -9,7 +9,7 @@ Dark, industrial-style, mobile-responsive local repair business site with an ope
 ## Deploy on yeet
 
 ```bash
-cd ~/circuit-syndicate
+cd ~/reboot-syndicate
 docker compose up -d --build
 ```
 
@@ -25,7 +25,7 @@ Open **http://localhost:8160/** in Fedora's browser.
 
 ## Admin requests inbox
 
-Copy `.env.example` to `.env`, then set strong, unique `ADMIN_USER` and `ADMIN_PASSWORD`. Only after both are set will `/admin` accept HTTP Basic authentication. Restart with `docker compose up -d --force-recreate`, and open `http://localhost:8160/admin` over the SSH tunnel. The database persists in the `circuit-syndicate_requests_data` Docker volume. Never commit `.env` or customer data.
+Copy `.env.example` to `.env`, then set strong, unique `ADMIN_USER` and `ADMIN_PASSWORD`. Only after both are set will `/admin` accept HTTP Basic authentication. Restart with `docker compose up -d --force-recreate`, and open `http://localhost:8160/admin` over the SSH tunnel. The database persists in the `reboot-syndicate_requests_data` Docker volume. Never commit `.env` or customer data.
 
 ## Important before public launch
 

@@ -1,3 +1,4 @@
+from app.marketing_services import router as marketing_router
 import os, sqlite3, secrets, re, time
 from pathlib import Path
 from contextlib import contextmanager
@@ -88,3 +89,10 @@ def service_detail(request: Request, slug: str):
     if service is None:
         raise HTTPException(404, 'Service not found')
     return templates.TemplateResponse(request, 'service.html', {'service':service})
+
+
+@app.get('/marketing', response_class=HTMLResponse)
+def marketing_page(request: Request):
+    return templates.TemplateResponse(request, 'marketing.html', {})
+
+app.include_router(marketing_router)
