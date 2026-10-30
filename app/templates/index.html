@@ -14,14 +14,64 @@
     <a class="marketing-feature-button" href="/marketing">EXPLORE DIGITAL MARKETING <span>↗</span></a>
   </div>
   <div class="marketing-feature-grid">
-    <div><b>01 /</b><strong>WEBSITE DESIGN</strong><span>Modern, mobile-ready business sites</span></div>
-    <div><b>02 /</b><strong>LOCAL SEO</strong><span>Search visibility and local optimization</span></div>
-    <div><b>03 /</b><strong>SOCIAL CONTENT</strong><span>Content planning and page management</span></div>
-    <div><b>04 /</b><strong>LEAD AUTOMATION</strong><span>Capture, organize, and follow up</span></div>
+    <a class="marketing-home-link" href="/marketing/website-design"><b>01 /</b><strong>WEBSITE DESIGN</strong><span>Modern, mobile-ready business sites</span></a>
+    <a class="marketing-home-link" href="/marketing/local-seo"><b>02 /</b><strong>LOCAL SEO</strong><span>Search visibility and local optimization</span></a>
+    <a class="marketing-home-link" href="/marketing/social-media"><b>03 /</b><strong>SOCIAL CONTENT</strong><span>Content planning and page management</span></a>
+    <a class="marketing-home-link" href="/marketing/lead-automation"><b>04 /</b><strong>LEAD AUTOMATION</strong><span>Capture, organize, and follow up</span></a>
   </div>
 </section>
 <section class="statement"><span class="statement-label">OUR PHILOSOPHY / 003</span><p>YOU DON'T NEED A LECTURE ABOUT YOUR COMPUTER. <em>YOU NEED IT WORKING.</em></p><span class="statement-star">✳</span></section>
 <section class="process section-wrap" id="process"><div class="section-head compact"><span class="section-index">03 / THE PROCESS</span><h2>THREE STEPS.<br><em>ZERO DRAMA.</em></h2></div><div class="steps"><div><strong>01</strong><h3>DESCRIBE IT</h3><p>Tell us what's happening through the repair request form.</p></div><div><strong>02</strong><h3>GET A PLAN</h3><p>We'll review the details and discuss scheduling and an estimate before work begins.</p></div><div><strong>03</strong><h3>GET BACK ONLINE</h3><p>Once you approve the plan, we'll work through the repair or support visit.</p></div></div></section>
 <section class="area section-wrap" id="service-area"><div class="area-label">LOCAL FIRST / 321</div><div><h2>YOUR NEIGHBORHOOD.<br><em>YOUR TECH CREW.</em></h2><p>Appointment-based computer repair and technology support for North Brevard. Service location and availability are confirmed when we respond to your request.</p><div class="locations"><span>TITUSVILLE</span><span>MIMS</span><span>PORT ST. JOHN</span><span>SCOTTSMOOR</span><span>NEARBY AREAS</span></div></div></section>
 <section class="contact section-wrap" id="request"><div class="contact-intro"><span class="section-index">04 / OPEN A TICKET</span><h2>LET'S GET<br>IT <em>FIXED.</em></h2><p>Tell us what's going on. We'll review your request and follow up using the contact information you provide.</p><div class="contact-aside"><b>BEFORE YOU SEND</b><p>No payment required to request help. Please don't share passwords, account credentials, or sensitive files in the form.</p></div></div><form class="request-form" method="post" action="/request"><div class="form-heading"><span>NEW SERVICE REQUEST</span><b>RS-REQ / 001</b></div><div class="form-cols"><label>YOUR NAME <input name="name" maxlength="100" placeholder="Full name" required></label><label>EMAIL ADDRESS <input name="email" type="email" maxlength="200" placeholder="you@example.com" required></label><label>PHONE (OPTIONAL) <input name="phone" type="tel" maxlength="40" placeholder="(321) 555-0123"></label><label>SERVICE AREA <select name="service_area" required><option value="" disabled selected>Select your area</option><option>Titusville</option><option>Mims</option><option>Port St. John</option><option>Scottsmoor</option><option>Other North Brevard</option></select></label></div><label>DEVICE / SERVICE NEEDED <select name="device" required><option value="" disabled selected>What do you need help with?</option><option>Desktop PC</option><option>Laptop</option><option>Wi-Fi / Network</option><option>Printer / Peripheral</option><option>Data Backup</option><option>Small Business IT</option><option>Digital Marketing Consultation</option><option>Website Design</option><option>Local SEO / Business Profile</option><option>Social Media Content</option><option>Marketing Automation</option><option>Other Tech Issue</option></select></label><label>WHAT'S GOING ON? <textarea name="issue" rows="5" maxlength="2000" minlength="10" required placeholder="Tell us what isn't working, what you've tried, and any error messages..."></textarea></label><div class="trap" aria-hidden="true"><label>Company website<input name="company_website" tabindex="-1" autocomplete="off"></label></div><button type="submit">SEND SERVICE REQUEST <span>↗</span></button><small>Submitting a request does not confirm an appointment or price. We use these details only to respond to your inquiry.</small></form></section></main>
-<footer><a class="footer-brand" href="/">R<span>/</span>S <small>REBOOT SYNDICATE</small></a><div><strong>COMPUTER REPAIR / NETWORKING / TECH SUPPORT</strong><p>North Brevard County, Florida · By appointment</p></div><a href="#top">BACK TO TOP ↑</a><small>© <span id="year">2026</span> REBOOT SYNDICATE. WORKING BUSINESS BRAND.</small></footer><script>document.getElementById('year').textContent=new Date().getFullYear();const s=new URLSearchParams(location.search).get('service');if(s){const input=document.querySelector('select[name=device]');if(input&&[...input.options].some(o=>o.value===s))input.value=s}</script></body></html>
+<footer><a class="footer-brand" href="/">R<span>/</span>S <small>REBOOT SYNDICATE</small></a><div><strong>COMPUTER REPAIR / NETWORKING / TECH SUPPORT</strong><p>North Brevard County, Florida · By appointment</p></div><a href="#top">BACK TO TOP ↑</a><small>© <span id="year">2026</span> REBOOT SYNDICATE. WORKING BUSINESS BRAND.</small></footer><script>document.getElementById('year').textContent=new Date().getFullYear();const s=new URLSearchParams(location.search).get('service');if(s){const input=document.querySelector('select[name=device]');if(input&&[...input.options].some(o=>o.value===s))input.value=s}</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const services = {
+        "WEBSITE DESIGN": "/marketing/website-design",
+        "LOCAL SEO": "/marketing/local-seo",
+        "SOCIAL CONTENT": "/marketing/social-media",
+        "LEAD AUTOMATION": "/marketing/lead-automation"
+    };
+
+    document.querySelectorAll("h3, h4").forEach(function (heading) {
+        const title = heading.textContent.trim().toUpperCase();
+        const url = services[title];
+
+        if (!url) return;
+
+        const tile = heading.closest(".marketing-feature .marketing-grid > *, .marketing-feature .marketing-service, .marketing-feature .marketing-card");
+
+        if (!tile) {
+            console.warn("Marketing tile not found:", title);
+            return;
+        }
+
+        tile.style.cursor = "pointer";
+        tile.setAttribute("role", "link");
+        tile.setAttribute("tabindex", "0");
+        tile.setAttribute("aria-label", "View " + title + " services");
+
+        tile.addEventListener("click", function () {
+            window.location.href = url;
+        });
+
+        tile.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                window.location.href = url;
+            }
+        });
+
+        tile.addEventListener("mouseenter", function () {
+            tile.style.backgroundColor = "#242b2e";
+        });
+
+        tile.addEventListener("mouseleave", function () {
+            tile.style.backgroundColor = "";
+        });
+    });
+});
+</script>
+
+</body></html>
