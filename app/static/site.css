@@ -798,3 +798,30 @@ a.marketing-tile:focus-visible {
   z-index:2;
 }
 /* End R/S full-frame service-detail artwork */
+
+
+/* R/S seamless orange services ticker */
+/* Two identical adjacent segments; translate one entire segment for zero-gap looping. */
+.ticker .ticker-track{
+  display:flex;
+  align-items:center;
+  flex-wrap:nowrap;
+  width:max-content;
+  min-width:0;
+  animation:rs-seamless-ticker 64s linear infinite;
+  will-change:transform;
+}
+.ticker .ticker-segment{
+  display:block;
+  flex:0 0 auto;
+  white-space:nowrap;
+  min-width:0;
+  padding:0;
+}
+@keyframes rs-seamless-ticker{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+@media (prefers-reduced-motion:reduce){
+  .ticker .ticker-track{animation:none;will-change:auto}
+}
