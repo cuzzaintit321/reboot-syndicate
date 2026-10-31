@@ -390,3 +390,442 @@ a.marketing-tile:focus-visible {
 .agency-detail-cta>a{white-space:nowrap}
 @media(max-width:920px){.agency-detail-hero,.agency-detail-deliverables,.agency-detail-faq{grid-template-columns:1fr}.agency-detail-intro{padding:65px 6%}.agency-detail-visual{min-height:350px;border-left:0;border-top:1px solid var(--line)}.agency-detail-page .agency-section-heading{grid-template-columns:1fr}.agency-detail-feature-grid{grid-template-columns:1fr 1fr}.agency-detail-cta{flex-direction:column;align-items:flex-start}}
 @media(max-width:600px){.agency-detail-intro h1{font-size:clamp(58px,15vw,85px)}.agency-detail-feature-grid,.agency-detail-steps{grid-template-columns:1fr}.agency-detail-feature{min-height:0;padding:28px}.agency-detail-visual-label{font-size:9px}.agency-detail-fit{padding:25px}.agency-detail-cta>a{white-space:normal}}
+
+
+/* REBOOT_FULL_HEIGHT_HOVER_START */
+/* Hover photo fills the entire card, rather than making a short image strip. */
+.agency-service-card{position:relative!important;isolation:isolate;overflow:hidden;background:#151d20!important}
+.agency-service-card::before{
+ content:""!important;position:absolute!important;inset:0!important;
+ top:0!important;left:0!important;width:100%!important;height:100%!important;
+ z-index:0!important;display:block!important;
+ background-image:linear-gradient(180deg,rgba(6,10,12,.38),rgba(6,10,12,.79)),var(--card-photo)!important;
+ background-position:center!important;background-size:cover!important;
+ background-repeat:no-repeat!important;
+ opacity:0!important;pointer-events:none!important;transition:opacity .3s ease!important;
+}
+.agency-service-card:is(:hover,:focus-visible)::before{opacity:1!important}
+.agency-service-card > *:not(.agency-card-image){position:relative;z-index:1}
+.agency-service-card > .agency-card-image{display:none!important}
+.agency-service-card:is(:hover,:focus-visible) h3{color:#fff}
+.agency-service-card:is(:hover,:focus-visible) p{color:#e9eeeb}
+.agency-service-card[href="/marketing/website-design"]{--card-photo:url("/static/images/website-design.webp")}
+.agency-service-card[href="/marketing/local-seo"]{--card-photo:url("/static/images/local-seo.webp")}
+.agency-service-card[href="/marketing/google-business-profile"]{--card-photo:url("/static/images/google-business-profile.webp")}
+.agency-service-card[href="/marketing/social-media"]{--card-photo:url("/static/images/social-media.webp")}
+.agency-service-card[href="/marketing/digital-advertising"]{--card-photo:url("/static/images/digital-advertising.webp")}
+.agency-service-card[href="/marketing/lead-automation"]{--card-photo:url("/static/images/lead-automation.webp")}
+.agency-service-card[href="/marketing/branding-design"]{--card-photo:url("/static/images/branding-design.webp")}
+.agency-service-card[href="/marketing/content-marketing"]{--card-photo:url("/static/images/content-marketing.webp")}
+.agency-service-card[href="/marketing/email-sms"]{--card-photo:url("/static/images/email-sms.webp")}
+.agency-service-card[href="/marketing/reputation-management"]{--card-photo:url("/static/images/reputation-management.webp")}
+.agency-service-card[href="/marketing/ecommerce"]{--card-photo:url("/static/images/ecommerce.webp")}
+.agency-service-card[href="/marketing/analytics-conversion"]{--card-photo:url("/static/images/analytics-conversion.webp")}
+.agency-service-card[href="/marketing/business-technology"]{--card-photo:url("/static/images/business-technology.webp")}
+.agency-service-card[href="/marketing/it-support"]{--card-photo:url("/static/images/it-support.webp")}
+@media(prefers-reduced-motion:reduce){.agency-service-card::before{transition:none!important}}
+/* REBOOT_FULL_HEIGHT_HOVER_END */
+
+/* Reboot Syndicate hero photographic panel -- retain status and process labels */
+.agency-home .agency-hero-photo{background:#111a1d;isolation:isolate}
+.agency-hero-photo-img{position:absolute;inset:0;z-index:0;width:100%;height:100%;display:block;object-fit:cover;object-position:52% 50%;filter:brightness(.82) contrast(1.06);pointer-events:none}
+.agency-home .agency-hero-photo::before{z-index:1;opacity:1;background:linear-gradient(180deg,rgba(7,13,15,.88) 0%,transparent 17%,transparent 76%,rgba(7,13,15,.87) 100%);pointer-events:none}
+.agency-hero-photo .agency-visual-header,.agency-hero-photo .agency-dashboard{position:relative;z-index:2;background:rgba(10,17,19,.82);backdrop-filter:blur(6px)}
+.agency-hero-photo .agency-dashboard{margin-top:auto}
+@media(max-width:800px){.agency-hero-photo .agency-hero-photo-img{object-position:center 48%}}
+
+/* Reboot Syndicate business phone number / Google Voice */
+.rs-top-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:flex-end}
+.rs-phone-top,.rs-detail-phone,.rs-footer-phone{color:var(--accent)!important}
+.rs-phone-top:hover,.rs-detail-phone:hover,.rs-footer-phone:hover,.rs-call-contact>a:hover{text-decoration:underline}
+.rs-call-contact{display:flex;flex-direction:column;align-items:flex-start;gap:7px;margin:30px 0 0;padding:22px 24px;border:1px solid #526064;background:#192226}
+.rs-call-contact>span,.rs-call-contact>small{font:10px 'DM Mono',monospace;letter-spacing:.08em;color:#bdc7c1}
+.rs-call-contact>a{font:900 clamp(31px,3vw,45px)/1 'Barlow Condensed',Impact,sans-serif;color:var(--accent)}
+.rs-detail-phone{display:inline-block;margin-bottom:22px;font:800 12px 'DM Mono',monospace}
+.rs-marketing-call{font:12px 'DM Mono',monospace;margin:36px 0 14px}
+.rs-marketing-call a{color:var(--accent);text-decoration:underline}
+@media(max-width:690px){.topline{flex-wrap:wrap}.rs-top-actions{gap:9px 16px;justify-content:flex-start}}
+
+/* Reboot Syndicate service-specific starting prices: card and detail page */
+.agency-home .agency-service-card .agency-card-pricing{
+  display:flex;flex-direction:column;align-items:flex-start;gap:4px;
+  margin-top:auto;padding:16px 0 0;border-top:1px solid rgba(189,207,199,.32);
+  position:relative;z-index:2;
+}
+.agency-home .agency-service-card .agency-card-pricing-label,
+.agency-detail-price-label{color:#c8d5ce;font:700 10px 'DM Mono',monospace;letter-spacing:.09em}
+.agency-home .agency-service-card .agency-card-pricing>strong{
+  font:900 clamp(32px,3vw,47px)/1 'Barlow Condensed',Impact,sans-serif;
+  color:var(--accent);white-space:nowrap;
+}
+.agency-home .agency-service-card .agency-card-pricing>strong small{
+  font:600 12px 'DM Mono',monospace;color:#d1ddd3;white-space:nowrap;
+}
+.agency-home .agency-service-card .agency-card-pricing-secondary{
+  font:700 12px/1.6 'DM Mono',monospace;color:#e7eee8
+}
+.agency-home .agency-service-card .agency-arrow{margin-top:16px}
+.agency-home .agency-service-card p{margin-bottom:24px}
+.agency-detail-price{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;
+  margin:27px 0 28px;border:1px solid #506165;background:#10191bd9}
+.agency-detail-price-main,.agency-detail-price-reference{display:flex;flex-wrap:wrap;align-content:center;align-items:baseline;column-gap:10px;row-gap:5px;padding:23px 25px}
+.agency-detail-price-main{border-right:1px solid #506165}
+.agency-detail-price-main>.agency-detail-price-label,.agency-detail-price-reference>.agency-detail-price-label{display:block;width:100%}
+.agency-detail-price-main>strong{color:var(--accent);font:900 clamp(45px,4.5vw,75px)/1 'Barlow Condensed',Impact,sans-serif}
+.agency-detail-price-unit{font:600 12px 'DM Mono',monospace;color:#d1ded5}
+.agency-detail-price-secondary{width:100%;font:700 12px/1.6 'DM Mono',monospace;color:#f4f1e8}
+.agency-detail-price-reference>strong{font:800 clamp(19px,2vw,25px)/1.3 'DM Sans',Arial,sans-serif;color:#fff}
+.agency-detail-price-caption{width:100%;font:11px/1.5 'DM Sans',Arial,sans-serif;color:#b9c5be}
+.agency-detail-price-note{grid-column:1/-1;border-top:1px solid #506165;padding:13px 25px;margin:0!important;font:12px/1.65 'DM Sans',Arial,sans-serif!important;color:#c0cdc3!important;max-width:none!important}
+@media(max-width:590px){
+  .agency-detail-price{grid-template-columns:1fr}
+  .agency-detail-price-main{border-right:0;border-bottom:1px solid #506165}
+  .agency-detail-price-main,.agency-detail-price-reference{padding:19px}
+  .agency-detail-price-note{padding:13px 19px}
+}
+
+
+/* Unified R/S logo and concise starting-price panel */
+.site-header .rs-brand-logo-image{
+  display:block;width:250px;max-width:100%;height:auto;object-fit:contain;
+}
+.agency-detail-price{
+  display:flex;flex-wrap:wrap;align-items:baseline;
+  gap:5px 9px;width:fit-content;max-width:100%;
+  margin:26px 0 30px;padding:22px 26px;
+  border:1px solid #506165;background:#10191bd9;
+}
+.agency-detail-price>.agency-detail-price-label{
+  display:block;flex-basis:100%;margin-bottom:4px;
+  font:700 11px 'DM Mono',monospace;letter-spacing:.09em;color:#c8d5ce;
+}
+.agency-detail-price>strong{
+  font:900 clamp(47px,5vw,73px)/1 'Barlow Condensed',Impact,sans-serif;
+  color:var(--accent);
+}
+.agency-detail-price>.agency-detail-price-unit{
+  font:600 13px 'DM Mono',monospace;color:#d1ded5;
+}
+@media(max-width:520px){
+  .site-header .rs-brand-logo-image{width:205px}
+  .agency-detail-price{padding:18px 20px}
+}
+
+/* Fill the IT Support & Repair hover tile */
+.agency-home .agency-service-card[href="/marketing/it-support"]::before {
+  background-size: cover, auto 145%;
+  background-position: center, center;
+}
+
+
+/* R/S clear 14 service tiles v3: visible photos and unique image URLs */
+.agency-home .agency-service-card::before {
+  background-image:linear-gradient(180deg,rgba(7,11,13,.30) 0%,rgba(7,11,13,.38) 52%,rgba(7,11,13,.76) 100%),var(--card-photo)!important;
+  background-size:cover,cover!important;
+  background-position:center,center!important;
+  opacity:.92!important;
+  filter:saturate(1.12) contrast(1.07);
+}
+.agency-home .agency-service-card:hover::before,
+.agency-home .agency-service-card:focus-visible::before {
+  background-image:linear-gradient(180deg,rgba(7,11,13,.15) 0%,rgba(7,11,13,.32) 52%,rgba(7,11,13,.70) 100%),var(--card-photo)!important;
+  opacity:1!important;
+}
+.agency-home .agency-service-card > * {
+  text-shadow:0 1px 4px rgba(0,0,0,.75);
+}
+.agency-home .agency-service-card[href="/marketing/website-design"]{--card-photo:url("/static/images/website-design.webp?v=779ba32cb46a")!important}
+.agency-home .agency-service-card[href="/marketing/local-seo"]{--card-photo:url("/static/images/local-seo.webp?v=8ff2fe26bc9d")!important}
+.agency-home .agency-service-card[href="/marketing/google-business-profile"]{--card-photo:url("/static/images/google-business-profile.webp?v=3478532c291a")!important}
+.agency-home .agency-service-card[href="/marketing/social-media"]{--card-photo:url("/static/images/social-media.webp?v=9eb42b7bf121")!important}
+.agency-home .agency-service-card[href="/marketing/digital-advertising"]{--card-photo:url("/static/images/digital-advertising.webp?v=3f91c473a405")!important}
+.agency-home .agency-service-card[href="/marketing/lead-automation"]{--card-photo:url("/static/images/lead-automation.webp?v=8fca3f521d0c")!important}
+.agency-home .agency-service-card[href="/marketing/branding-design"]{--card-photo:url("/static/images/branding-design.webp?v=2cdffd366645")!important}
+.agency-home .agency-service-card[href="/marketing/content-marketing"]{--card-photo:url("/static/images/content-marketing.webp?v=21311cc011e0")!important}
+.agency-home .agency-service-card[href="/marketing/email-sms"]{--card-photo:url("/static/images/email-sms.webp?v=df0fae4b1486")!important}
+.agency-home .agency-service-card[href="/marketing/reputation-management"]{--card-photo:url("/static/images/reputation-management.webp?v=e6fbfc0b427d")!important}
+.agency-home .agency-service-card[href="/marketing/ecommerce"]{--card-photo:url("/static/images/ecommerce.webp?v=da2b36f4044e")!important}
+.agency-home .agency-service-card[href="/marketing/analytics-conversion"]{--card-photo:url("/static/images/analytics-conversion.webp?v=d6cfc2e1bf7b")!important}
+.agency-home .agency-service-card[href="/marketing/business-technology"]{--card-photo:url("/static/images/business-technology.webp?v=4b25cd867bee")!important}
+.agency-home .agency-service-card[href="/marketing/it-support"]{--card-photo:url("/static/images/it-support.webp?v=276d49d44d98")!important}
+
+
+/* R/S service image hover-only visibility (all 14 tiles) */
+.agency-home .agency-service-card::before{
+  opacity:0!important;
+}
+.agency-home .agency-service-card:hover::before,
+.agency-home .agency-service-card:focus-visible::before{
+  opacity:1!important;
+}
+/* R/S IT Support tile: diagnostics workstation hover image */
+.agency-home .agency-service-card[href="/marketing/it-support"]{
+  --card-photo:url("/static/images/it-support-detail.png?v=1590f2ec54a4")!important;
+}
+.agency-home .agency-service-card[href="/marketing/it-support"]::before{
+  background-size:cover,cover!important;
+  background-position:center,center!important;
+}
+/* End R/S IT Support diagnostics tile */
+
+/* R/S IT Support hover-photo brightness match */
+/* Photo gets 38% darker; text, icons and pricing stay unchanged. */
+.agency-home .agency-service-card[href="/marketing/it-support"]::before{
+  filter:brightness(.62) saturate(.85) contrast(1.03)!important;
+}
+
+/* R/S HERO VISIBILITY TOGGLE BEGIN */
+/* mode: show */
+/* Only the photograph changes; the status/process labels stay visible. */
+.agency-home .agency-hero-photo{
+  background:#111a1d!important;
+}
+.agency-home .agency-hero-photo > .agency-hero-photo-img{
+  opacity:1!important;
+  transition:opacity .35s ease!important;
+}
+@media (prefers-reduced-motion:reduce){
+  .agency-home .agency-hero-photo > .agency-hero-photo-img{
+    transition:none!important;
+  }
+}
+/* R/S HERO VISIBILITY TOGGLE END */
+
+/* R/S Brevard County local SEO landing page */
+.agency-local-page{background:#0b1012;color:#e8ebe6}
+.agency-local-hero{padding-top:100px;padding-bottom:110px;background:radial-gradient(circle at 90% 18%,rgba(255,90,36,.11),transparent 47%)}
+.agency-local-hero h1,.agency-local-context h2,.agency-local-faq h2{font:900 clamp(58px,8vw,125px)/.87 'Barlow Condensed',Impact,sans-serif;letter-spacing:-.022em;text-transform:uppercase;margin:25px 0}
+.agency-local-hero h1 em,.agency-local-context h2 em{font-style:normal;color:var(--accent)}
+.agency-local-hero>p{max-width:800px;color:#bbcbc5;font-size:19px;line-height:1.8}
+.agency-local-actions{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:35px}
+.agency-local-services,.agency-local-context,.agency-local-faq{padding-top:75px;padding-bottom:90px;border-top:1px solid #344247}
+.agency-local-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #3a474b;border-left:1px solid #3a474b;margin-top:45px}
+.agency-local-grid article{padding:33px 30px;display:flex;flex-direction:column;gap:15px;border-right:1px solid #3a474b;border-bottom:1px solid #3a474b;background:#121b1e}
+.agency-local-grid article>span{font:10px 'DM Mono',monospace;color:var(--accent);letter-spacing:.08em}
+.agency-local-grid h3{font:900 32px/1 'Barlow Condensed',Impact,sans-serif;text-transform:uppercase;margin:2px 0}
+.agency-local-grid p{color:#bac8c2;font-size:15px;line-height:1.65;flex:1}
+.agency-local-grid article>a{font:700 11px 'DM Mono',monospace;color:var(--accent);text-decoration:none}
+.agency-local-grid article>a:hover,.agency-local-context a:hover{text-decoration:underline}
+.agency-local-context{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:70px}
+.agency-local-context p,.agency-local-faq p{font-size:17px;color:#bfccc5;line-height:1.85;margin:0 0 23px}
+.agency-local-context a{color:var(--accent)}
+.agency-local-faq details{border-bottom:1px solid #3a474b;padding:19px 0}
+.agency-local-faq summary{cursor:pointer;font-weight:750;font-size:18px}
+.agency-local-faq details p{margin:13px 0 3px}
+@media(max-width:900px){.agency-local-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.agency-local-context{grid-template-columns:1fr;gap:15px}}
+@media(max-width:600px){.agency-local-hero{padding-top:60px;padding-bottom:70px}.agency-local-grid{grid-template-columns:1fr}.agency-local-hero>p{font-size:16px}.agency-local-hero h1{font-size:clamp(52px,13vw,85px)}}
+
+/* R/S clickable nested cards and service details (all service pages) */
+/* Expandable WHAT WE DO tiles: retain the existing 2-column layout. */
+.agency-detail-page .agency-detail-feature{
+  box-sizing:border-box;
+  padding:0!important;
+  min-height:210px;
+  transition:background .2s ease;
+}
+.agency-detail-page .agency-detail-feature:hover,
+.agency-detail-page .agency-detail-feature[open]{background:#1d282b}
+.agency-detail-feature-trigger{
+  display:block;
+  box-sizing:border-box;
+  min-height:210px;
+  padding:36px;
+  position:relative;
+  list-style:none;
+  cursor:pointer;
+}
+.agency-detail-feature-trigger::-webkit-details-marker{display:none}
+.agency-detail-feature-trigger::marker{content:""}
+.agency-detail-feature-trigger:focus-visible,
+.agency-detail-deliverable summary:focus-visible,
+.agency-detail-fit-item summary:focus-visible,
+.agency-detail-step summary:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:-3px;
+}
+.agency-detail-feature-trigger h3{margin-top:26px}
+.agency-detail-expand-symbol{
+  position:absolute;right:32px;top:30px;
+  display:grid;place-items:center;width:32px;height:32px;
+  font:600 25px/1 'DM Mono',monospace;color:var(--accent);
+  border:1px solid #576467;
+}
+.agency-detail-expand-symbol::before{content:"+"}
+.agency-detail-feature[open] .agency-detail-expand-symbol::before{content:"−"}
+.agency-detail-feature:hover .agency-detail-expand-symbol,
+.agency-detail-feature[open] .agency-detail-expand-symbol{
+  background:var(--accent);color:#111719;border-color:var(--accent);
+}
+.agency-detail-expand-hint{
+  display:inline-flex;align-items:center;gap:8px;
+  margin-top:22px;font:700 11px/1.5 'DM Mono',monospace;
+  letter-spacing:.05em;color:var(--accent);
+}
+.agency-detail-feature-expanded{margin:0 36px 32px;padding-top:20px;border-top:1px solid #526165}
+.agency-detail-feature-expanded p{
+  font-size:15px;color:#d6e1d8;line-height:1.75;margin:0 0 18px;
+}
+.agency-detail-feature-expanded a,
+.agency-detail-mini-content a,
+.agency-detail-step-extra a{
+  display:inline-block;color:var(--accent);
+  font:700 11px/1.5 'DM Mono',monospace;
+  letter-spacing:.04em;text-decoration:none;
+}
+.agency-detail-feature-expanded a:hover,
+.agency-detail-mini-content a:hover,
+.agency-detail-step-extra a:hover{text-decoration:underline}
+
+/* Individual deliverable rows can open without navigating away. */
+.agency-detail-checks li{padding:0 0 0 30px!important}
+.agency-detail-deliverable summary{
+  position:relative;cursor:pointer;list-style:none;padding:17px 40px 17px 0;
+  transition:color .2s ease;
+}
+.agency-detail-deliverable summary::-webkit-details-marker{display:none}
+.agency-detail-deliverable summary::marker{content:""}
+.agency-detail-deliverable summary:hover,
+.agency-detail-deliverable[open] summary{color:#fff}
+.agency-detail-mini-icon{
+  position:absolute;right:5px;top:50%;transform:translateY(-50%);
+  font:600 19px/1 'DM Mono',monospace;color:var(--accent);
+}
+.agency-detail-deliverable[open] summary .agency-detail-mini-icon,
+.agency-detail-fit-item[open] summary .agency-detail-mini-icon{font-size:0}
+.agency-detail-deliverable[open] summary .agency-detail-mini-icon::after,
+.agency-detail-fit-item[open] summary .agency-detail-mini-icon::after{
+  content:"−";font-size:20px;
+}
+.agency-detail-mini-content{padding:0 16px 20px 0}
+.agency-detail-mini-content p{
+  margin:0 0 12px!important;color:#c9d8ce;
+  font-size:14px!important;line-height:1.65!important;
+}
+
+/* "WHO THIS IS FOR" items expand to a real consultation action. */
+.agency-detail-fit-item{padding:0!important}
+.agency-detail-fit-item summary{
+  position:relative;list-style:none;cursor:pointer;
+  padding:15px 25px 15px 0;
+}
+.agency-detail-fit-item summary::-webkit-details-marker{display:none}
+.agency-detail-fit-item summary::marker{content:""}
+.agency-detail-fit-item summary:hover,
+.agency-detail-fit-item[open] summary{color:#fff}
+.agency-detail-fit-item summary .agency-detail-mini-icon{top:50%;right:0}
+.agency-detail-fit-item .agency-detail-mini-content{padding-bottom:19px}
+
+/* All three process cards expand with stage-specific guidance. */
+.agency-detail-step{
+  border-top:1px solid #526366;
+  transition:background-color .2s ease;
+}
+.agency-detail-step:hover,.agency-detail-step[open]{background:#192427}
+.agency-detail-step summary{
+  display:block;list-style:none;cursor:pointer;
+  padding:20px 16px 24px;
+}
+.agency-detail-step summary::-webkit-details-marker{display:none}
+.agency-detail-step summary::marker{content:""}
+.agency-detail-step summary strong{display:block}
+.agency-detail-step-extra{
+  margin:0 16px 22px;padding-top:17px;
+  border-top:1px solid #536266;
+}
+.agency-detail-step-extra p{
+  font-size:15px;color:#d1ded5;line-height:1.75;
+  margin:0 0 17px;
+}
+.agency-detail-step[open] .agency-detail-expand-hint{color:#ffc2a7}
+
+/* Pricing is one large consultation link instead of a dead-end card. */
+.agency-detail-page a.agency-detail-price{
+  cursor:pointer;text-decoration:none;
+  color:inherit;transition:border-color .2s ease,background .2s ease;
+}
+.agency-detail-page a.agency-detail-price:hover,
+.agency-detail-page a.agency-detail-price:focus-visible{
+  border-color:var(--accent);background:#1b292b;
+}
+.agency-detail-price-link{
+  flex-basis:100%;margin-top:10px;
+  color:var(--accent);font:700 10px/1.5 'DM Mono',monospace;
+  letter-spacing:.06em;
+}
+
+/* Other grids with one explicit CTA per card: make entire card clickable. */
+.agency-package,.agency-plan,.agency-local-grid article{
+  position:relative;transition:border-color .2s ease,background .2s ease;
+}
+.agency-package:hover,.agency-plan:hover,.agency-local-grid article:hover,
+.agency-package:focus-within,.agency-plan:focus-within,.agency-local-grid article:focus-within{
+  border-color:var(--accent);background:#202c30;
+}
+.agency-package>a::after,.agency-plan>a::after,.agency-local-grid article>a::after{
+  content:"";position:absolute;inset:0;z-index:2;
+}
+.agency-package>a:focus-visible,.agency-plan>a:focus-visible,
+.agency-local-grid article>a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.agency-package,.agency-plan,.agency-local-grid article{cursor:pointer}
+@media(max-width:600px){
+  .agency-detail-feature-trigger{min-height:0;padding:28px}
+  .agency-detail-feature-expanded{margin:0 28px 28px}
+  .agency-detail-expand-symbol{right:24px;top:24px}
+  .agency-detail-step summary{padding:16px 10px 20px}
+}
+/* R/S accessible labels inside clickable nested tiles */
+.agency-detail-feature-title{
+  display:block;font:800 clamp(28px,3vw,42px)/1 'Barlow Condensed',Impact,sans-serif;
+  margin:26px 0 12px;text-transform:uppercase;color:#f1f2ef;
+}
+.agency-detail-feature-description{
+  display:block;font-size:15px;line-height:1.8;color:#bdc8c0;max-width:550px;
+}
+.agency-detail-step-title{
+  display:block;font:800 34px 'Barlow Condensed',Impact,sans-serif;margin:0 0 14px;color:#f1f2ef;
+}
+.agency-detail-step-lead{
+  display:block;font-size:15px;line-height:1.8;color:#b6c3ba;max-width:350px;
+}
+
+/* R/S full-frame service-detail artwork: no more cropped dashboards */
+/* Show each service image ONCE, edge-to-edge like the original background.
+   This intentionally favors full-panel coverage over seeing every outer edge. */
+.agency-detail-page .agency-detail-visual {
+  background-color:#0e171a;
+  background-image:linear-gradient(120deg,rgba(8,14,16,.10),rgba(8,14,16,.35)),var(--detail-photo);
+  background-size:cover,cover;
+  background-position:center center,center center;
+  background-repeat:no-repeat,no-repeat;
+  overflow:hidden;
+  isolation:isolate;
+}
+.agency-detail-page .agency-detail-visual::before {
+  content:none!important;
+  display:none!important;
+  background:none!important;
+}
+.agency-detail-page .agency-detail-visual-label {
+  z-index:2;
+}
+/* End R/S full-frame service-detail artwork */
+
+
+/* Seamless infinite services ticker */
+.ticker .ticker-track {
+    display: flex;
+    width: max-content;
+    animation: reboot-ticker-loop 65s linear infinite;
+}
+
+.ticker .ticker-group {
+    flex: 0 0 auto;
+    width: max-content;
+    min-width: 0;
+    animation: none;
+}
+
+@keyframes reboot-ticker-loop {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
