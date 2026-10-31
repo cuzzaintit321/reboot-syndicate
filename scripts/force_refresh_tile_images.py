@@ -156,5 +156,21 @@ if page != page_new:
 print("Backup:", BACKUP if BACKUP.is_dir() else "not needed")
 print("Rebuilding website (only) with Docker Compose...")
 subprocess.run(["docker", "compose", "up", "-d", "--build", "website"], check=True)
+# Verify the freshly rebuilt container actually contains every expected WebP.
+container_test = """
+from pathlib import Path
+from hashlib import sha256
+expected = {"website-design":"779ba32cb46a4d9b","local-seo":"8ff2fe26bc9dce23","google-business-profile":"3478532c291a51a5","social-media":"9eb42b7bf121af99","digital-advertising":"3f91c473a4059092","lead-automation":"8fca3f521d0c310e","branding-design":"2cdffd366645d4aa","content-marketing":"21311cc011e027ba","email-sms":"df0fae4b1486621d","reputation-management":"e6fbfc0b427d9be4","ecommerce":"da2b36f4044ed58e","analytics-conversion":"d6cfc2e1bf7b6815","business-technology":"4b25cd867bee5f64","it-support":"276d49d44d985456"}
+for slug, digest in expected.items():
+    file = Path("/srv/app/static/images") / (slug + ".webp")
+    if not file.is_file() or not sha256(file.read_bytes()).hexdigest().startswith(digest):
+        raise SystemExit("Container image mismatch: " + slug)
+print("All 14 verified inside the running Docker container")
+"""
+verification = subprocess.run(["docker", "compose", "exec", "-T", "website", "python", "-c", container_test],
+                              capture_output=True, text=True)
+if verification.returncode != 0:
+    sys.exit("ERROR: Docker image verification failed:\\n" + verification.stdout + verification.stderr)
+print(verification.stdout.strip())
 print("\nCOMPLETE: 14 images verified, more visible, and cache-busted.")
 print("Open https://rebootsyndicate.com/ and press Ctrl+Shift+R.")
