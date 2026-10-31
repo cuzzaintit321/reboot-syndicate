@@ -18,7 +18,7 @@ Reboot Syndicate is a digital marketing and business technology studio. This rep
 - **Automation and analytics** — lead workflows, reporting, conversion tracking, and integrations.
 - **Business technology** — hosting, domains, business systems, IT support, and computer repair.
 
-The homepage features **14 individually linked service tiles**, each with a user-selected **starting price**. Service detail pages explain typical deliverables, FAQs, and illustrative low-end price ranges. Prices are starting estimates, not binding quotations; work is scoped and agreed upon individually.
+The homepage features **14 individually linked service tiles**, each with a user-selected **starting price**. Service detail pages explain typical deliverables, FAQs, and straightforward starting prices. Prices are starting estimates, not binding quotations; work is scoped and agreed upon individually.
 
 ## Technology
 
