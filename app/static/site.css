@@ -265,3 +265,64 @@ a.marketing-tile:focus-visible {
 @media(max-width:1100px){.agency-hero-left h1{font-size:clamp(70px,8vw,105px)}.agency-section-heading,.agency-intro{grid-template-columns:1fr 2fr;gap:25px}.agency-section-heading>p{grid-column:2}.agency-intro>p{grid-column:2}.agency-services-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:800px){.agency-home .agency-hero{grid-template-columns:1fr}.agency-hero-left{padding:60px 6%}.agency-hero-right{min-height:510px;border-left:0;border-top:1px solid var(--line)}.agency-hero-left h1{font-size:clamp(70px,14vw,120px)}.agency-intro,.agency-section-heading,.agency-about{grid-template-columns:1fr}.agency-section-heading>p,.agency-intro>p,.agency-intro>a{grid-column:1}.agency-package-grid{grid-template-columns:1fr}.agency-steps{grid-template-columns:1fr}.agency-steps article{border-right:0;border-bottom:1px solid #9ba5a0;margin:0}.agency-steps article:last-child{border:0}}
 @media(max-width:520px){.agency-hero-left h1{font-size:clamp(65px,16vw,92px)}.agency-screen{width:78%;padding:20px}.agency-screen>strong{font-size:56px}.agency-services-grid{grid-template-columns:1fr}.agency-service-card{min-height:210px}.agency-package>strong{font-size:58px}}
+
+
+/* Reboot Syndicate: reveal each service image on hover only.
+   Image files: app/static/images/<service-slug>.webp */
+.agency-service-card{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:#151d20;
+}
+.agency-service-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background-image:linear-gradient(180deg,rgba(7,11,13,.52) 0%,rgba(7,11,13,.80) 68%,rgba(7,11,13,.94) 100%),var(--card-photo);
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .3s ease;
+}
+.agency-service-card:hover::before,
+.agency-service-card:focus-visible::before{
+  opacity:1;
+}
+.agency-service-card > *{
+  position:relative;
+  z-index:1;
+}
+.agency-service-card:hover h3,
+.agency-service-card:focus-visible h3{
+  color:#fff;
+}
+.agency-service-card:hover p,
+.agency-service-card:focus-visible p{
+  color:#e2e8e4;
+}
+/* Hide permanently visible photos from any previous image installer.
+   The same photos now appear only as hover backgrounds. */
+.agency-service-card > .agency-card-image{
+  display:none!important;
+}
+.agency-service-card[href="/marketing/website-design"]{--card-photo:url('/static/images/website-design.webp')}
+.agency-service-card[href="/marketing/local-seo"]{--card-photo:url('/static/images/local-seo.webp')}
+.agency-service-card[href="/marketing/google-business-profile"]{--card-photo:url('/static/images/google-business-profile.webp')}
+.agency-service-card[href="/marketing/social-media"]{--card-photo:url('/static/images/social-media.webp')}
+.agency-service-card[href="/marketing/digital-advertising"]{--card-photo:url('/static/images/digital-advertising.webp')}
+.agency-service-card[href="/marketing/lead-automation"]{--card-photo:url('/static/images/lead-automation.webp')}
+.agency-service-card[href="/marketing/branding-design"]{--card-photo:url('/static/images/branding-design.webp')}
+.agency-service-card[href="/marketing/content-marketing"]{--card-photo:url('/static/images/content-marketing.webp')}
+.agency-service-card[href="/marketing/email-sms"]{--card-photo:url('/static/images/email-sms.webp')}
+.agency-service-card[href="/marketing/reputation-management"]{--card-photo:url('/static/images/reputation-management.webp')}
+.agency-service-card[href="/marketing/ecommerce"]{--card-photo:url('/static/images/ecommerce.webp')}
+.agency-service-card[href="/marketing/analytics-conversion"]{--card-photo:url('/static/images/analytics-conversion.webp')}
+.agency-service-card[href="/marketing/business-technology"]{--card-photo:url('/static/images/business-technology.webp')}
+.agency-service-card[href="/marketing/it-support"]{--card-photo:url('/static/images/it-support.webp')}
+@media (prefers-reduced-motion:reduce){
+  .agency-service-card::before{transition:none}
+}
