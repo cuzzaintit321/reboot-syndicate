@@ -89,7 +89,7 @@ if 'rel="canonical"' not in home_after:
     sys.exit("ERROR: SEO canonical missing; no changes made.")
 if "<title>Reboot Syndicate | " not in home_after:
     sys.exit("ERROR: Brand-first page title missing; no changes made.")
-if 'class="agency-hero-photo"' not in home_after:
+if 'agency-hero-right agency-hero-photo' not in home_after:
     sys.exit("ERROR: Hero photo section missing; no changes made.")
 if "R/S service image hover-only visibility" not in css_after:
     sys.exit("ERROR: Existing service hover styles missing; no changes made.")
