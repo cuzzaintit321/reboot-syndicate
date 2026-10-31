@@ -522,3 +522,16 @@ a.marketing-tile:focus-visible {
   .site-header .rs-brand-logo-image{width:205px}
   .agency-detail-price{padding:18px 20px}
 }
+
+/* R/S call-or-text contact choices */
+.rs-contact-actions{display:flex;flex-wrap:wrap;gap:10px;margin:9px 0 2px}
+.rs-call-contact .rs-contact-actions a{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:105px;padding:12px 18px;border:1px solid var(--accent);
+  font:800 12px 'DM Mono',monospace;letter-spacing:.07em;
+  color:var(--accent);text-decoration:none;
+}
+.rs-call-contact .rs-contact-actions a:hover,
+.rs-call-contact .rs-contact-actions a:focus-visible{
+  background:var(--accent);color:#0d1416;
+}
