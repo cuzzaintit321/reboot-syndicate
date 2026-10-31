@@ -442,3 +442,42 @@ a.marketing-tile:focus-visible {
   .rs-phone-top{font-size:10px}
   .rs-call-contact>a{white-space:normal}
 }
+
+
+/* Reboot Syndicate service-specific starting prices: card and detail page */
+.agency-home .agency-service-card .agency-card-pricing{
+  display:flex;flex-direction:column;align-items:flex-start;gap:4px;
+  margin-top:auto;padding:16px 0 0;border-top:1px solid rgba(189,207,199,.32);
+  position:relative;z-index:2;
+}
+.agency-home .agency-service-card .agency-card-pricing-label,
+.agency-detail-price-label{color:#c8d5ce;font:700 10px 'DM Mono',monospace;letter-spacing:.09em}
+.agency-home .agency-service-card .agency-card-pricing>strong{
+  font:900 clamp(32px,3vw,47px)/1 'Barlow Condensed',Impact,sans-serif;
+  color:var(--accent);white-space:nowrap;
+}
+.agency-home .agency-service-card .agency-card-pricing>strong small{
+  font:600 12px 'DM Mono',monospace;color:#d1ddd3;white-space:nowrap;
+}
+.agency-home .agency-service-card .agency-card-pricing-secondary{
+  font:700 12px/1.6 'DM Mono',monospace;color:#e7eee8
+}
+.agency-home .agency-service-card .agency-arrow{margin-top:16px}
+.agency-home .agency-service-card p{margin-bottom:24px}
+.agency-detail-price{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0;
+  margin:27px 0 28px;border:1px solid #506165;background:#10191bd9}
+.agency-detail-price-main,.agency-detail-price-reference{display:flex;flex-wrap:wrap;align-content:center;align-items:baseline;column-gap:10px;row-gap:5px;padding:23px 25px}
+.agency-detail-price-main{border-right:1px solid #506165}
+.agency-detail-price-main>.agency-detail-price-label,.agency-detail-price-reference>.agency-detail-price-label{display:block;width:100%}
+.agency-detail-price-main>strong{color:var(--accent);font:900 clamp(45px,4.5vw,75px)/1 'Barlow Condensed',Impact,sans-serif}
+.agency-detail-price-unit{font:600 12px 'DM Mono',monospace;color:#d1ded5}
+.agency-detail-price-secondary{width:100%;font:700 12px/1.6 'DM Mono',monospace;color:#f4f1e8}
+.agency-detail-price-reference>strong{font:800 clamp(19px,2vw,25px)/1.3 'DM Sans',Arial,sans-serif;color:#fff}
+.agency-detail-price-caption{width:100%;font:11px/1.5 'DM Sans',Arial,sans-serif;color:#b9c5be}
+.agency-detail-price-note{grid-column:1/-1;border-top:1px solid #506165;padding:13px 25px;margin:0!important;font:12px/1.65 'DM Sans',Arial,sans-serif!important;color:#c0cdc3!important;max-width:none!important}
+@media(max-width:590px){
+  .agency-detail-price{grid-template-columns:1fr}
+  .agency-detail-price-main{border-right:0;border-bottom:1px solid #506165}
+  .agency-detail-price-main,.agency-detail-price-reference{padding:19px}
+  .agency-detail-price-note{padding:13px 19px}
+}
