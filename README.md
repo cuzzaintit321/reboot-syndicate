@@ -1,63 +1,78 @@
-![Reboot Syndicate Cover](cover-photo.png)
+![Reboot Syndicate — Digital Growth Studio](assets/reboot-syndicate-readme-banner.svg)
 
 # Reboot Syndicate
 
-**Computer Repair · Networking · Tech Support**
+**Website Design · SEO · Digital Marketing · Automation · Business Technology**
 
-Dark, industrial-style, mobile-responsive local repair business site with an operational repair-request form, persistent SQLite data, and an optional authenticated request dashboard.
+**Website:** [rebootsyndicate.com](https://rebootsyndicate.com)
 
-## Deploy on yeet
+Reboot Syndicate is a digital marketing and business technology studio. This repository contains the live site's FastAPI application, Jinja templates, stylesheet, service pages, and inquiry workflow.
+
+> **GET SEEN. GET FOUND. GET GROWING.**
+
+## What the website offers
+
+- **Website design** — small-business websites, landing pages, redesigns, and e-commerce.
+- **Search visibility** — SEO and Google Business Profile management.
+- **Growth marketing** — social media, digital advertising, content, email/SMS, and reputation management.
+- **Automation and analytics** — lead workflows, reporting, conversion tracking, and integrations.
+- **Business technology** — hosting, domains, business systems, IT support, and computer repair.
+
+The homepage features **14 individually linked service tiles**, each with a user-selected **starting price**. Service detail pages explain typical deliverables, FAQs, and illustrative low-end price ranges. Prices are starting estimates, not binding quotations; work is scoped and agreed upon individually.
+
+## Technology
+
+- **Backend:** Python, FastAPI, SQLite
+- **Frontend:** Jinja2, responsive HTML/CSS
+- **Hosting:** Docker Compose on a self-hosted Ubuntu server (`yeet`)
+- **Routing:** Caddy reverse proxy with HTTPS
+- **Lead capture:** consultation form, persistent SQLite records, private authenticated admin view
+- **Notifications:** optional SMTP email alerts, enabled through private environment variables
+
+## Deploy on `yeet`
+
+The working directory is:
 
 ```bash
 cd ~/reboot-syndicate
-docker compose up -d --build
+docker compose up -d --build website
+docker compose ps
 ```
 
-The server listens on **127.0.0.1:8160** on `yeet`, to avoid public exposure while building.
+The Compose project may still be named `circuit-syndicate` internally. **Do not change the Compose project name casually:** existing service names and persistent database volume are associated with it.
 
-From Fedora:
+The server currently publishes the application on port **8160** for its reverse proxy; the exact bind address is controlled by the deployment's local Compose configuration.
 
-```bash
-ssh -o ExitOnForwardFailure=yes -N -L 8160:127.0.0.1:8160 yeet
+If you want to fetch changes from GitHub, inspect `git status` first: this server has had locally customized template, stylesheet, and Docker files. Do not blindly overwrite those files or replace the database volume during an update.
+
+## Consultation request flow
+
+```text
+Visitor submits consultation form
+          ↓
+FastAPI validates the inquiry
+          ↓
+SQLite stores the customer request
+          ↓
+Visitor sees confirmation page
+          ↓
+Optional SMTP notification (when configured)
 ```
 
-Open **http://localhost:8160/** in Fedora's browser.
+Customer requests remain in the persistent Docker data volume. Email notification failures do not erase a saved inquiry.
 
-## Admin requests inbox
+## Security and privacy
 
-Copy `.env.example` to `.env`, then set strong, unique `ADMIN_USER` and `ADMIN_PASSWORD`. Only after both are set will `/admin` accept HTTP Basic authentication. Restart with `docker compose up -d --force-recreate`, and open `http://localhost:8160/admin` over the SSH tunnel. The database persists in the `reboot-syndicate_requests_data` Docker volume. Never commit `.env` or customer data.
+- Never commit `.env`, email app passwords, customer information, or SQLite database files.
+- Keep the administrative inbox private; it is not intended for public internet access.
+- Configure strong admin credentials and use appropriate reverse-proxy access restrictions.
+- Review security and backup practices before collecting production customer information.
+- Making the **GitHub repository private** controls source-code visibility but does **not** make the live website private or erase previously shared copies.
 
-## Important before public launch
+## License and usage
 
-- This is a **prototype business name**, not verified registration, trademark, or domain availability.
-- No actual business phone, address, reviews, prices, or business license are claimed.
-- Requests are **stored locally**, not emailed. Check `/admin` to review them.
-- Use a public HTTPS domain and proper authentication/CSRF protection, rate limiting, spam protection, privacy terms, and backups before enabling public access or handling real customer information. For admin, use a stronger access-control solution before public deployment.
-- The application doesn't take payment or promise repair results.
-- Keep the container bound to loopback until a security review.
-```
+See the repository's [LICENSE](LICENSE) for the licensing terms that apply to its source code.
 
-Create an environment file with secure admin credentials.
+---
 
-```bash
-cp .env.example .env
-nano .env
-```
-
-Start the application:
-
-```bash
-docker compose up -d --build
-```
-
-Open http://localhost:8160/
-
-## Security
-
-Do not commit customer records, database files, or credentials.
-Secure the admin dashboard before deploying publicly.
-
-## Developer
-
-Jason Edwards
-https://jasonpauledwards.com
+**Reboot Syndicate** · [rebootsyndicate.com](https://rebootsyndicate.com)
