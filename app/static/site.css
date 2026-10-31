@@ -778,18 +778,17 @@ a.marketing-tile:focus-visible {
 }
 
 /* R/S full-frame service-detail artwork: no more cropped dashboards */
-/* Use exactly one service illustration. Keep the complete artwork visible;
-   use the dark panel color for any remaining space (no background duplicate). */
+/* Show each service image ONCE, edge-to-edge like the original background.
+   This intentionally favors full-panel coverage over seeing every outer edge. */
 .agency-detail-page .agency-detail-visual {
   background-color:#0e171a;
-  background-image:var(--detail-photo);
-  background-size:contain;
-  background-position:center center;
-  background-repeat:no-repeat;
+  background-image:linear-gradient(120deg,rgba(8,14,16,.10),rgba(8,14,16,.35)),var(--detail-photo);
+  background-size:cover,cover;
+  background-position:center center,center center;
+  background-repeat:no-repeat,no-repeat;
   overflow:hidden;
   isolation:isolate;
 }
-/* Remove the foreground duplicate from the earlier image-fit version. */
 .agency-detail-page .agency-detail-visual::before {
   content:none!important;
   display:none!important;
