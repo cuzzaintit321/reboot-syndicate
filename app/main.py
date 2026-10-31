@@ -38,7 +38,7 @@ def home(request: Request):
     return templates.TemplateResponse(request, 'index.html', {})
 
 @app.post('/request')
-def submit(request: Request, name: str = Form(...), email: str = Form(...), phone: str = Form(''), device: str = Form(...), issue: str = Form(...), service_area: str = Form(...), company_website: str = Form('')):
+def submit(request: Request, name: str = Form(...), email: str = Form(...), phone: str = Form(''), device: str = Form(...), issue: str = Form(...), service_area: str = Form('Online / Remote'), company_website: str = Form('')):
     if company_website:
         return RedirectResponse('/thanks', status_code=303)
     fields = [name.strip(), email.strip(), phone.strip(), device.strip(), issue.strip(), service_area.strip()]
