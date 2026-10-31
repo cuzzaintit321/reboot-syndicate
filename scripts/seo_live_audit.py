@@ -102,8 +102,8 @@ def main():
         print("[PASS]" if has_sitemap else "[WARN]", "robots.txt available; sitemap referenced:", has_sitemap)
         if not has_sitemap:
             problems.append("robots.txt does not reference sitemap.xml")
-        if "Disallow: /" in robots:
-            problems.append("robots.txt includes Disallow: / — check crawler access")
+        if any(line.strip().lower() == "disallow: /" for line in robots.splitlines()):
+            problems.append("robots.txt blocks the entire site with Disallow: /")
 
     status, sitemap, _, err = fetch(base, "/sitemap.xml", args.timeout)
     paths = []
@@ -163,8 +163,8 @@ def main():
             issues.append("noindex detected")
         if not doc.language:
             issues.append("html lang missing")
-        if not doc.schema_count:
-            issues.append("no JSON-LD structured data")
+        if (path == "/" or path.startswith("/marketing/")) and not doc.schema_count:
+            issues.append("expected structured data missing")
         seen_titles[doc.title] += 1
         seen_descriptions[desc] += 1
         status_text = "PASS" if not issues else "WARN"
