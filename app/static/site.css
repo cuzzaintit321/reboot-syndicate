@@ -390,3 +390,35 @@ a.marketing-tile:focus-visible {
 .agency-detail-cta>a{white-space:nowrap}
 @media(max-width:920px){.agency-detail-hero,.agency-detail-deliverables,.agency-detail-faq{grid-template-columns:1fr}.agency-detail-intro{padding:65px 6%}.agency-detail-visual{min-height:350px;border-left:0;border-top:1px solid var(--line)}.agency-detail-page .agency-section-heading{grid-template-columns:1fr}.agency-detail-feature-grid{grid-template-columns:1fr 1fr}.agency-detail-cta{flex-direction:column;align-items:flex-start}}
 @media(max-width:600px){.agency-detail-intro h1{font-size:clamp(58px,15vw,85px)}.agency-detail-feature-grid,.agency-detail-steps{grid-template-columns:1fr}.agency-detail-feature{min-height:0;padding:28px}.agency-detail-visual-label{font-size:9px}.agency-detail-fit{padding:25px}.agency-detail-cta>a{white-space:normal}}
+
+/* Reboot Syndicate hero photographic panel -- retain status and process labels */
+.agency-home .agency-hero-photo{background:#111a1d;isolation:isolate}
+.agency-hero-photo-img{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:52% 50%;
+  filter:brightness(.82) contrast(1.06);
+  pointer-events:none;
+}
+.agency-home .agency-hero-photo::before{
+  z-index:1;
+  opacity:1;
+  background:linear-gradient(180deg,rgba(7,13,15,.88) 0%,transparent 17%,transparent 76%,rgba(7,13,15,.87) 100%);
+  pointer-events:none;
+}
+.agency-hero-photo .agency-visual-header,
+.agency-hero-photo .agency-dashboard{
+  position:relative;
+  z-index:2;
+  background:rgba(10,17,19,.82);
+  backdrop-filter:blur(6px);
+}
+.agency-hero-photo .agency-dashboard{margin-top:auto}
+@media(max-width:800px){
+  .agency-hero-photo .agency-hero-photo-img{object-position:center 48%}
+}
