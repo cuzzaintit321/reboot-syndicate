@@ -60,11 +60,19 @@
   </div>
   <div class="agency-detail-feature-grid">
     {% for title, description in service.features %}
-    <article class="agency-detail-feature">
-      <span class="agency-detail-number">0{{ loop.index }} /</span>
-      <h3>{{ title }}</h3>
-      <p>{{ description }}</p>
-    </article>
+    <details class="agency-detail-feature">
+      <summary class="agency-detail-feature-trigger">
+        <span class="agency-detail-number">0{{ loop.index }} /</span>
+        <span class="agency-detail-expand-symbol" aria-hidden="true"></span>
+        <h3>{{ title }}</h3>
+        <p>{{ description }}</p>
+        <span class="agency-detail-expand-hint">CLICK TO EXPLORE <span aria-hidden="true">↗</span></span>
+      </summary>
+      <div class="agency-detail-feature-expanded">
+        <p>Interested in this part of {{ service.name|lower }}? Tell us about your business and what you would like to improve. We'll discuss the right scope and next steps.</p>
+        <a href="/?service={{ service.form|urlencode }}#request" aria-label="Discuss {{ title }} with Reboot Syndicate">DISCUSS THIS FEATURE ↗</a>
+      </div>
+    </details>
     {% endfor %}
   </div>
 </section>
