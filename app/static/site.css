@@ -573,3 +573,9 @@ a.marketing-tile:focus-visible {
   background-position:center,center!important;
 }
 /* End R/S IT Support diagnostics tile */
+
+/* R/S IT Support hover-photo brightness match */
+/* Darken only the IT Support image layer, never the copy or price. */
+.agency-home .agency-service-card[href="/marketing/it-support"]::before{
+  filter:brightness(.62) saturate(.85) contrast(1.03)!important;
+}
