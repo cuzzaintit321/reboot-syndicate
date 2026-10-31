@@ -541,3 +541,11 @@ a.marketing-tile:focus-visible {
   background-size:cover,auto 145%;
   background-position:center,center;
 }
+
+/* R/S service image hover-only visibility (all 14 tiles) */
+.agency-home .agency-service-card::before {
+  opacity:0!important;
+}
+.agency-home .agency-service-card:is(:hover,:focus-visible)::before {
+  opacity:1!important;
+}
