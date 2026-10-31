@@ -21,13 +21,12 @@ def send_consultation_alert(lead: dict) -> None:
     """
     recipient = os.getenv("NOTIFY_TO", "").strip()
     username = os.getenv("SMTP_USERNAME", "").strip()
-    password = os.getenv("SMTP_APP_PASSWORD", "")
+    password = os.getenv("SMTP_APP_PASSWORD", "").replace(" ", "").strip()
     if not (recipient and username and password):
         logger.warning("Consultation notification skipped: email settings not configured")
         return
 
     host = os.getenv("SMTP_HOST", "smtp.gmail.com").strip()
-    port = int(os.getenv("SMTP_PORT", "465"))
     subject_service = " ".join(str(lead["service"]).split())[:75]
 
     message = EmailMessage()
@@ -53,6 +52,7 @@ def send_consultation_alert(lead: dict) -> None:
     )
 
     try:
+        port = int(os.getenv("SMTP_PORT", "465"))
         with smtplib.SMTP_SSL(host, port, timeout=12, context=ssl.create_default_context()) as smtp:
             smtp.login(username, password)
             smtp.send_message(message)
