@@ -1,9 +1,10 @@
 from app.marketing_services import router as marketing_router
+from app.notifications import send_consultation_alert
 import os, sqlite3, secrets, re, time
 from pathlib import Path
 from contextlib import contextmanager
 from datetime import datetime, timezone
-from fastapi import FastAPI, Request, Form, HTTPException, Depends
+from fastapi import FastAPI, Request, Form, HTTPException, Depends, BackgroundTasks
 from fastapi.responses import HTMLResponse, RedirectResponse, PlainTextResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -38,15 +39,27 @@ def home(request: Request):
     return templates.TemplateResponse(request, 'index.html', {})
 
 @app.post('/request')
-def submit(request: Request, name: str = Form(...), email: str = Form(...), phone: str = Form(''), device: str = Form(...), issue: str = Form(...), service_area: str = Form('Online / Remote'), company_website: str = Form('')):
+def submit(request: Request, background_tasks: BackgroundTasks, name: str = Form(...), email: str = Form(...), phone: str = Form(''), device: str = Form(...), issue: str = Form(...), service_area: str = Form('Online / Remote'), company_website: str = Form('')):
     if company_website:
         return RedirectResponse('/thanks', status_code=303)
     fields = [name.strip(), email.strip(), phone.strip(), device.strip(), issue.strip(), service_area.strip()]
     name, email, phone, device, issue, service_area = fields
     if not (1 <= len(name) <= 100 and 3 <= len(email) <= 200 and re.fullmatch(r'[^\s@]+@[^\s@]+\.[^\s@]+', email) and len(phone) <= 40 and 1 <= len(device) <= 120 and 10 <= len(issue) <= 2000 and 1 <= len(service_area) <= 100):
         raise HTTPException(422, 'Please check your request details.')
+    received_at = datetime.now(timezone.utc).isoformat()
     with db() as conn:
-        conn.execute('INSERT INTO requests(created_at,name,email,phone,device,issue,service_area) VALUES(?,?,?,?,?,?,?)', (datetime.now(timezone.utc).isoformat(), name, email, phone, device, issue, service_area))
+        cursor = conn.execute('INSERT INTO requests(created_at,name,email,phone,device,issue,service_area) VALUES(?,?,?,?,?,?,?)', (received_at, name, email, phone, device, issue, service_area))
+        request_id = cursor.lastrowid
+    # The database commit has succeeded. Delivery failures will not lose inquiries.
+    background_tasks.add_task(send_consultation_alert, {
+        'id': request_id,
+        'created_at': received_at,
+        'name': name,
+        'email': email,
+        'phone': phone,
+        'service': device,
+        'message': issue,
+    })
     return RedirectResponse('/thanks', status_code=303)
 
 @app.get('/thanks', response_class=HTMLResponse)
