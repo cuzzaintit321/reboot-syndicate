@@ -18,7 +18,7 @@
   <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="const n=document.querySelector('nav');const open=n.classList.toggle('open');this.setAttribute('aria-expanded',open)">MENU ☰</button>
 </header>
 <main>
-<section class="agency-detail-hero" style="--detail-photo:url('/static/images/{{ slug }}.webp')">
+<section class="agency-detail-hero" style="--detail-photo:url('/static/images/{{ slug }}.webp?v={{ image_version }}')">
   <div class="agency-detail-intro">
     <span class="section-index">REBOOT SYNDICATE / SERVICES / {{ service.name|upper }}</span>
     <h1>{{ service.tag }}</h1>
