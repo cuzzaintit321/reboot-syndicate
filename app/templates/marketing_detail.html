@@ -3,8 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="{{ service.lead }}">
-<title>{{ service.name }} | Reboot Syndicate</title>
+<meta name="description" content="{{ seo_description }}">
+<title>{{ seo_title }}</title>
+<link rel="canonical" href="{{ canonical_url }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ seo_title }}">
+<meta property="og:description" content="{{ seo_description }}">
+<meta property="og:url" content="{{ canonical_url }}">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service",
+"name":{{ service.name|tojson }},"description":{{ seo_description|tojson }},
+"url":{{ canonical_url|tojson }},
+"provider":{"@id":"https://rebootsyndicate.com/#organization"},
+"areaServed":{"@type":"AdministrativeArea","name":"Brevard County, Florida"}}
+</script>
 <link rel="stylesheet" href="/static/site.css">
 </head>
 <body class="agency-detail-page">
@@ -101,5 +113,5 @@
   <a class="primary" href="/?service={{ service.form|urlencode }}#request">REQUEST A CONSULTATION <span>↗</span></a>
 </section>
 </main>
-<footer><a class="footer-brand" href="/">REBOOT <span>SYNDICATE</span></a><div>WEB DESIGN • SEO • DIGITAL MARKETING • AUTOMATION</div><a href="/#services">ALL SERVICES ↗</a><small>© 2026 Reboot Syndicate. Scope and availability are confirmed individually. Rankings, sales, leads, and other marketing outcomes cannot be guaranteed.</small></footer>
+<footer><a class="footer-brand" href="/">REBOOT <span>SYNDICATE</span></a><div>WEB DESIGN • SEO • DIGITAL MARKETING • AUTOMATION</div><a href="/#services">ALL SERVICES ↗</a><a href="/brevard-county">BREVARD COUNTY SERVICES ↗</a><small>© 2026 Reboot Syndicate. Scope and availability are confirmed individually. Rankings, sales, leads, and other marketing outcomes cannot be guaranteed.</small></footer>
 </body></html>
