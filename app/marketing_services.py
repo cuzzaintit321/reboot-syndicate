@@ -1,3 +1,5 @@
+from hashlib import sha256
+from pathlib import Path
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.templating import Jinja2Templates
 
@@ -661,4 +663,13 @@ def marketing_service(request: Request, slug: str):
     service = SERVICES.get(slug)
     if service is None:
         raise HTTPException(status_code=404, detail='Service not found')
-    return templates.TemplateResponse(request, 'marketing_detail.html', {'service':service, 'slug':slug, 'pricing':SERVICE_PRICING[slug]})
+    # Use the actual image bytes to version the URL; this prevents browsers
+    # from reusing an older low-resolution image after a new deployment.
+    image_path = Path(__file__).resolve().parent / 'static' / 'images' / f'{slug}.webp'
+    image_version = sha256(image_path.read_bytes()).hexdigest()[:12] if image_path.is_file() else 'missing'
+    return templates.TemplateResponse(request, 'marketing_detail.html', {
+        'service': service,
+        'slug': slug,
+        'pricing': SERVICE_PRICING[slug],
+        'image_version': image_version,
+    })
