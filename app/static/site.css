@@ -563,3 +563,13 @@ a.marketing-tile:focus-visible {
     transition:none!important;
   }
 }
+
+/* R/S IT Support tile: diagnostics workstation hover image */
+.agency-home .agency-service-card[href="/marketing/it-support"]{
+  --card-photo:url("/static/images/it-support-detail.png?v=diagnostics")!important;
+}
+.agency-home .agency-service-card[href="/marketing/it-support"]::before{
+  background-size:cover,cover!important;
+  background-position:center,center!important;
+}
+/* End R/S IT Support diagnostics tile */
