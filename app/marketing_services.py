@@ -658,6 +658,67 @@ SERVICE_PRICING = {
     "it-support": {"starting": "$95", "unit": "/ hr remote", "range": "$75–$150 / hr", "secondary": "$125 / hr onsite"},
 }
 
+# Unique titles and readable search descriptions for all 14 services.
+# Keep these accurate; they are editorial guidance, not ranking guarantees.
+SEO_METADATA = {
+    "website-design": {
+        "title": "Website Design in Brevard County, FL | Reboot Syndicate",
+        "description": "Modern business website design, redesigns and landing pages for Brevard County and remote clients. Mobile-friendly pages with clear contact options."
+    },
+    "local-seo": {
+        "title": "Local SEO in Brevard County, FL | Reboot Syndicate",
+        "description": "Improve your website's local search visibility with on-page SEO, page structure and location-relevant content for Brevard County businesses."
+    },
+    "google-business-profile": {
+        "title": "Google Business Profile Help | Brevard County, FL",
+        "description": "Google Business Profile setup and improvement for eligible Brevard County businesses. Accurate hours, service areas, categories and business information."
+    },
+    "social-media": {
+        "title": "Social Media Management | Reboot Syndicate",
+        "description": "Social media planning, content creation, scheduling and reporting for small businesses in Brevard County and beyond."
+    },
+    "digital-advertising": {
+        "title": "Google & Meta Ads Management | Reboot Syndicate",
+        "description": "Google and Meta advertising setup, campaign management, landing pages and conversion tracking for businesses serving local and wider markets."
+    },
+    "lead-automation": {
+        "title": "AI & Marketing Automation | Reboot Syndicate",
+        "description": "Simplify lead intake and follow-up with practical marketing automations, CRM integrations and workflows for your business."
+    },
+    "branding-design": {
+        "title": "Branding & Logo Design | Reboot Syndicate",
+        "description": "Business logos, visual identity, branded graphics and creative direction for businesses launching or refreshing their brands."
+    },
+    "content-marketing": {
+        "title": "Website Content & Copywriting | Reboot Syndicate",
+        "description": "Helpful website copy, articles and service content aligned with your audience, brand voice and business goals."
+    },
+    "email-sms": {
+        "title": "Email & SMS Marketing | Reboot Syndicate",
+        "description": "Email and SMS campaign planning, customer follow-up and marketing automations designed around audience needs and consent requirements."
+    },
+    "reputation-management": {
+        "title": "Online Reputation Management | Reboot Syndicate",
+        "description": "Support for monitoring reviews, improving customer feedback processes and keeping business information accurate online."
+    },
+    "ecommerce": {
+        "title": "E-Commerce Website Design | Reboot Syndicate",
+        "description": "Online store design, product catalogs, checkout integrations and e-commerce setup for small businesses selling online."
+    },
+    "analytics-conversion": {
+        "title": "Website Analytics & Conversion Tracking | Reboot Syndicate",
+        "description": "Analytics setup, conversion tracking, reporting dashboards and practical ways to understand website and campaign performance."
+    },
+    "business-technology": {
+        "title": "Business Technology Setup | Reboot Syndicate",
+        "description": "Practical help connecting business software, workflows and everyday technology systems for small teams."
+    },
+    "it-support": {
+        "title": "IT Support & Computer Repair | Brevard County, FL",
+        "description": "Remote computer help, networking, backups and local IT support in Brevard County where available. Discuss your technology issues with Reboot Syndicate."
+    }
+}
+
 @router.get('/marketing/{slug}')
 def marketing_service(request: Request, slug: str):
     service = SERVICES.get(slug)
@@ -679,4 +740,7 @@ def marketing_service(request: Request, slug: str):
         'pricing': SERVICE_PRICING[slug],
         'image_version': image_version,
         'image_filename': image_path.name,
+        'seo_title': SEO_METADATA[slug]['title'],
+        'seo_description': SEO_METADATA[slug]['description'],
+        'canonical_url': f'https://rebootsyndicate.com/marketing/{slug}',
     })
