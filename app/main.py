@@ -1,3 +1,4 @@
+from app.checkout import router as checkout_router
 from app.marketing_services import router as marketing_router
 from app.seo import router as seo_router
 from app.notifications import send_consultation_alert
@@ -110,3 +111,5 @@ def marketing_page(request: Request):
 
 app.include_router(marketing_router)
 app.include_router(seo_router)
+
+app.include_router(checkout_router)
