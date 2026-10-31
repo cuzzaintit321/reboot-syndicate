@@ -36,6 +36,46 @@ SERVICES = {
         "TURN INQUIRIES INTO OPPORTUNITIES.",
         "Lead capture forms, inquiry organization, response drafts, and approval-based follow-up workflows."
     ),
+    "branding-design": (
+        "Branding & Graphic Design",
+        "MAKE YOUR BRAND RECOGNIZABLE.",
+        "Logo concepts, brand kits, business cards, social templates and campaign graphics."
+    ),
+    "content-marketing": (
+        "Content Marketing & Copywriting",
+        "MAKE EVERY WORD COUNT.",
+        "Website copy, blog content, newsletters, content calendars and search-oriented writing."
+    ),
+    "email-sms": (
+        "Email & SMS Marketing",
+        "STAY IN TOUCH. STAY TOP OF MIND.",
+        "Permission-based email and SMS campaigns, segmentation, customer follow-ups and unsubscribe workflows."
+    ),
+    "reputation-management": (
+        "Reputation Management",
+        "BUILD TRUST THAT LASTS.",
+        "Legitimate review request workflows, review monitoring, customer feedback and response support."
+    ),
+    "ecommerce": (
+        "E-commerce Solutions",
+        "TAKE YOUR STORE ONLINE.",
+        "Online shops, product catalogs, payment integrations, storefront updates and optimization."
+    ),
+    "analytics-conversion": (
+        "Analytics & Conversion Optimization",
+        "KNOW WHAT WORKS.",
+        "Analytics dashboards, conversion tracking, reporting and landing-page improvements."
+    ),
+    "business-technology": (
+        "Business Technology Services",
+        "BUILD ON SOLID TECH.",
+        "Domains, DNS, SSL, business email, hosting, security and software integrations."
+    ),
+    "it-support": (
+        "Computer Repair & IT Support",
+        "WE STILL FIX THE TECH.",
+        "Local computer repair, Wi-Fi and networking, device setup, backups and small-business IT."
+    ),
 }
 
 @router.get("/marketing/{slug}", response_class=HTMLResponse)
