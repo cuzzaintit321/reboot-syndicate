@@ -665,11 +665,18 @@ def marketing_service(request: Request, slug: str):
         raise HTTPException(status_code=404, detail='Service not found')
     # Use the actual image bytes to version the URL; this prevents browsers
     # from reusing an older low-resolution image after a new deployment.
-    image_path = Path(__file__).resolve().parent / 'static' / 'images' / f'{slug}.webp'
+    image_dir = Path(__file__).resolve().parent / 'static' / 'images'
+    detail_override = image_dir / 'it-support-detail.png'
+    image_path = (
+        detail_override
+        if slug == 'it-support' and detail_override.is_file()
+        else image_dir / f'{slug}.webp'
+    )
     image_version = sha256(image_path.read_bytes()).hexdigest()[:12] if image_path.is_file() else 'missing'
     return templates.TemplateResponse(request, 'marketing_detail.html', {
         'service': service,
         'slug': slug,
         'pricing': SERVICE_PRICING[slug],
         'image_version': image_version,
+        'image_filename': image_path.name,
     })
