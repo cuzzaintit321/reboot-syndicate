@@ -139,7 +139,7 @@ SERVICES = {
         "We can guide the process for eligible businesses, but verification decisions are made by Google."
       ]
     ],
-    "form": "Local SEO / Business Profile"
+    "form": "Google Business Profile"
   },
   "social-media": {
     "name": "Social Media Management",
