@@ -638,9 +638,27 @@ SERVICES = {
   }
 }
 
+# User-selected entry-level pricing. Displayed as estimates; individual scopes are quoted.
+SERVICE_PRICING = {
+    "website-design": {"starting": "$995", "unit": "/ project", "range": "$750–$1,500 / project"},
+    "local-seo": {"starting": "$399", "unit": "/ mo", "range": "$300–$600 / mo"},
+    "google-business-profile": {"starting": "$199", "unit": "/ setup", "range": "$150–$350 / setup"},
+    "social-media": {"starting": "$399", "unit": "/ mo", "range": "$300–$700 / mo"},
+    "digital-advertising": {"starting": "$399", "unit": "/ mo", "range": "$300–$650 / mo"},
+    "lead-automation": {"starting": "$499", "unit": "/ setup", "range": "$400–$1,000 / setup"},
+    "branding-design": {"starting": "$349", "unit": "/ project", "range": "$250–$700 / project"},
+    "content-marketing": {"starting": "$125", "unit": "/ article", "range": "$80–$200 / article"},
+    "email-sms": {"starting": "$249", "unit": "/ mo", "range": "$150–$400 / mo"},
+    "reputation-management": {"starting": "$149", "unit": "/ mo", "range": "$100–$250 / mo"},
+    "ecommerce": {"starting": "$1,499", "unit": "/ project", "range": "$1,200–$3,000 / project"},
+    "analytics-conversion": {"starting": "$299", "unit": "/ setup", "range": "$200–$500 / setup"},
+    "business-technology": {"starting": "$249", "unit": "/ setup", "range": "$150–$500 / setup"},
+    "it-support": {"starting": "$95", "unit": "/ hr remote", "range": "$75–$150 / hr", "secondary": "$125 / hr onsite"},
+}
+
 @router.get('/marketing/{slug}')
 def marketing_service(request: Request, slug: str):
     service = SERVICES.get(slug)
     if service is None:
         raise HTTPException(status_code=404, detail='Service not found')
-    return templates.TemplateResponse(request, 'marketing_detail.html', {'service':service, 'slug':slug})
+    return templates.TemplateResponse(request, 'marketing_detail.html', {'service':service, 'slug':slug, 'pricing':SERVICE_PRICING[slug]})
