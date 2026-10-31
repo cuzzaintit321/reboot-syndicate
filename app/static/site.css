@@ -762,3 +762,17 @@ a.marketing-tile:focus-visible {
   .agency-detail-expand-symbol{right:24px;top:24px}
   .agency-detail-step summary{padding:16px 10px 20px}
 }
+/* R/S accessible labels inside clickable nested tiles */
+.agency-detail-feature-title{
+  display:block;font:800 clamp(28px,3vw,42px)/1 'Barlow Condensed',Impact,sans-serif;
+  margin:26px 0 12px;text-transform:uppercase;color:#f1f2ef;
+}
+.agency-detail-feature-description{
+  display:block;font-size:15px;line-height:1.8;color:#bdc8c0;max-width:550px;
+}
+.agency-detail-step-title{
+  display:block;font:800 34px 'Barlow Condensed',Impact,sans-serif;margin:0 0 14px;color:#f1f2ef;
+}
+.agency-detail-step-lead{
+  display:block;font-size:15px;line-height:1.8;color:#b6c3ba;max-width:350px;
+}
