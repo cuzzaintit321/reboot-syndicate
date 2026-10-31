@@ -4,7 +4,7 @@
 Run from ~/circuit-syndicate AFTER:
     git fetch origin main
     git show origin/main:scripts/install_email_alerts.py > /tmp/install_email_alerts.py
-    python3 /tmp/install_email_alerts.py
+    python3 /tmp/install_email_alerts.py email-to-receive-alerts@example.com
 
 Preserves local modifications to docker-compose.yml and app/main.py.
 Credentials stay in .env, which is gitignored.
@@ -15,13 +15,16 @@ import os
 import re
 import shutil
 import subprocess
+import sys
 
 root = Path.cwd()
 main_file = root / "app/main.py"
 compose_file = root / "docker-compose.yml"
 notifications_file = root / "app/notifications.py"
 env_file = root / ".env"
-recipient = "fukkawwyaww@gmail.com"
+recipient = sys.argv[1].strip() if len(sys.argv) > 1 else os.getenv("NOTIFY_TO", "").strip()
+if not re.fullmatch(r"[^\\s@]+@[^\\s@]+\\.[^\\s@]+", recipient):
+    raise SystemExit("Usage: python3 install_email_alerts.py email-to-receive-alerts@example.com")
 
 if not main_file.is_file() or not compose_file.is_file():
     raise SystemExit("Run from ~/circuit-syndicate; main.py or docker-compose.yml is missing.")
