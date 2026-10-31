@@ -1,4 +1,5 @@
 from app.marketing_services import router as marketing_router
+from app.seo import router as seo_router
 from app.notifications import send_consultation_alert
 import os, sqlite3, secrets, re, time
 from pathlib import Path
@@ -109,3 +110,4 @@ def marketing_page(request: Request):
     return templates.TemplateResponse(request, 'marketing.html', {})
 
 app.include_router(marketing_router)
+app.include_router(seo_router)
