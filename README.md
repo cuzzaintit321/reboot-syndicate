@@ -69,10 +69,6 @@ Customer requests remain in the persistent Docker data volume. Email notificatio
 - Review security and backup practices before collecting production customer information.
 - Making the **GitHub repository private** controls source-code visibility but does **not** make the live website private or erase previously shared copies.
 
-## License and usage
-
-See the repository's [LICENSE](LICENSE) for the licensing terms that apply to its source code.
-
 ---
 
 **Reboot Syndicate** · [rebootsyndicate.com](https://rebootsyndicate.com)
