@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Show just ONE complete illustration per service detail-page hero.
+"""Restore ONE edge-to-edge image per service detail-page hero.
 
 Run from ~/reboot-syndicate after fetching origin/main.
 Only app/static/site.css and the detail-page stylesheet URL are edited.
@@ -34,10 +34,10 @@ upstream = result.stdout
 if upstream.count(START) != 1 or upstream.count(END) != 1:
     sys.exit("ERROR: Expected CSS patch is missing or duplicated in GitHub. No changes made.")
 patch = upstream[upstream.index(START):upstream.index(END)+len(END)]
-if (patch.count("background-image:var(--detail-photo);") != 1
-        or "background-size:contain" not in patch
+if (patch.count("var(--detail-photo)") != 1
+        or "background-size:cover,cover;" not in patch
         or "content:none!important;" not in patch):
-    sys.exit("ERROR: CSS must show one uncropped image and disable its duplicate. No changes made.")
+    sys.exit("ERROR: CSS must fill the hero with one image and disable its duplicate. No changes made.")
 
 before_css = CSS_PATH.read_text(encoding="utf-8")
 before_page = PAGE_PATH.read_text(encoding="utf-8")
@@ -76,7 +76,7 @@ if after_css != before_css or after_page != before_page:
 else:
     print("Image-fit CSS already installed and current.")
 
-print("Removed duplicate images from all 14 service detail-page heroes.")
+print("Set one full-bleed image on all 14 service detail-page heroes.")
 print("Homepage hover images and the original WebPs/PNGs remain unchanged.")
 print("Rebuilding only Reboot Syndicate website...")
 subprocess.run(["docker","compose","up","-d","--build","website"],check=True)
@@ -90,8 +90,8 @@ start = '/* R/S full-frame service-detail artwork: no more cropped dashboards */
 end = '/* End R/S full-frame service-detail artwork */'
 assert css.count(start) == css.count(end) == 1
 block = css[css.index(start):css.index(end)]
-assert block.count('background-image:var(--detail-photo);') == 1
-assert 'background-size:contain' in block
+assert block.count('var(--detail-photo)') == 1
+assert 'background-size:cover,cover;' in block
 assert 'content:none!important;' in block
 assert 'display:none!important;' in block
 assert 'background-repeat:no-repeat' in block
@@ -99,7 +99,7 @@ assert 'background-position:center center' in block
 assert 'z-index:2' in block
 assert 'site.css?v=full-detail-' in page
 assert 'class="agency-detail-visual"' in page
-print('PASS: One centered, uncropped image per service page; overlapping copy removed.')
+print('PASS: One full-bleed image per service page; no duplicates or empty bands.')
 """
 result = subprocess.run(
     ["docker","compose","exec","-T","website","python","-c",check],
