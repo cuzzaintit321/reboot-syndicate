@@ -535,3 +535,9 @@ a.marketing-tile:focus-visible {
 .rs-call-contact .rs-contact-actions a:focus-visible{
   background:var(--accent);color:#0d1416;
 }
+
+/* IT Support & Repair tile: crop embedded top/bottom letterbox bands */
+.agency-home .agency-service-card[href="/marketing/it-support"]::before{
+  background-size:cover,auto 145%;
+  background-position:center,center;
+}
