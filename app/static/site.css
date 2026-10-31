@@ -173,3 +173,29 @@ a.marketing-tile:focus-visible {
 .marketing-service{position:relative;display:block;color:inherit;text-decoration:none}
 .marketing-service:hover{background:#273034}
 @media(max-width:920px){.agency-plan-grid{grid-template-columns:1fr}}
+
+
+/* Agency-first homepage refresh; preserves Reboot Syndicate's original layout, colors and typography */
+.hero-digital{background:radial-gradient(circle at 50% 42%,#32474a 0%,#142125 38%,#0c1114 75%);isolation:isolate}
+.hero-digital:before{content:"";position:absolute;inset:0;opacity:.38;background-image:linear-gradient(#78928d22 1px,transparent 1px),linear-gradient(90deg,#78928d22 1px,transparent 1px);background-size:32px 32px}
+.hero-digital:after{content:"R/S";position:absolute;left:50%;top:49%;transform:translate(-50%,-50%) rotate(-8deg);border:2px solid var(--accent);box-shadow:0 0 0 42px #ff5c2a0a,0 0 0 85px #ff5c2a07,0 0 90px #ff5c2a26;background:#111b1ef2;color:var(--accent);padding:32px 36px;font:900 clamp(78px,10vw,150px)/1 'Barlow Condensed',Impact,sans-serif;letter-spacing:-.05em;z-index:1}
+.hero-digital .visual-top,.hero-digital .visual-bottom{z-index:2;background:#0b1117b9}
+.digital-service{background:linear-gradient(150deg,#182227,#111719)!important}
+.digital-service .service-icon{color:var(--accent)}
+.digital-service:before{display:none}
+.digital-service:hover{background:#223035!important}
+.marketing-catalog-link{display:flex;align-items:center;justify-content:space-between;gap:25px;flex-wrap:wrap;padding:25px 0;border-bottom:1px solid var(--line)}
+.marketing-catalog-link span{font:11px/1.7 'DM Mono',monospace;color:#aebbb4;max-width:700px}
+.marketing-catalog-link a{color:var(--accent);font:800 12px 'DM Mono',monospace}
+.agency-home-pricing{background:#12191c;border-block:1px solid var(--line)}
+.agency-price-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.agency-price-grid a{display:flex;flex-direction:column;gap:20px;padding:30px;color:inherit;border-right:1px solid var(--line);border-bottom:1px solid var(--line);background:#192125;transition:background .2s}
+.agency-price-grid a:hover{background:#253136}
+.agency-price-grid b{color:var(--accent);font:11px 'DM Mono',monospace}
+.agency-price-grid strong{font:800 clamp(46px,5vw,75px) 'Barlow Condensed',Impact,sans-serif}
+.agency-price-grid small{font:11px 'DM Mono',monospace;color:#aabbb1}
+.agency-price-grid p{font:15px/1.75 'DM Sans',Arial,sans-serif;color:#b5c0b9;flex:1}
+.agency-price-grid span{font:800 11px 'DM Mono',monospace;color:var(--accent)}
+.agency-pricing-note{font-size:12px;line-height:1.6;color:#9bab9f;margin:22px 0 0}
+@media(max-width:800px){.agency-price-grid{grid-template-columns:1fr}.hero-digital:after{font-size:110px}}
+@media(max-width:520px){.hero-digital:after{font-size:85px;padding:22px 25px}.marketing-catalog-link{align-items:flex-start}}
