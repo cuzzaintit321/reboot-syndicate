@@ -481,3 +481,44 @@ a.marketing-tile:focus-visible {
   .agency-detail-price-main,.agency-detail-price-reference{padding:19px}
   .agency-detail-price-note{padding:13px 19px}
 }
+
+/* Unified R/S logo and concise starting-price panel */
+.site-header .rs-brand-logo-image{
+  display:block;
+  width:250px;
+  max-width:100%;
+  height:auto;
+  object-fit:contain;
+}
+.agency-detail-price{
+  display:flex;
+  flex-wrap:wrap;
+  align-items:baseline;
+  gap:5px 9px;
+  width:fit-content;
+  max-width:100%;
+  margin:26px 0 30px;
+  padding:22px 26px;
+  border:1px solid #506165;
+  background:#10191bd9;
+}
+.agency-detail-price>.agency-detail-price-label{
+  display:block;
+  flex-basis:100%;
+  margin-bottom:4px;
+  font:700 11px 'DM Mono',monospace;
+  letter-spacing:.09em;
+  color:#c8d5ce;
+}
+.agency-detail-price>strong{
+  font:900 clamp(47px,5vw,73px)/1 'Barlow Condensed',Impact,sans-serif;
+  color:var(--accent);
+}
+.agency-detail-price>.agency-detail-price-unit{
+  font:600 13px 'DM Mono',monospace;
+  color:#d1ded5;
+}
+@media(max-width:520px){
+  .site-header .rs-brand-logo-image{width:205px}
+  .agency-detail-price{padding:18px 20px}
+}
