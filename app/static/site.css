@@ -549,3 +549,17 @@ a.marketing-tile:focus-visible {
 .agency-home .agency-service-card:is(:hover,:focus-visible)::before {
   opacity:1!important;
 }
+
+/* R/S homepage hero: image hidden until hover */
+.agency-home .agency-hero-photo > .agency-hero-photo-img{
+  opacity:0!important;
+  transition:opacity .38s ease!important;
+}
+.agency-home .agency-hero-photo:hover > .agency-hero-photo-img{
+  opacity:1!important;
+}
+@media (prefers-reduced-motion:reduce){
+  .agency-home .agency-hero-photo > .agency-hero-photo-img{
+    transition:none!important;
+  }
+}
