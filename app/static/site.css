@@ -778,29 +778,22 @@ a.marketing-tile:focus-visible {
 }
 
 /* R/S full-frame service-detail artwork: no more cropped dashboards */
+/* Use exactly one service illustration. Keep the complete artwork visible;
+   use the dark panel color for any remaining space (no background duplicate). */
 .agency-detail-page .agency-detail-visual {
-  /* Keep a subdued, full-bleed version behind the complete illustration. */
   background-color:#0e171a;
-  background-image:
-    linear-gradient(rgba(6,12,15,.82),rgba(6,12,15,.82)),
-    var(--detail-photo);
-  background-size:cover,cover;
-  background-position:center,center;
-  background-repeat:no-repeat,no-repeat;
-  overflow:hidden;
-  isolation:isolate;
-}
-.agency-detail-page .agency-detail-visual::before {
-  content:"";
-  position:absolute;
-  inset:clamp(18px,2.6vw,36px) clamp(12px,2vw,28px) clamp(76px,6vw,92px);
-  z-index:1;
-  pointer-events:none;
   background-image:var(--detail-photo);
   background-size:contain;
   background-position:center center;
   background-repeat:no-repeat;
-  filter:brightness(.92) contrast(1.04);
+  overflow:hidden;
+  isolation:isolate;
+}
+/* Remove the foreground duplicate from the earlier image-fit version. */
+.agency-detail-page .agency-detail-visual::before {
+  content:none!important;
+  display:none!important;
+  background:none!important;
 }
 .agency-detail-page .agency-detail-visual-label {
   z-index:2;
