@@ -36,11 +36,12 @@
     <h1>{{ service.tag }}</h1>
     <p>{{ service.lead }}</p>
 
-    <div class="agency-detail-price">
+    <a class="agency-detail-price" href="/?service={{ service.form|urlencode }}#request" aria-label="Ask about starting pricing for {{ service.name }}">
       <span class="agency-detail-price-label">STARTING AT</span>
       <strong>{{ pricing.starting }}</strong>
       <span class="agency-detail-price-unit">{{ pricing.unit }}</span>
-    </div>
+      <span class="agency-detail-price-link">ASK FOR A QUOTE ↗</span>
+    </a>
     <div class="agency-detail-actions">
       <a class="primary" href="/?service={{ service.form|urlencode }}#request">DISCUSS YOUR PROJECT <span>↗</span></a>
       <a class="secondary" href="/#services">← EXPLORE OTHER SERVICES</a>
@@ -83,7 +84,15 @@
     <p>We confirm the exact work, deliverables, milestones, and fees in writing before starting. Depending on your goals, a project may include:</p>
     <ul class="agency-detail-checks">
       {% for item in service.deliverables %}
-      <li>{{ item }}</li>
+      <li>
+        <details class="agency-detail-deliverable">
+          <summary>{{ item }} <span class="agency-detail-mini-icon" aria-hidden="true">+</span></summary>
+          <div class="agency-detail-mini-content">
+            <p>We can discuss how this fits your project, including the exact scope, timeline and approval process.</p>
+            <a href="/?service={{ service.form|urlencode }}#request" aria-label="Ask about {{ item }}">ASK ABOUT THIS DELIVERABLE ↗</a>
+          </div>
+        </details>
+      </li>
       {% endfor %}
     </ul>
   </div>
@@ -91,7 +100,13 @@
     <span class="section-index">GOOD FIT / WHO WE HELP</span>
     <h3>WHO THIS IS FOR</h3>
     {% for item in service.bestFor %}
-    <div class="agency-detail-fit-item"><span>↗</span> {{ item }}</div>
+    <details class="agency-detail-fit-item">
+      <summary><span aria-hidden="true">↗</span> {{ item }} <span class="agency-detail-mini-icon" aria-hidden="true">+</span></summary>
+      <div class="agency-detail-mini-content">
+        <p>Sound like your business? Let's review what you need and whether {{ service.name|lower }} is a good fit.</p>
+        <a href="/?service={{ service.form|urlencode }}#request" aria-label="Discuss services for {{ item }}">TELL US WHAT YOU NEED ↗</a>
+      </div>
+    </details>
     {% endfor %}
     <a href="/?service={{ service.form|urlencode }}#request">START A CONVERSATION ↗</a>
   </div>
@@ -100,9 +115,18 @@
   <span class="section-index">03 / OUR PROCESS</span>
   <h2>CLEAR STEPS.<br><em>NO SURPRISES.</em></h2>
   <div class="agency-detail-steps">
-    <article><strong>01</strong><h3>DISCOVER</h3><p>Tell us about your business, your current setup, and the outcome you're working toward.</p></article>
-    <article><strong>02</strong><h3>PLAN & APPROVE</h3><p>We review the options and agree on deliverables, timeline and a project or monthly scope.</p></article>
-    <article><strong>03</strong><h3>BUILD & REVIEW</h3><p>We complete the agreed work, check it, and explain the results and next steps.</p></article>
+    <details class="agency-detail-step">
+      <summary><strong>01</strong><h3>DISCOVER</h3><p>Tell us about your business, your current setup, and the outcome you're working toward.</p><span class="agency-detail-expand-hint">EXPLORE THIS STEP <span aria-hidden="true">↗</span></span></summary>
+      <div class="agency-detail-step-extra"><p>Start with your goals, the customers you want to reach, your current challenges and what's already working. We can use those details to identify the right next steps.</p><a href="/?service={{ service.form|urlencode }}#request">START THE CONVERSATION ↗</a></div>
+    </details>
+    <details class="agency-detail-step">
+      <summary><strong>02</strong><h3>PLAN & APPROVE</h3><p>We review the options and agree on deliverables, timeline and a project or monthly scope.</p><span class="agency-detail-expand-hint">EXPLORE THIS STEP <span aria-hidden="true">↗</span></span></summary>
+      <div class="agency-detail-step-extra"><p>We outline the recommended work, responsibilities, estimated schedule and pricing. You review the proposal and approve the scope before work begins.</p><a href="/?service={{ service.form|urlencode }}#request">REQUEST A PROJECT PLAN ↗</a></div>
+    </details>
+    <details class="agency-detail-step">
+      <summary><strong>03</strong><h3>BUILD & REVIEW</h3><p>We complete the agreed work, check it, and explain the results and next steps.</p><span class="agency-detail-expand-hint">EXPLORE THIS STEP <span aria-hidden="true">↗</span></span></summary>
+      <div class="agency-detail-step-extra"><p>After the agreed work is complete, we review the deliverables, explain what changed and discuss any follow-up support or maintenance worth considering.</p><a href="/?service={{ service.form|urlencode }}#request">DISCUSS YOUR PROJECT ↗</a></div>
+    </details>
   </div>
 </section>
 <section class="agency-detail-section agency-detail-faq section-wrap" id="faq">
