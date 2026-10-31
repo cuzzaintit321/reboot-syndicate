@@ -1,3 +1,5 @@
+from pathlib import Path
+from hashlib import sha256
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.templating import Jinja2Templates
 
@@ -638,9 +640,98 @@ SERVICES = {
   }
 }
 
+# User-selected entry-level pricing. Displayed as estimates; individual scopes are quoted.
+SERVICE_PRICING = {
+    "website-design": {"starting": "$995", "unit": "/ project", "range": "$750–$1,500 / project"},
+    "local-seo": {"starting": "$399", "unit": "/ mo", "range": "$300–$600 / mo"},
+    "google-business-profile": {"starting": "$199", "unit": "/ setup", "range": "$150–$350 / setup"},
+    "social-media": {"starting": "$399", "unit": "/ mo", "range": "$300–$700 / mo"},
+    "digital-advertising": {"starting": "$399", "unit": "/ mo", "range": "$300–$650 / mo"},
+    "lead-automation": {"starting": "$499", "unit": "/ setup", "range": "$400–$1,000 / setup"},
+    "branding-design": {"starting": "$349", "unit": "/ project", "range": "$250–$700 / project"},
+    "content-marketing": {"starting": "$125", "unit": "/ article", "range": "$80–$200 / article"},
+    "email-sms": {"starting": "$249", "unit": "/ mo", "range": "$150–$400 / mo"},
+    "reputation-management": {"starting": "$149", "unit": "/ mo", "range": "$100–$250 / mo"},
+    "ecommerce": {"starting": "$1,499", "unit": "/ project", "range": "$1,200–$3,000 / project"},
+    "analytics-conversion": {"starting": "$299", "unit": "/ setup", "range": "$200–$500 / setup"},
+    "business-technology": {"starting": "$249", "unit": "/ setup", "range": "$150–$500 / setup"},
+    "it-support": {"starting": "$95", "unit": "/ hr remote", "range": "$75–$150 / hr", "secondary": "$125 / hr onsite"},
+}
+
+SEO_METADATA = {
+    "website-design": {
+        "title": "Website Design in Brevard County, FL | Reboot Syndicate",
+        "description": "Modern business website design, redesigns and landing pages for Brevard County and remote clients. Mobile-friendly pages with clear contact options."
+    },
+    "local-seo": {
+        "title": "Local SEO in Brevard County, FL | Reboot Syndicate",
+        "description": "Improve your website's local search visibility with on-page SEO, page structure and location-relevant content for Brevard County businesses."
+    },
+    "google-business-profile": {
+        "title": "Google Business Profile Help | Brevard County, FL",
+        "description": "Google Business Profile setup and improvement for eligible Brevard County businesses. Accurate hours, service areas, categories and business information."
+    },
+    "social-media": {
+        "title": "Social Media Management | Reboot Syndicate",
+        "description": "Social media planning, content creation, scheduling and reporting for small businesses in Brevard County and beyond."
+    },
+    "digital-advertising": {
+        "title": "Google & Meta Ads Management | Reboot Syndicate",
+        "description": "Google and Meta advertising setup, campaign management, landing pages and conversion tracking for businesses serving local and wider markets."
+    },
+    "lead-automation": {
+        "title": "AI & Marketing Automation | Reboot Syndicate",
+        "description": "Simplify lead intake and follow-up with practical marketing automations, CRM integrations and workflows for your business."
+    },
+    "branding-design": {
+        "title": "Branding & Logo Design | Reboot Syndicate",
+        "description": "Business logos, visual identity, branded graphics and creative direction for businesses launching or refreshing their brands."
+    },
+    "content-marketing": {
+        "title": "Website Content & Copywriting | Reboot Syndicate",
+        "description": "Helpful website copy, articles and service content aligned with your audience, brand voice and business goals."
+    },
+    "email-sms": {
+        "title": "Email & SMS Marketing | Reboot Syndicate",
+        "description": "Email and SMS campaign planning, customer follow-up and marketing automations designed around audience needs and consent requirements."
+    },
+    "reputation-management": {
+        "title": "Online Reputation Management | Reboot Syndicate",
+        "description": "Support for monitoring reviews, improving customer feedback processes and keeping business information accurate online."
+    },
+    "ecommerce": {
+        "title": "E-Commerce Website Design | Reboot Syndicate",
+        "description": "Online store design, product catalogs, checkout integrations and e-commerce setup for small businesses selling online."
+    },
+    "analytics-conversion": {
+        "title": "Website Analytics & Conversion Tracking | Reboot Syndicate",
+        "description": "Analytics setup, conversion tracking, reporting dashboards and practical ways to understand website and campaign performance."
+    },
+    "business-technology": {
+        "title": "Business Technology Setup | Reboot Syndicate",
+        "description": "Practical help connecting business software, workflows and everyday technology systems for small teams."
+    },
+    "it-support": {
+        "title": "IT Support & Computer Repair | Brevard County, FL",
+        "description": "Remote computer help, networking, backups and local IT support in Brevard County where available. Discuss your technology issues with Reboot Syndicate."
+    }
+}
+
 @router.get('/marketing/{slug}')
 def marketing_service(request: Request, slug: str):
     service = SERVICES.get(slug)
     if service is None:
         raise HTTPException(status_code=404, detail='Service not found')
-    return templates.TemplateResponse(request, 'marketing_detail.html', {'service':service, 'slug':slug})
+    # Version the detail image URL by its bytes, not a hardcoded version.
+    # This prevents old low-resolution browser cache entries from being reused.
+    image_path = Path(__file__).resolve().parent / 'static' / 'images' / f'{slug}.webp'
+    image_version = sha256(image_path.read_bytes()).hexdigest()[:12] if image_path.is_file() else 'missing'
+    return templates.TemplateResponse(request, 'marketing_detail.html', {
+        'service': service,
+        'slug': slug,
+        'pricing': SERVICE_PRICING[slug],
+        'canonical_url': f'https://rebootsyndicate.com/marketing/{slug}',
+        'seo_description': SEO_METADATA[slug]['description'],
+        'seo_title': SEO_METADATA[slug]['title'],
+        'image_version': image_version,
+    })

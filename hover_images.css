@@ -1,0 +1,47 @@
+/* Reboot Syndicate: reveal each service image on hover only.
+   Service photos must be installed in /static/images/ */
+.agency-service-card{
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  background:#151d20;
+  padding-top:30px;
+}
+.agency-service-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background-image:linear-gradient(180deg,rgba(7,11,13,.52) 0%,rgba(7,11,13,.80) 68%,rgba(7,11,13,.94) 100%),var(--card-photo);
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .3s ease;
+}
+.agency-service-card:hover::before,
+.agency-service-card:focus-visible::before{opacity:1}
+.agency-service-card > *{position:relative;z-index:1}
+.agency-service-card:hover h3,
+.agency-service-card:focus-visible h3{color:#fff}
+.agency-service-card:hover p,
+.agency-service-card:focus-visible p{color:#e2e8e4}
+/* Old installer added always-visible images: hide them and use hover background instead. */
+.agency-service-card > .agency-card-image{display:none!important}
+.agency-service-card[href="/marketing/website-design"]{--card-photo:url("/static/images/website-design.webp")}
+.agency-service-card[href="/marketing/local-seo"]{--card-photo:url("/static/images/local-seo.webp")}
+.agency-service-card[href="/marketing/google-business-profile"]{--card-photo:url("/static/images/google-business-profile.webp")}
+.agency-service-card[href="/marketing/social-media"]{--card-photo:url("/static/images/social-media.webp")}
+.agency-service-card[href="/marketing/digital-advertising"]{--card-photo:url("/static/images/digital-advertising.webp")}
+.agency-service-card[href="/marketing/lead-automation"]{--card-photo:url("/static/images/lead-automation.webp")}
+.agency-service-card[href="/marketing/branding-design"]{--card-photo:url("/static/images/branding-design.webp")}
+.agency-service-card[href="/marketing/content-marketing"]{--card-photo:url("/static/images/content-marketing.webp")}
+.agency-service-card[href="/marketing/email-sms"]{--card-photo:url("/static/images/email-sms.webp")}
+.agency-service-card[href="/marketing/reputation-management"]{--card-photo:url("/static/images/reputation-management.webp")}
+.agency-service-card[href="/marketing/ecommerce"]{--card-photo:url("/static/images/ecommerce.webp")}
+.agency-service-card[href="/marketing/analytics-conversion"]{--card-photo:url("/static/images/analytics-conversion.webp")}
+.agency-service-card[href="/marketing/business-technology"]{--card-photo:url("/static/images/business-technology.webp")}
+.agency-service-card[href="/marketing/it-support"]{--card-photo:url("/static/images/it-support.webp")}
+
+@media (prefers-reduced-motion:reduce){.agency-service-card::before{transition:none}}
