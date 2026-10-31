@@ -43,6 +43,8 @@
       <span class="agency-detail-price-link">ASK FOR A QUOTE ↗</span>
     </a>
     <div class="agency-detail-actions">
+      <form method="post" action="/checkout/{{ slug }}"><button class="primary" type="submit" style="cursor:pointer;border:0;padding:16px 22px;font:inherit">BUY STARTER {{ pricing.starting }} ↗</button></form>
+      <p style="font-size:0.85rem;opacity:.85">Starter pricing only. Scope and deliverables require written agreement before work begins. Monthly services renew until canceled. If checkout is not yet enabled, request a consultation instead.</p>
       <a class="primary" href="/?service={{ service.form|urlencode }}#request">DISCUSS YOUR PROJECT <span>↗</span></a>
       <a class="secondary" href="/#services">← EXPLORE OTHER SERVICES</a>
     </div>
