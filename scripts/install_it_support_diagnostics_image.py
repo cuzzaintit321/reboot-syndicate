@@ -12,6 +12,7 @@ from datetime import datetime
 from hashlib import sha256
 from pathlib import Path
 import ast
+import re
 import shutil
 import subprocess
 import sys
@@ -66,11 +67,20 @@ if "from hashlib import sha256" not in updated_source or "from pathlib import Pa
 ast.parse(updated_source, filename=str(SOURCE))
 
 old_template = TEMPLATE.read_text(encoding="utf-8")
-updated_template = old_template
-if new_url not in updated_template:
-    if old_url not in updated_template:
-        sys.exit("ERROR: Current detail template differs. No files changed.")
-    updated_template = updated_template.replace(old_url, new_url, 1)
+# Earlier instructions inserted a Jinja conditional directly into the
+# section's opening tag. Replace that entire tag, not just the old URL.
+# This handles the unmodified template, the earlier conditional variant,
+# and a template already updated to image_filename.
+hero_tag = re.compile(r'<section\\s+class="agency-detail-hero"[^>]*>')
+matches = list(hero_tag.finditer(old_template))
+if len(matches) != 1:
+    sys.exit("ERROR: Expected one hero section; found " + str(len(matches))
+             + ". No files changed.")
+canonical_tag = '<section class="agency-detail-hero" ' + new_url + '>'
+updated_template = (
+    old_template[:matches[0].start()] + canonical_tag
+    + old_template[matches[0].end():]
+)
 
 backup_root = ROOT / "backups" / (
     "it-support-diagnostics-" + datetime.now().strftime("%Y%m%d-%H%M%S-%f")
