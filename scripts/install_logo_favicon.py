@@ -45,7 +45,7 @@ try:
     root = ET.fromstring(svg)
 except ET.ParseError:
     sys.exit("ERROR: GitHub favicon SVG is invalid. No files changed.")
-if not root.tag.endswith("svg") or "#ff5c24" not in svg.lower():
+if not root.tag.endswith("svg") or "#fc4c08" not in svg.lower():
     sys.exit("ERROR: Expected orange brand icon was not found. No files changed.")
 
 version = sha256(svg.encode("utf-8")).hexdigest()[:12]
@@ -107,7 +107,7 @@ icon=Path('/srv/app/static/favicon.svg')
 assert icon.is_file(), 'Favicon not included in Docker'
 svg=icon.read_text()
 ET.fromstring(svg)
-assert '#ff5c24' in svg.lower(), 'Wrong favicon color'
+assert '#fc4c08' in svg.lower(), 'Wrong favicon color'
 for name in ('index.html','marketing.html','marketing_detail.html',
              'brevard_county.html','service.html','thanks.html','admin.html'):
     path=Path('/srv/app/templates') / name
