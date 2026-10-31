@@ -776,3 +776,33 @@ a.marketing-tile:focus-visible {
 .agency-detail-step-lead{
   display:block;font-size:15px;line-height:1.8;color:#b6c3ba;max-width:350px;
 }
+
+/* R/S full-frame service-detail artwork: no more cropped dashboards */
+.agency-detail-page .agency-detail-visual {
+  /* Keep a subdued, full-bleed version behind the complete illustration. */
+  background-color:#0e171a;
+  background-image:
+    linear-gradient(rgba(6,12,15,.82),rgba(6,12,15,.82)),
+    var(--detail-photo);
+  background-size:cover,cover;
+  background-position:center,center;
+  background-repeat:no-repeat,no-repeat;
+  overflow:hidden;
+  isolation:isolate;
+}
+.agency-detail-page .agency-detail-visual::before {
+  content:"";
+  position:absolute;
+  inset:clamp(18px,2.6vw,36px) clamp(12px,2vw,28px) clamp(76px,6vw,92px);
+  z-index:1;
+  pointer-events:none;
+  background-image:var(--detail-photo);
+  background-size:contain;
+  background-position:center center;
+  background-repeat:no-repeat;
+  filter:brightness(.92) contrast(1.04);
+}
+.agency-detail-page .agency-detail-visual-label {
+  z-index:2;
+}
+/* End R/S full-frame service-detail artwork */
