@@ -603,3 +603,162 @@ a.marketing-tile:focus-visible {
 .agency-local-faq details p{margin:13px 0 3px}
 @media(max-width:900px){.agency-local-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.agency-local-context{grid-template-columns:1fr;gap:15px}}
 @media(max-width:600px){.agency-local-hero{padding-top:60px;padding-bottom:70px}.agency-local-grid{grid-template-columns:1fr}.agency-local-hero>p{font-size:16px}.agency-local-hero h1{font-size:clamp(52px,13vw,85px)}}
+
+/* R/S clickable nested cards and service details (all service pages) */
+/* Expandable WHAT WE DO tiles: retain the existing 2-column layout. */
+.agency-detail-page .agency-detail-feature{
+  box-sizing:border-box;
+  padding:0!important;
+  min-height:210px;
+  transition:background .2s ease;
+}
+.agency-detail-page .agency-detail-feature:hover,
+.agency-detail-page .agency-detail-feature[open]{background:#1d282b}
+.agency-detail-feature-trigger{
+  display:block;
+  box-sizing:border-box;
+  min-height:210px;
+  padding:36px;
+  position:relative;
+  list-style:none;
+  cursor:pointer;
+}
+.agency-detail-feature-trigger::-webkit-details-marker{display:none}
+.agency-detail-feature-trigger::marker{content:""}
+.agency-detail-feature-trigger:focus-visible,
+.agency-detail-deliverable summary:focus-visible,
+.agency-detail-fit-item summary:focus-visible,
+.agency-detail-step summary:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:-3px;
+}
+.agency-detail-feature-trigger h3{margin-top:26px}
+.agency-detail-expand-symbol{
+  position:absolute;right:32px;top:30px;
+  display:grid;place-items:center;width:32px;height:32px;
+  font:600 25px/1 'DM Mono',monospace;color:var(--accent);
+  border:1px solid #576467;
+}
+.agency-detail-expand-symbol::before{content:"+"}
+.agency-detail-feature[open] .agency-detail-expand-symbol::before{content:"−"}
+.agency-detail-feature:hover .agency-detail-expand-symbol,
+.agency-detail-feature[open] .agency-detail-expand-symbol{
+  background:var(--accent);color:#111719;border-color:var(--accent);
+}
+.agency-detail-expand-hint{
+  display:inline-flex;align-items:center;gap:8px;
+  margin-top:22px;font:700 11px/1.5 'DM Mono',monospace;
+  letter-spacing:.05em;color:var(--accent);
+}
+.agency-detail-feature-expanded{margin:0 36px 32px;padding-top:20px;border-top:1px solid #526165}
+.agency-detail-feature-expanded p{
+  font-size:15px;color:#d6e1d8;line-height:1.75;margin:0 0 18px;
+}
+.agency-detail-feature-expanded a,
+.agency-detail-mini-content a,
+.agency-detail-step-extra a{
+  display:inline-block;color:var(--accent);
+  font:700 11px/1.5 'DM Mono',monospace;
+  letter-spacing:.04em;text-decoration:none;
+}
+.agency-detail-feature-expanded a:hover,
+.agency-detail-mini-content a:hover,
+.agency-detail-step-extra a:hover{text-decoration:underline}
+
+/* Individual deliverable rows can open without navigating away. */
+.agency-detail-checks li{padding:0 0 0 30px!important}
+.agency-detail-deliverable summary{
+  position:relative;cursor:pointer;list-style:none;padding:17px 40px 17px 0;
+  transition:color .2s ease;
+}
+.agency-detail-deliverable summary::-webkit-details-marker{display:none}
+.agency-detail-deliverable summary::marker{content:""}
+.agency-detail-deliverable summary:hover,
+.agency-detail-deliverable[open] summary{color:#fff}
+.agency-detail-mini-icon{
+  position:absolute;right:5px;top:50%;transform:translateY(-50%);
+  font:600 19px/1 'DM Mono',monospace;color:var(--accent);
+}
+.agency-detail-deliverable[open] summary .agency-detail-mini-icon,
+.agency-detail-fit-item[open] summary .agency-detail-mini-icon{font-size:0}
+.agency-detail-deliverable[open] summary .agency-detail-mini-icon::after,
+.agency-detail-fit-item[open] summary .agency-detail-mini-icon::after{
+  content:"−";font-size:20px;
+}
+.agency-detail-mini-content{padding:0 16px 20px 0}
+.agency-detail-mini-content p{
+  margin:0 0 12px!important;color:#c9d8ce;
+  font-size:14px!important;line-height:1.65!important;
+}
+
+/* "WHO THIS IS FOR" items expand to a real consultation action. */
+.agency-detail-fit-item{padding:0!important}
+.agency-detail-fit-item summary{
+  position:relative;list-style:none;cursor:pointer;
+  padding:15px 25px 15px 0;
+}
+.agency-detail-fit-item summary::-webkit-details-marker{display:none}
+.agency-detail-fit-item summary::marker{content:""}
+.agency-detail-fit-item summary:hover,
+.agency-detail-fit-item[open] summary{color:#fff}
+.agency-detail-fit-item summary .agency-detail-mini-icon{top:50%;right:0}
+.agency-detail-fit-item .agency-detail-mini-content{padding-bottom:19px}
+
+/* All three process cards expand with stage-specific guidance. */
+.agency-detail-step{
+  border-top:1px solid #526366;
+  transition:background-color .2s ease;
+}
+.agency-detail-step:hover,.agency-detail-step[open]{background:#192427}
+.agency-detail-step summary{
+  display:block;list-style:none;cursor:pointer;
+  padding:20px 16px 24px;
+}
+.agency-detail-step summary::-webkit-details-marker{display:none}
+.agency-detail-step summary::marker{content:""}
+.agency-detail-step summary strong{display:block}
+.agency-detail-step-extra{
+  margin:0 16px 22px;padding-top:17px;
+  border-top:1px solid #536266;
+}
+.agency-detail-step-extra p{
+  font-size:15px;color:#d1ded5;line-height:1.75;
+  margin:0 0 17px;
+}
+.agency-detail-step[open] .agency-detail-expand-hint{color:#ffc2a7}
+
+/* Pricing is one large consultation link instead of a dead-end card. */
+.agency-detail-page a.agency-detail-price{
+  cursor:pointer;text-decoration:none;
+  color:inherit;transition:border-color .2s ease,background .2s ease;
+}
+.agency-detail-page a.agency-detail-price:hover,
+.agency-detail-page a.agency-detail-price:focus-visible{
+  border-color:var(--accent);background:#1b292b;
+}
+.agency-detail-price-link{
+  flex-basis:100%;margin-top:10px;
+  color:var(--accent);font:700 10px/1.5 'DM Mono',monospace;
+  letter-spacing:.06em;
+}
+
+/* Other grids with one explicit CTA per card: make entire card clickable. */
+.agency-package,.agency-plan,.agency-local-grid article{
+  position:relative;transition:border-color .2s ease,background .2s ease;
+}
+.agency-package:hover,.agency-plan:hover,.agency-local-grid article:hover,
+.agency-package:focus-within,.agency-plan:focus-within,.agency-local-grid article:focus-within{
+  border-color:var(--accent);background:#202c30;
+}
+.agency-package>a::after,.agency-plan>a::after,.agency-local-grid article>a::after{
+  content:"";position:absolute;inset:0;z-index:2;
+}
+.agency-package>a:focus-visible,.agency-plan>a:focus-visible,
+.agency-local-grid article>a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.agency-package,.agency-plan,.agency-local-grid article{cursor:pointer}
+@media(max-width:600px){
+  .agency-detail-feature-trigger{min-height:0;padding:28px}
+  .agency-detail-feature-expanded{margin:0 28px 28px}
+  .agency-detail-expand-symbol{right:24px;top:24px}
+  .agency-detail-step summary{padding:16px 10px 20px}
+}
