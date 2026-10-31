@@ -579,3 +579,27 @@ a.marketing-tile:focus-visible {
 .agency-home .agency-service-card[href="/marketing/it-support"]::before{
   filter:brightness(.62) saturate(.85) contrast(1.03)!important;
 }
+
+/* R/S Brevard County local SEO landing page */
+.agency-local-page{background:#0b1012;color:#e8ebe6}
+.agency-local-hero{padding-top:100px;padding-bottom:110px;background:radial-gradient(circle at 90% 18%,rgba(255,90,36,.11),transparent 47%)}
+.agency-local-hero h1,.agency-local-context h2,.agency-local-faq h2{font:900 clamp(58px,8vw,125px)/.87 'Barlow Condensed',Impact,sans-serif;letter-spacing:-.022em;text-transform:uppercase;margin:25px 0}
+.agency-local-hero h1 em,.agency-local-context h2 em{font-style:normal;color:var(--accent)}
+.agency-local-hero>p{max-width:800px;color:#bbcbc5;font-size:19px;line-height:1.8}
+.agency-local-actions{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin-top:35px}
+.agency-local-services,.agency-local-context,.agency-local-faq{padding-top:75px;padding-bottom:90px;border-top:1px solid #344247}
+.agency-local-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #3a474b;border-left:1px solid #3a474b;margin-top:45px}
+.agency-local-grid article{padding:33px 30px;display:flex;flex-direction:column;gap:15px;border-right:1px solid #3a474b;border-bottom:1px solid #3a474b;background:#121b1e}
+.agency-local-grid article>span{font:10px 'DM Mono',monospace;color:var(--accent);letter-spacing:.08em}
+.agency-local-grid h3{font:900 32px/1 'Barlow Condensed',Impact,sans-serif;text-transform:uppercase;margin:2px 0}
+.agency-local-grid p{color:#bac8c2;font-size:15px;line-height:1.65;flex:1}
+.agency-local-grid article>a{font:700 11px 'DM Mono',monospace;color:var(--accent);text-decoration:none}
+.agency-local-grid article>a:hover,.agency-local-context a:hover{text-decoration:underline}
+.agency-local-context{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:70px}
+.agency-local-context p,.agency-local-faq p{font-size:17px;color:#bfccc5;line-height:1.85;margin:0 0 23px}
+.agency-local-context a{color:var(--accent)}
+.agency-local-faq details{border-bottom:1px solid #3a474b;padding:19px 0}
+.agency-local-faq summary{cursor:pointer;font-weight:750;font-size:18px}
+.agency-local-faq details p{margin:13px 0 3px}
+@media(max-width:900px){.agency-local-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.agency-local-context{grid-template-columns:1fr;gap:15px}}
+@media(max-width:600px){.agency-local-hero{padding-top:60px;padding-bottom:70px}.agency-local-grid{grid-template-columns:1fr}.agency-local-hero>p{font-size:16px}.agency-local-hero h1{font-size:clamp(52px,13vw,85px)}}
