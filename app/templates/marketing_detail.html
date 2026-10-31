@@ -23,6 +23,20 @@
     <span class="section-index">REBOOT SYNDICATE / SERVICES / {{ service.name|upper }}</span>
     <h1>{{ service.tag }}</h1>
     <p>{{ service.lead }}</p>
+
+    <div class="agency-detail-price">
+      <div class="agency-detail-price-main">
+        <span class="agency-detail-price-label">STARTING AT</span>
+        <strong>{{ pricing.starting }}</strong><span class="agency-detail-price-unit">{{ pricing.unit }}</span>
+        {% if pricing.secondary %}<div class="agency-detail-price-secondary">{{ pricing.secondary }}</div>{% endif %}
+      </div>
+      <div class="agency-detail-price-reference">
+        <span class="agency-detail-price-label">LOW-END PRICE RANGE / REFERENCE</span>
+        <strong>{{ pricing.range }}</strong>
+        <span class="agency-detail-price-caption">Illustrative range, not a binding quote.</span>
+      </div>
+      <p class="agency-detail-price-note">Starting prices cover a defined basic scope. Final pricing, deliverables, and any third-party costs are confirmed before work begins. Advertising spend is separate.</p>
+    </div>
     <div class="agency-detail-actions">
       <a class="primary" href="/?service={{ service.form|urlencode }}#request">DISCUSS YOUR PROJECT <span>↗</span></a>
       <a class="secondary" href="/#services">← EXPLORE OTHER SERVICES</a>
