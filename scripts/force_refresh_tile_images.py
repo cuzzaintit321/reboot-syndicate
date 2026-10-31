@@ -94,7 +94,7 @@ for slug, (origin, image_bytes) in sources.items():
     print("Replaced:", slug, "from", origin)
 print(f"Verified {len(sources)} new images, replaced {installed} files.")
 
-# Previous installer used a dark overlay and only 38% visibility before hover.
+# Keep all 14 images hidden when tiles are idle, visible only on hover or focus.
 # Override it at the END of local CSS; keep all existing styles unchanged.
 MARKER = "/* R/S clear 14 service tiles v3: visible photos and unique image URLs */"
 css = CSS.read_text(encoding="utf-8")
@@ -105,7 +105,7 @@ overrides = [
     "  background-image:linear-gradient(180deg,rgba(7,11,13,.30) 0%,rgba(7,11,13,.38) 52%,rgba(7,11,13,.76) 100%),var(--card-photo)!important;",
     "  background-size:cover,cover!important;",
     "  background-position:center,center!important;",
-    "  opacity:.92!important;",
+    "  opacity:0!important;",
     "  filter:saturate(1.12) contrast(1.07);",
     "}",
     ".agency-home .agency-service-card:hover::before,",
@@ -136,7 +136,7 @@ else:
 if css_new != css:
     backup(CSS)
     CSS.write_text(css_new, encoding="utf-8")
-    print("Updated CSS: much clearer images at rest and on hover.")
+    print("Updated CSS: photos appear only on hover or focus.")
 
 # Changing the CSS URL bypasses stale browser/CDN caches of /static/site.css.
 page = HOME.read_text(encoding="utf-8")
@@ -172,5 +172,5 @@ verification = subprocess.run(["docker", "compose", "exec", "-T", "website", "py
 if verification.returncode != 0:
     sys.exit("ERROR: Docker image verification failed:\\n" + verification.stdout + verification.stderr)
 print(verification.stdout.strip())
-print("\nCOMPLETE: 14 images verified, more visible, and cache-busted.")
+print("\nCOMPLETE: 14 images verified, hover-only and cache-busted.")
 print("Open https://rebootsyndicate.com/ and press Ctrl+Shift+R.")
