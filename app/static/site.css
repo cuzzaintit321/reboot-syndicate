@@ -422,3 +422,23 @@ a.marketing-tile:focus-visible {
 @media(max-width:800px){
   .agency-hero-photo .agency-hero-photo-img{object-position:center 48%}
 }
+
+/* Reboot Syndicate business phone number / Google Voice */
+.rs-top-actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:flex-end}
+.rs-phone-top{color:var(--accent);font-weight:700;letter-spacing:.06em;white-space:nowrap}
+.rs-phone-top:hover,.rs-phone-top:focus-visible{color:#ffb49e;text-decoration:underline}
+.rs-call-contact{display:flex;flex-direction:column;align-items:flex-start;gap:7px;margin-top:30px;padding:22px 24px;border:1px solid #526064;background:#192226}
+.rs-call-contact>span,.rs-call-contact>small{font:10px 'DM Mono',monospace;letter-spacing:.08em;color:#bdc7c1}
+.rs-call-contact>a{font:900 clamp(31px,3vw,45px)/1 'Barlow Condensed',Impact,sans-serif;color:var(--accent);white-space:nowrap}
+.rs-call-contact>a:hover,.rs-call-contact>a:focus-visible{text-decoration:underline}
+.rs-footer-phone{color:var(--accent)!important}
+.rs-detail-phone{display:inline-block;margin:0 0 22px;color:var(--accent);font:800 12px 'DM Mono',monospace;letter-spacing:.01em}
+.rs-detail-phone:hover,.rs-detail-phone:focus-visible{text-decoration:underline}
+.rs-marketing-call{font:12px 'DM Mono',monospace;margin:36px 0 14px}
+.rs-marketing-call a{color:var(--accent);text-decoration:underline}
+@media(max-width:690px){
+  .topline{flex-wrap:wrap;align-items:center}
+  .rs-top-actions{gap:9px 16px;justify-content:flex-start}
+  .rs-phone-top{font-size:10px}
+  .rs-call-contact>a{white-space:normal}
+}
