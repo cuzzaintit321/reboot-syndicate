@@ -825,3 +825,4 @@ a.marketing-tile:focus-visible {
 @media (prefers-reduced-motion:reduce){
   .ticker .ticker-track{animation:none;will-change:auto}
 }
+/* End R/S seamless orange services ticker */
