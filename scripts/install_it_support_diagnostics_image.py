@@ -71,7 +71,7 @@ old_template = TEMPLATE.read_text(encoding="utf-8")
 # section's opening tag. Replace that entire tag, not just the old URL.
 # This handles the unmodified template, the earlier conditional variant,
 # and a template already updated to image_filename.
-hero_tag = re.compile(r'<section\\s+class="agency-detail-hero"[^>]*>')
+hero_tag = re.compile(r'<section\s+class="agency-detail-hero"[^>]*>')
 matches = list(hero_tag.finditer(old_template))
 if len(matches) != 1:
     sys.exit("ERROR: Expected one hero section; found " + str(len(matches))
