@@ -33,3 +33,10 @@ venv/
 # System files
 .DS_Store
 Thumbs.db
+
+.env
+.env.*
+!.env.example
+*.pre-stripe
+__pycache__/
+*.pyc

@@ -61,11 +61,27 @@ def submit(request: Request, background_tasks: BackgroundTasks, name: str = Form
         'service': device,
         'message': issue,
     })
-    return RedirectResponse('/thanks', status_code=303)
+    response = RedirectResponse('/thanks', status_code=303)
+    response.set_cookie(
+        'rs_lead_confirmation',
+        '1',
+        max_age=120,
+        httponly=True,
+        secure=True,
+        samesite='lax'
+    )
+    return response
 
 @app.get('/thanks', response_class=HTMLResponse)
 def thanks(request: Request):
-    return templates.TemplateResponse(request, 'thanks.html', {})
+    confirmed = request.cookies.get('rs_lead_confirmation') == '1'
+    response = templates.TemplateResponse(
+        request, 'thanks.html',
+        {'lead_confirmed': confirmed}
+    )
+    response.delete_cookie('rs_lead_confirmation', path='/')
+    response.headers['Cache-Control'] = 'no-store'
+    return response
 
 def require_admin(credentials: HTTPBasicCredentials | None = Depends(security)):
     username, password = os.getenv('ADMIN_USER',''), os.getenv('ADMIN_PASSWORD','')

@@ -829,3 +829,26 @@ a.marketing-tile:focus-visible {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
 }
+
+/* Consultation form navigation */
+#consultation-form {
+    scroll-margin-top: 110px;
+}
+
+/* Match Stripe checkout button typography to primary CTA */
+.agency-detail-actions form button.primary {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+}
+
+.agency-detail-actions form {
+    margin: 0;
+}
+
+.agency-detail-actions form button.primary {
+    font-family: monospace;
+    font-size: 12px;
+    font-weight: 700;
+}
