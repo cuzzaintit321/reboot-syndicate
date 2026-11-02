@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="{{ seo_description }}">
-<title>Reboot Syndicate | {{ seo_title | replace(' | Reboot Syndicate', '') }}</title>
+<title>{{ seo_title }}</title>
 <link rel="canonical" href="{{ canonical_url }}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Reboot Syndicate | {{ seo_title | replace(' | Reboot Syndicate', '') }}">
@@ -17,10 +17,18 @@
 "provider":{"@id":"https://rebootsyndicate.com/#organization"},
 "areaServed":{"@type":"AdministrativeArea","name":"Brevard County, Florida"}}
 </script>
-<link rel="stylesheet" href="/static/site.css?v=single-cover-f098478ff0f2">
+<link rel="stylesheet" href="/static/site.css?v=mobile-option2-1">
 
 <link rel="icon" type="image/svg+xml" href="/static/favicon.svg?v=24606b0cdc04">
 <script defer src="/static/meta-consent.js"></script>
+<!-- REBOOT_SEO_14_BREADCRUMBS -->
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Home","item":"https://rebootsyndicate.com/"},
+{"@type":"ListItem","position":2,"name":"Services","item":"https://rebootsyndicate.com/marketing"},
+{"@type":"ListItem","position":3,"name":{{ service.name|tojson }},"item":{{ canonical_url|tojson }}}
+]}
+</script>
 </head>
 <body class="agency-detail-page">
 <div class="topline"><span>REBOOT SYNDICATE / DIGITAL MARKETING & BUSINESS SOLUTIONS</span><div class="rs-top-actions"><a class="rs-phone-top" href="tel:+13212913097">CALL / (321) 291-3097</a><span class="live"><i></i> LET'S BUILD YOUR NEXT MOVE</span></div></div>
@@ -48,7 +56,7 @@
       <a class="primary" href="/?service={{ service.form|urlencode }}#request">DISCUSS YOUR PROJECT <span>↗</span></a>
       <form action="/checkout/{{ slug }}" method="post" style="display:inline-flex;margin:0">
         <button type="submit" class="primary" style="cursor:pointer;font:inherit;border:0">
-          PAY STARTING PRICE <span>↗</span>
+          GET STARTED <span>↗</span>
         </button>
       </form>
       <a class="secondary" href="/#services">← EXPLORE OTHER SERVICES</a>
@@ -62,8 +70,8 @@
 <section class="agency-detail-section section-wrap" id="included">
   <div class="agency-section-heading">
     <span class="section-index">01 / WHAT WE DO</span>
-    <h2>MORE THAN<br><em>A QUICK FIX.</em></h2>
-    <p>Every project is scoped to your needs. Here's the type of work we can include for {{ service.name|lower }}.</p>
+    <h2>{{ seo_topic_heading }}<br><em>{{ seo_topic_emphasis }}</em></h2>
+    <p>{{ seo_local_copy }}</p>
   </div>
   <div class="agency-detail-feature-grid">
     {% for title, description in service.features %}
@@ -145,6 +153,17 @@
     </details>
     {% endfor %}
   </div>
+</section>
+<!-- REBOOT_SEO_14_START -->
+<section class="agency-detail-section section-wrap rs-related-section" aria-labelledby="related-services-title">
+  <span class="section-index">RELATED SERVICES / REBOOT SYNDICATE</span>
+  <h2 id="related-services-title">SERVICES THAT<br><em>WORK TOGETHER.</em></h2>
+  <p>Explore related services for your next project, or get in touch to discuss the right starting point.</p>
+  <nav class="rs-related-links" aria-label="Related marketing and business services">
+    {% for related_slug, related_name in related_services %}
+    <a href="/marketing/{{ related_slug }}">{{ related_name }} <span aria-hidden="true">↗</span></a>
+    {% endfor %}
+  </nav>
 </section>
 <section class="agency-detail-cta section-wrap">
   <div><span class="section-index">05 / READY WHEN YOU ARE</span><h2>LET'S TALK ABOUT<br><em>YOUR PROJECT.</em></h2><p>Share a few details and we'll discuss what makes sense for your goals. No obligation to proceed, and no commitment until you approve a quote.</p></div>

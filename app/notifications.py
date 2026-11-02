@@ -1,62 +1,72 @@
-"""Email alerts for consultation requests.
-
-The form saves every request in SQLite first. Email is a best-effort notification;
-SMTP failures must never discard the saved customer inquiry.
-Credentials and the recipient come exclusively from environment variables.
-"""
+"""Reboot Syndicate consultation notifications via Resend."""
+import json
 import logging
 import os
-import smtplib
-import ssl
-from email.message import EmailMessage
+from urllib.request import Request, urlopen
+from urllib.error import HTTPError, URLError
 
 logger = logging.getLogger("reboot.notifications")
 
 
-def send_consultation_alert(lead: dict) -> None:
-    """Send one alert through an authenticated TLS/SSL SMTP connection.
-
-    Designed for FastAPI BackgroundTasks, after the database transaction commits.
-    Intentionally does not log customer data or SMTP secrets on failure.
-    """
+def send_consultation_alert(lead: dict) -> bool:
+    key = os.getenv("RESEND_API_KEY", "").strip()
     recipient = os.getenv("NOTIFY_TO", "").strip()
-    username = os.getenv("SMTP_USERNAME", "").strip()
-    password = os.getenv("SMTP_APP_PASSWORD", "").replace(" ", "").strip()
-    if not (recipient and username and password):
-        logger.warning("Consultation notification skipped: email settings not configured")
-        return
+    sender = os.getenv(
+        "RESEND_FROM", "notifications@rebootsyndicate.com"
+    ).strip()
 
-    host = os.getenv("SMTP_HOST", "smtp.gmail.com").strip()
-    subject_service = " ".join(str(lead["service"]).split())[:75]
+    if not key or not recipient:
+        logger.error("Resend notification skipped: missing configuration")
+        return False
 
-    message = EmailMessage()
-    message["Subject"] = f"[Reboot Syndicate] New request #{lead['id']} - {subject_service}"
-    message["From"] = username
-    message["To"] = recipient
-    # The form verifies the customer's email address; reply directly to them.
-    message["Reply-To"] = str(lead["email"])
-    message.set_content(
+    service = " ".join(str(lead["service"]).split())[:75]
+    message = (
         "NEW REBOOT SYNDICATE CONSULTATION\n"
         "================================\n"
         f"Request ID: {lead['id']}\n"
         f"Date (UTC): {lead['created_at']}\n"
         f"Name: {lead['name']}\n"
         f"Email: {lead['email']}\n"
-        f"Phone: {lead['phone'] or 'Not provided'}\n"
-        f"Service: {lead['service']}\n\n"
+        f"Phone: {lead.get('phone') or 'Not provided'}\n"
+        f"Service: {service}\n\n"
         "PROJECT DETAILS\n"
         "---------------\n"
         f"{lead['message']}\n\n"
-        "This is an automated notification. The inquiry is saved on your server.\n"
-        "Reply to this email to contact the customer directly.\n"
+        "This inquiry is also saved on the website server.\n"
+    )
+
+    payload = {
+        "from": f"Reboot Syndicate <{sender}>",
+        "to": [recipient],
+        "subject": f"[Reboot Syndicate] New request #{lead['id']} - {service}",
+        "text": message,
+        "reply_to": str(lead["email"]).strip(),
+    }
+
+    request = Request(
+        "https://api.resend.com/emails",
+        data=json.dumps(payload).encode("utf-8"),
+        headers={
+            "Authorization": f"Bearer {key}",
+            "Content-Type": "application/json",
+            "Accept": "application/json",
+            "User-Agent": "RebootSyndicate/1.0",
+        },
+        method="POST",
     )
 
     try:
-        port = int(os.getenv("SMTP_PORT", "465"))
-        with smtplib.SMTP_SSL(host, port, timeout=12, context=ssl.create_default_context()) as smtp:
-            smtp.login(username, password)
-            smtp.send_message(message)
-    except (OSError, smtplib.SMTPException, ValueError) as exc:
-        logger.error("Consultation email notification failed for request #%s (%s)", lead["id"], type(exc).__name__)
-    else:
-        logger.info("Consultation email notification sent for request #%s", lead["id"])
+        with urlopen(request, timeout=15) as response:
+            if response.status not in (200, 201):
+                logger.error("Resend unexpected HTTP status: %s", response.status)
+                return False
+        logger.info("Resend notification accepted for request #%s", lead["id"])
+        return True
+    except HTTPError as exc:
+        logger.error("Resend rejected request #%s: HTTP %s", lead["id"], exc.code)
+    except (URLError, OSError, ValueError) as exc:
+        logger.error(
+            "Resend notification failed for request #%s (%s)",
+            lead["id"], type(exc).__name__
+        )
+    return False
