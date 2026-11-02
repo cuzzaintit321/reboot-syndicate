@@ -851,4 +851,36 @@ a.marketing-tile:focus-visible {
 @media(max-width:1250px){.rs-about-cert-grid{grid-template-columns:1fr;row-gap:11px}}
 @media(max-width:800px){.rs-about-cert-grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:12px}}
 @media(max-width:600px){.rs-about-cert-grid{grid-template-columns:1fr;row-gap:9px}}
+
+/* Mobile About and credentials layout: avoid percentage row gaps and clipped text. */
+@media (max-width: 800px) {
+  .agency-home .agency-about {
+    grid-template-columns: minmax(0,1fr);
+    column-gap: 0;
+    row-gap: 26px;
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+  .agency-home .agency-about > div,
+  .agency-home .agency-about .rs-about-content,
+  .agency-home .rs-about-certifications { min-width: 0; width: 100%; max-width: 100%; }
+  .agency-home .agency-about h2 {
+    font-size: clamp(44px, 9vw, 72px);
+    line-height: .96;
+    max-width: 100%;
+  }
+  .agency-home .rs-about-cert-grid {
+    grid-template-columns: minmax(0,1fr);
+    gap: 10px;
+  }
+  .agency-home .rs-about-cert-grid li { width: 100%; min-width: 0; }
+  .agency-home .rs-about-cert-copy { flex: 1 1 auto; min-width: 0; }
+  .agency-home .rs-about-cert-copy strong { overflow-wrap: break-word; }
+}
+@media (max-width: 420px) {
+  .agency-home .agency-about h2 { font-size: clamp(39px, 10vw, 44px); }
+  .agency-home .agency-about { row-gap: 22px; padding-top: 45px; padding-bottom: 45px; }
+  .agency-home .rs-about-certifications { margin-top: 18px; }
+  .agency-home .rs-about-cert-grid li { gap: 11px; align-items: center; }
+}
 /* R/S credentials list - end */
