@@ -59,7 +59,7 @@ def main() -> None:
     changed_html = ABOUT_PATTERN.sub(lambda _: section, local_html, count=1)
     # Force browsers to fetch the updated homepage CSS after deployment.
     changed_html = re.sub(
-        r'href="/static/site\\.css(?:\\?[^"]*)?"',
+        r'href="/static/site\.css(?:\?[^"]*)?"',
         'href="/static/site.css?v=credentials-20261102"',
         changed_html,
         count=1,
