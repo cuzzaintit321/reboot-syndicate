@@ -22,7 +22,7 @@ LOGOS = ("google", "hootsuite", "mailchimp")
 CSS_BEGIN = "/* R/S credentials list - begin */"
 CSS_END = "/* R/S credentials list - end */"
 ABOUT_PATTERN = re.compile(
-    r'<section\\b[^>]*\\bid=["\\\']about["\\\'][^>]*>[\\s\\S]*?</section>',
+    r'<section\b[^>]*\bid="about"[^>]*>[\s\S]*?</section>',
     re.IGNORECASE,
 )
 
@@ -50,7 +50,7 @@ def main() -> None:
     if section.count('class="rs-certified-item"') != 6:
         raise RuntimeError("Remote About section does not contain six credential entries.")
 
-    block_pattern = re.compile(re.escape(CSS_BEGIN) + r"[\\s\\S]*?" + re.escape(CSS_END))
+    block_pattern = re.compile(re.escape(CSS_BEGIN) + r"[\s\S]*?" + re.escape(CSS_END))
     css_block = extract_once(block_pattern, source_css, "credential stylesheet block")
 
     local_html = INDEX.read_text(encoding="utf-8")
@@ -64,7 +64,7 @@ def main() -> None:
     if existing_blocks:
         changed_css = block_pattern.sub(lambda _: css_block, local_css, count=1)
     else:
-        changed_css = local_css.rstrip() + "\\n\\n" + css_block + "\\n"
+        changed_css = local_css.rstrip() + "\n\n" + css_block + "\n"
 
     updates: dict[Path, str] = {INDEX: changed_html, CSS: changed_css}
     for logo in LOGOS:
