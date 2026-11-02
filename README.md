@@ -1,4 +1,4 @@
-![Reboot Syndicate — Digital Growth Studio](assets/reboot-syndicate-readme-banner.svg)
+![Reboot Syndicate — Digital Growth Studio](assets/reboot-syndicate-readme-banner.png)
 
 # Reboot Syndicate
 
