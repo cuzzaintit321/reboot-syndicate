@@ -828,81 +828,84 @@ a.marketing-tile:focus-visible {
 /* End R/S seamless orange services ticker */
 
 /* R/S credentials list - begin */
+/* Compact founder credential panel: sized to fit the About section comfortably. */
 .agency-home .agency-about.rs-founder-credentials {
-  display: grid; grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
-  align-items: start; gap: clamp(32px, 5vw, 100px); background: #182226;
+  display: grid; grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr);
+  align-items: center; gap: clamp(22px, 3.6vw, 68px);
+  background: #182226; padding-top: 65px; padding-bottom: 65px;
 }
 .rs-founder-heading { min-width: 0; }
 .agency-home .rs-founder-heading h2 {
-  font: 900 clamp(60px, 6.1vw, 105px)/.9 'Barlow Condensed', Impact, sans-serif;
-  letter-spacing: -.015em; margin: 0 0 38px;
+  font: 900 clamp(47px, 4.7vw, 78px)/.92 'Barlow Condensed', Impact, sans-serif;
+  letter-spacing: -.015em; margin: 0 0 20px;
 }
 .agency-home .rs-founder-heading h2 em { font-style: normal; color: var(--accent); }
 .agency-home .rs-founder-heading .rs-founder-lead {
-  max-width: 520px; color: #d0d9d2; font-size: 16px; line-height: 1.8; margin: 0 0 27px;
+  max-width: 460px; color: #d0d9d2; font-size: 14px; line-height: 1.65; margin: 0 0 20px;
 }
 .rs-founder-link {
-  display: inline-flex; align-items: center; justify-content: space-between; gap: 35px;
-  background: var(--accent); color: #101719; padding: 16px 19px;
-  font: 800 11px 'DM Mono', monospace; text-decoration: none; letter-spacing: .03em;
+  display: inline-flex; align-items: center; justify-content: space-between; gap: 20px;
+  background: var(--accent); color: #101719; padding: 12px 15px;
+  font: 800 10px 'DM Mono', monospace; text-decoration: none; letter-spacing: .03em;
   transition: background .15s ease;
 }
 .rs-founder-link:hover { background: #ff845b; }
 .rs-founder-link:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
 .agency-home .rs-founder-heading .rs-founder-disclaimer {
-  color: #a7b9ae; font-size: 12px; line-height: 1.7; margin: 25px 0 0; max-width: 520px;
+  color: #a7b9ae; font-size: 11px; line-height: 1.55; margin: 15px 0 0; max-width: 460px;
 }
 .rs-certified-panel { min-width: 0; border: 1px solid #425257; background: #121a1d; }
 .rs-certified-panel-top {
-  display: flex; align-items: center; justify-content: space-between; gap: 15px;
-  padding: 21px 25px; border-bottom: 1px solid #425257;
-  font: 10px 'DM Mono', monospace; color: #c1cec6; letter-spacing: .085em;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 12px 16px; border-bottom: 1px solid #425257;
+  font: 9px 'DM Mono', monospace; color: #c1cec6; letter-spacing: .05em;
 }
 .rs-certified-panel-top span:last-child { color: var(--accent); }
 .rs-certified-list { list-style: none; padding: 0; margin: 0; }
 .rs-certified-item {
-  display: grid; grid-template-columns: 56px minmax(0,1fr);
-  align-items: center; gap: 17px; padding: 17px 22px;
+  display: grid; grid-template-columns: 40px minmax(0,1fr);
+  align-items: center; column-gap: 12px; row-gap: 2px; padding: 9px 14px;
   border-bottom: 1px solid #344248; transition: background .16s ease;
 }
 .rs-certified-item:last-child { border-bottom: 0; }
 .rs-certified-item:hover { background: #1d2a2d; }
 .rs-cert-logo {
   position: relative; display: grid; place-items: center; flex-shrink: 0;
-  width: 54px; height: 54px; border-radius: 8px;
+  width: 40px; height: 40px; border-radius: 6px;
   background: #f9faf7; overflow: hidden;
 }
 .rs-cert-logo img {
-  position: absolute; left: 9px; top: 9px; width: 36px; height: 36px;
+  position: absolute; left: 6px; top: 6px; width: 28px; height: 28px;
   object-fit: contain; border: 0;
 }
 .rs-cert-logo-fallback {
-  color: #14212a; font: 800 15px 'DM Sans', Arial, sans-serif; letter-spacing: -.06em;
+  color: #14212a; font: 800 12px 'DM Sans', Arial, sans-serif; letter-spacing: -.05em;
 }
 .rs-cert-hootsuite { background: #ed6930; }
 .rs-cert-hootsuite .rs-cert-logo-fallback { color: white; }
 .rs-cert-mailchimp { background: #ffe01b; }
-.rs-cert-cmi .rs-cert-logo-fallback { font-size: 12px; letter-spacing: 0; }
-.rs-certified-detail { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.rs-cert-cmi .rs-cert-logo-fallback { font-size: 10px; letter-spacing: 0; }
+.rs-certified-detail { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 .rs-certified-detail strong {
-  color: #f4f1e8; font: 800 clamp(19px, 1.6vw, 25px)/1.08 'Barlow Condensed', Impact, sans-serif;
+  color: #f4f1e8; font: 800 clamp(17px, 1.45vw, 21px)/1.08 'Barlow Condensed', Impact, sans-serif;
 }
-.rs-certified-detail > span { color: #b7c8bf; font: 12px/1.45 'DM Sans', Arial, sans-serif; }
+.rs-certified-detail > span { color: #b7c8bf; font: 11px/1.3 'DM Sans', Arial, sans-serif; }
 .rs-certified-date {
-  color: #ff966f; font: 10px/1.45 'DM Mono', monospace; letter-spacing: .02em;
-  grid-column: 2; margin-top: -11px;
+  color: #ff966f; font: 9px/1.3 'DM Mono', monospace; letter-spacing: .01em;
+  grid-column: 2; margin-top: -2px;
 }
 @media (max-width: 1020px) {
-  .agency-home .agency-about.rs-founder-credentials { grid-template-columns: 1fr; gap: 48px; }
-  .agency-home .rs-founder-heading h2 { font-size: clamp(57px, 8vw, 92px); }
+  .agency-home .agency-about.rs-founder-credentials { grid-template-columns: 1fr; gap: 27px; }
+  .agency-home .rs-founder-heading h2 { font-size: clamp(48px, 7vw, 74px); }
 }
 @media (max-width: 560px) {
-  .rs-certified-panel-top { padding: 16px 15px; font-size: 9px; }
-  .rs-certified-item { grid-template-columns: 48px minmax(0,1fr); gap: 13px; padding: 16px 13px; }
-  .rs-cert-logo { width: 48px; height: 48px; }
-  .rs-cert-logo img { width: 34px; height: 34px; left: 7px; top: 7px; }
-  .rs-certified-detail strong { font-size: 21px; }
-  .rs-certified-date { margin-top: -7px; }
+  .agency-home .agency-about.rs-founder-credentials { padding-top: 46px; padding-bottom: 46px; }
+  .rs-certified-panel-top { padding: 11px 12px; font-size: 8px; }
+  .rs-certified-item { grid-template-columns: 36px minmax(0,1fr); gap: 2px 10px; padding: 9px 11px; }
+  .rs-cert-logo { width: 36px; height: 36px; }
+  .rs-cert-logo img { width: 26px; height: 26px; left: 5px; top: 5px; }
+  .rs-certified-detail strong { font-size: 18px; }
+  .rs-certified-date { margin-top: -2px; }
   .rs-founder-link { width: 100%; }
 }
 @media (prefers-reduced-motion: reduce) {
