@@ -826,3 +826,41 @@ a.marketing-tile:focus-visible {
   .ticker .ticker-track{animation:none;will-change:auto}
 }
 /* End R/S seamless orange services ticker */
+
+
+/* R/S founder credentials in About section */
+.agency-about { row-gap: 56px; }
+.rs-credentials { grid-column: 1 / -1; min-width: 0; border-top: 1px solid #435155; padding-top: 50px; }
+.rs-credentials-intro { display: grid; grid-template-columns: 1.25fr .75fr; gap: 5%; align-items: end; margin-bottom: 30px; }
+.rs-credentials-intro .section-index { margin-bottom: 17px; }
+.rs-credentials-intro h3 { font: 900 clamp(37px, 4.5vw, 70px)/.96 'Barlow Condensed',Impact,sans-serif; letter-spacing: -.014em; margin: 0; }
+.rs-credentials-intro h3 em { color: var(--accent); font-style: normal; }
+.rs-credentials-intro > p { margin: 0; max-width: 470px; font-size: 15px; line-height: 1.8; color: #c5d0c8; }
+.rs-credentials-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; }
+.rs-credential-card { position: relative; min-width: 0; display: flex; flex-direction: column; min-height: 224px; padding: 25px; background: #11191c; border: 1px solid #435155; transition: border-color .2s ease, transform .2s ease, background .2s ease; }
+.rs-credential-card:hover { border-color: var(--accent); background: #1c292d; transform: translateY(-2px); }
+.rs-credential-top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; margin-bottom: 32px; }
+.rs-credential-number { font: 10px 'DM Mono',monospace; color: #a8b7af; letter-spacing: .08em; }
+.rs-credential-issuer { font: 800 12px 'DM Mono',monospace; color: var(--accent); text-align: right; letter-spacing: .035em; }
+.rs-credential-card h4 { margin: 0 0 12px; font: 800 clamp(22px,2vw,28px)/1.1 'Barlow Condensed',Impact,sans-serif; letter-spacing: .005em; }
+.agency-about .rs-credential-card p { margin: 0 0 24px; font-size: 13px; line-height: 1.5; color: #b9c6bf; }
+.rs-credential-date { margin-top: auto; font: 10px/1.6 'DM Mono',monospace; color: #c7d1ca; letter-spacing: .01em; }
+.rs-credentials-bottom { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-top: 24px; }
+.agency-about .rs-credentials-bottom p { max-width: 660px; margin: 0; font-size: 12px; color: #aebfb6; line-height: 1.6; }
+.rs-credentials-bottom a { flex-shrink: 0; display: inline-flex; justify-content: space-between; gap: 24px; padding: 16px 18px; border: 1px solid var(--accent); color: var(--accent); font: 700 11px 'DM Mono',monospace; letter-spacing: .02em; text-decoration: none; }
+.rs-credentials-bottom a:hover, .rs-credentials-bottom a:focus-visible { background: var(--accent); color: #101619; }
+.rs-credentials-bottom a:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+@media (max-width: 980px) { .rs-credentials-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 720px) {
+  .rs-credentials-intro { grid-template-columns: 1fr; gap: 15px; }
+  .rs-credentials-bottom { align-items: stretch; flex-direction: column; }
+  .rs-credentials-bottom a { width: fit-content; }
+}
+@media (max-width: 540px) {
+  .rs-credentials { padding-top: 34px; }
+  .rs-credentials-grid { grid-template-columns: 1fr; }
+  .rs-credential-card { min-height: 192px; padding: 22px; }
+  .rs-credential-top { margin-bottom: 24px; }
+  .rs-credentials-bottom a { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { .rs-credential-card { transition: none; } .rs-credential-card:hover { transform: none; } }
