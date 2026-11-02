@@ -57,6 +57,13 @@ def main() -> None:
     local_css = CSS.read_text(encoding="utf-8")
     extract_once(ABOUT_PATTERN, local_html, "existing About section")
     changed_html = ABOUT_PATTERN.sub(lambda _: section, local_html, count=1)
+    # Force browsers to fetch the updated homepage CSS after deployment.
+    changed_html = re.sub(
+        r'href="/static/site\\.css(?:\\?[^"]*)?"',
+        'href="/static/site.css?v=credentials-20261102"',
+        changed_html,
+        count=1,
+    )
 
     existing_blocks = block_pattern.findall(local_css)
     if len(existing_blocks) > 1:
