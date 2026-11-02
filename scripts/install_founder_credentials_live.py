@@ -47,7 +47,7 @@ def main() -> None:
     source_html = download("app/templates/index.html")
     source_css = download("app/static/site.css")
     section = extract_once(ABOUT_PATTERN, source_html, "new About section")
-    if section.count('class="rs-certified-item"') != 6:
+    if section.count('class="rs-about-cert-copy"') != 6:
         raise RuntimeError("Remote About section does not contain six credential entries.")
 
     block_pattern = re.compile(re.escape(CSS_BEGIN) + r"[\s\S]*?" + re.escape(CSS_END))
@@ -60,7 +60,7 @@ def main() -> None:
     # Force browsers to fetch the updated homepage CSS after deployment.
     changed_html = re.sub(
         r'href="/static/site\.css(?:\?[^"]*)?"',
-        'href="/static/site.css?v=credentials-compact-20261102"',
+        'href="/static/site.css?v=about-credentials-20261102"',
         changed_html,
         count=1,
     )
@@ -109,7 +109,7 @@ def main() -> None:
         raise
 
     print(f"Installed {len(changes)} updated site files.")
-    print("Founder credentials: 6 entries, with Google, Hootsuite, Mailchimp, Moz and CMI logos.")
+    print("Original About section restored with 6 compact certification entries and issuer logos.")
     print(f"Backup of replaced files: {backup}")
     print("Next: docker compose up -d --build website")
 
