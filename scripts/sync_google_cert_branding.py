@@ -15,7 +15,7 @@ ROOT = Path.cwd()
 HOME = ROOT / "app/templates/index.html"
 LOGO = ROOT / "app/static/brands/google.svg"
 SOURCE = "https://raw.githubusercontent.com/cuzzaintit321/reboot-syndicate/main/app/static/brands/google.svg"
-VERSION = "fullcolor-20261102"
+VERSION = "single-g-20261102"
 
 def download_logo():
     req = Request(SOURCE, headers={"User-Agent": "RebootSyndicateBrandSync/1.0"})
@@ -48,6 +48,18 @@ def main():
         f'src="/static/brands/google.svg?v={VERSION}"',
         about,
     )
+    # The SVG has transparent regions. Hide the fallback G so it doesn't show
+    # through the icon. If the image fails, onerror reveals the backup letter.
+    logo_prefix = '<span class="rs-about-issuer-mark rs-about-mark-google">'
+    img_prefix = f'<img src="/static/brands/google.svg?v={VERSION}" alt="" width="24" height="24" loading="lazy"'
+    old_logo = logo_prefix + '<span aria-hidden="true">G</span>' + img_prefix + ' onerror="this.style.display=\'none\'"></span>'
+    fixed_logo = logo_prefix + '<span aria-hidden="true" hidden>G</span>' + img_prefix + ' onerror="this.style.display=\'none\';this.previousElementSibling.hidden=false"></span>'
+    old_logo_count = about.count(old_logo)
+    if old_logo_count not in (0, 2):
+        raise ValueError(f"Unexpected Google fallback markup ({old_logo_count}). No changes applied.")
+    about = about.replace(old_logo, fixed_logo)
+    if about.count(fixed_logo) != 2:
+        raise ValueError("Expected two fixed Google marks; no changes applied.")
     if about.count(new) != 2 or about.count(f"google.svg?v={VERSION}") != 2:
         raise ValueError("Google certificate validation failed. No changes applied.")
     updated = markup[:abouts[0].start()] + about + markup[abouts[0].end():]
