@@ -14,6 +14,12 @@ from fastapi.security import HTTPBasic, HTTPBasicCredentials
 
 app = FastAPI(title="Reboot Syndicate", docs_url=None, redoc_url=None, openapi_url=None)
 app.mount('/static', StaticFiles(directory='app/static'), name='static')
+
+@app.api_route('/favicon.ico', methods=['GET', 'HEAD'], include_in_schema=False)
+def favicon():
+    from fastapi.responses import FileResponse
+    return FileResponse(Path(__file__).resolve().parent / 'static/favicon.ico', media_type='image/x-icon')
+
 templates = Jinja2Templates(directory='app/templates')
 DB = Path(os.getenv('DATABASE_PATH', '/data/requests.sqlite3'))
 DB.parent.mkdir(parents=True, exist_ok=True)
