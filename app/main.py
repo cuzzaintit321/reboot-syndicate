@@ -119,3 +119,6 @@ def marketing_page(request: Request):
 app.include_router(marketing_router)
 app.include_router(checkout_router)
 app.include_router(seo_router)
+
+from app.growth import router as growth_router
+app.include_router(growth_router)
