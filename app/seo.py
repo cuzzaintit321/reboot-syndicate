@@ -30,7 +30,7 @@ def robots_txt():
 def sitemap_xml():
     # Generated from the actual service route registry so new services appear
     # automatically without manually editing XML.
-    urls = ["/", "/marketing", "/brevard-county"] + [f"/marketing/{slug}" for slug in SERVICES]
+    urls = ["/", "/marketing", "/brevard-county", "/work", "/pricing"] + [f"/marketing/{slug}" for slug in SERVICES]
     root = Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     for path in urls:
         url = SubElement(root, "url")
