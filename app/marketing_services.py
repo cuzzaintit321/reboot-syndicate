@@ -622,7 +622,7 @@ SERVICES = {
       "Basic verification of the completed task"
     ],
     "bestFor": [
-      "Titusville and nearby customers",
+      "Customers in Brevard County",
       "Small offices needing practical tech help",
       "People dealing with device or network problems"
     ],
@@ -662,60 +662,60 @@ SERVICE_PRICING = {
 # Keep these accurate; they are editorial guidance, not ranking guarantees.
 SEO_METADATA = {
     "website-design": {
-        "title": "Website Design in Brevard County, FL | Reboot Syndicate",
-        "description": "Modern business website design, redesigns and landing pages for Brevard County and remote clients. Mobile-friendly pages with clear contact options."
+        "title": "Space Coast Web Design | Reboot Syndicate",
+        "description": "Responsive website design, redesigns and landing pages for Brevard County businesses. Give customers a clear way to contact you or request a quote."
     },
     "local-seo": {
-        "title": "Local SEO in Brevard County, FL | Reboot Syndicate",
-        "description": "Improve your website's local search visibility with on-page SEO, page structure and location-relevant content for Brevard County businesses."
+        "title": "Space Coast Local SEO Services | Reboot Syndicate",
+        "description": "Help customers find your Brevard County business with local SEO, technical checks, useful service pages and clearer internal links."
     },
     "google-business-profile": {
-        "title": "Google Business Profile Help | Brevard County, FL",
-        "description": "Google Business Profile setup and improvement for eligible Brevard County businesses. Accurate hours, service areas, categories and business information."
+        "title": "Google Business Profile Help | Space Coast",
+        "description": "Google Business Profile setup and optimization for eligible Brevard County businesses. Get help with categories, services, photos and listing accuracy."
     },
     "social-media": {
-        "title": "Social Media Management | Reboot Syndicate",
-        "description": "Social media planning, content creation, scheduling and reporting for small businesses in Brevard County and beyond."
+        "title": "Space Coast Social Media Management | Reboot Syndicate",
+        "description": "Social media planning, branded graphics, captions and publishing calendars for small businesses across Brevard County."
     },
     "digital-advertising": {
-        "title": "Google & Meta Ads Management | Reboot Syndicate",
-        "description": "Google and Meta advertising setup, campaign management, landing pages and conversion tracking for businesses serving local and wider markets."
+        "title": "Google & Meta Ads Management | Space Coast",
+        "description": "Google Ads and Meta ad campaign planning for Brevard County businesses, including creative, landing pages and conversion tracking."
     },
     "lead-automation": {
         "title": "AI & Marketing Automation | Reboot Syndicate",
         "description": "Simplify lead intake and follow-up with practical marketing automations, CRM integrations and workflows for your business."
     },
     "branding-design": {
-        "title": "Branding & Logo Design | Reboot Syndicate",
-        "description": "Business logos, visual identity, branded graphics and creative direction for businesses launching or refreshing their brands."
+        "title": "Space Coast Logo & Branding Design | Reboot Syndicate",
+        "description": "Logo concepts, visual identities and branded graphics for Brevard County businesses launching or updating their brands."
     },
     "content-marketing": {
-        "title": "Website Content & Copywriting | Reboot Syndicate",
-        "description": "Helpful website copy, articles and service content aligned with your audience, brand voice and business goals."
+        "title": "Website Copywriting & Content Marketing | Brevard County",
+        "description": "Website copy, service pages, articles and campaign messaging for Space Coast businesses and remote clients."
     },
     "email-sms": {
         "title": "Email & SMS Marketing | Reboot Syndicate",
         "description": "Email and SMS campaign planning, customer follow-up and marketing automations designed around audience needs and consent requirements."
     },
     "reputation-management": {
-        "title": "Online Reputation Management | Reboot Syndicate",
-        "description": "Support for monitoring reviews, improving customer feedback processes and keeping business information accurate online."
+        "title": "Review & Reputation Management | Space Coast",
+        "description": "Review monitoring, ethical review requests and response assistance for small businesses across Brevard County."
     },
     "ecommerce": {
-        "title": "E-Commerce Website Design | Reboot Syndicate",
-        "description": "Online store design, product catalogs, checkout integrations and e-commerce setup for small businesses selling online."
+        "title": "Space Coast E-Commerce Web Design | Reboot Syndicate",
+        "description": "E-commerce website design for Brevard County businesses, including product catalogs, checkout integration and mobile shopping."
     },
     "analytics-conversion": {
         "title": "Website Analytics & Conversion Tracking | Reboot Syndicate",
         "description": "Analytics setup, conversion tracking, reporting dashboards and practical ways to understand website and campaign performance."
     },
     "business-technology": {
-        "title": "Business Technology Setup | Reboot Syndicate",
-        "description": "Practical help connecting business software, workflows and everyday technology systems for small teams."
+        "title": "Small Business Technology Setup | Brevard County",
+        "description": "Business email, domains, DNS, hosting, SSL, backups and software setup for small businesses across Florida's Space Coast."
     },
     "it-support": {
-        "title": "IT Support & Computer Repair | Brevard County, FL",
-        "description": "Remote computer help, networking, backups and local IT support in Brevard County where available. Discuss your technology issues with Reboot Syndicate."
+        "title": "Computer Repair & IT Support | Space Coast",
+        "description": "Computer troubleshooting, Wi-Fi, backups and small-business IT support in Brevard County. On-site availability is confirmed when you contact us."
     }
 }
 
