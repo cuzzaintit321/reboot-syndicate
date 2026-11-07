@@ -141,15 +141,20 @@ def update_city_copy(source):
 def update_registry(source):
     # Edit individual string literals so live service entries and local edits are retained.
     tree = ast.parse(source)
-    registries = [
-        node.value for node in tree.body
-        if isinstance(node, ast.Assign)
-        and any(isinstance(target, ast.Name) and target.id == "SEO_METADATA" for target in node.targets)
-    ]
-    if len(registries) != 1 or not isinstance(registries[0], ast.Dict):
-        raise ValueError("Expected one SEO_METADATA dictionary in app/marketing_services.py.")
-    registry = registries[0]
-    entries = dict(zip(map(ast.literal_eval, registry.keys), registry.values))
+    entries = {}
+    # The earlier live installer merges LOCAL_SEO into SEO_METADATA at import time.
+    for name in ("SEO_METADATA", "LOCAL_SEO"):
+        registries = [
+            node.value for node in tree.body
+            if isinstance(node, ast.Assign)
+            and any(isinstance(target, ast.Name) and target.id == name for target in node.targets)
+        ]
+        if name == "LOCAL_SEO" and not registries:
+            continue
+        if len(registries) != 1 or not isinstance(registries[0], ast.Dict):
+            raise ValueError(f"Expected one {name} dictionary in app/marketing_services.py.")
+        registry = registries[0]
+        entries.update(zip(map(ast.literal_eval, registry.keys), registry.values))
     raw = source.encode("utf-8")
     offsets = [0, *accumulate(map(len, raw.splitlines(keepends=True)))]
     edits = []
@@ -158,14 +163,21 @@ def update_registry(source):
         if not isinstance(entry, ast.Dict):
             raise ValueError(f"Missing SEO metadata for {slug}.")
         fields = dict(zip(map(ast.literal_eval, entry.keys), entry.values))
-        for field, value in (("title", title), ("description", description)):
+        replacements = {"title": title, "description": description}
+        if "copy" in fields:
+            # pprint can wrap the older installer copy across adjacent string literals.
+            local_copy = ast.literal_eval(fields["copy"])
+            if not isinstance(local_copy, str):
+                raise ValueError(f"Expected text for the local SEO copy for {slug}.")
+            replacements["copy"] = update_city_copy(local_copy)
+        for field, value in replacements.items():
             node = fields.get(field)
             if not isinstance(node, ast.Constant) or not isinstance(node.value, str):
                 raise ValueError(f"Missing SEO {field} for {slug}.")
             if node.value != value:
                 start = offsets[node.lineno - 1] + node.col_offset
                 end = offsets[node.end_lineno - 1] + node.end_col_offset
-                edits.append((start, end, ('"' + value + '"').encode("utf-8")))
+                edits.append((start, end, repr(value).encode("utf-8")))
     for start, end, value in sorted(edits, reverse=True):
         raw = raw[:start] + value + raw[end:]
     updated = update_city_copy(raw.decode("utf-8"))
@@ -213,11 +225,17 @@ from urllib.request import urlopen
 for path, title, description in EXPECTED:
     with urlopen('http://127.0.0.1:8000' + path, timeout=5) as response:
         markup = response.read().decode('utf-8')
-    assert unescape(re.search(r'<title>(.*?)</title>', markup).group(1)) == title, path
-    assert unescape(re.search(r'<meta name="description" content="([^"]*)"', markup).group(1)) == description, path
-    assert unescape(re.search(r'<meta property="og:title" content="([^"]*)"', markup).group(1)) == title, path
-    assert unescape(re.search(r'<meta property="og:description" content="([^"]*)"', markup).group(1)) == description, path
-    assert f'<link rel="canonical" href="https://rebootsyndicate.com{path}">' in markup, path
+    for field, pattern, expected in (
+        ('title', r'<title>(.*?)</title>', title),
+        ('description', r'<meta name="description" content="([^"]*)"', description),
+        ('social title', r'<meta property="og:title" content="([^"]*)"', title),
+        ('social description', r'<meta property="og:description" content="([^"]*)"', description),
+    ):
+        match = re.search(pattern, markup)
+        actual = unescape(match.group(1)) if match else None
+        if actual != expected:
+            raise SystemExit(f'Unexpected {field} for {path}. Expected {expected!r}, found {actual!r}.')
+    assert f'<link rel="canonical" href="https://rebootsyndicate.com{path}">' in markup, f'Unexpected canonical for {path}'
     if path == '/brevard-county':
         assert COVERAGE in markup, 'Incomplete service-area coverage'
     if path.startswith('/marketing/'):
@@ -250,7 +268,11 @@ def deploy(updates):
     except (Exception, KeyboardInterrupt):
         for path in updates:
             shutil.copy2(backup / path, path)
-        subprocess.run(build, check=False)
+        restored = subprocess.run(build, check=False)
+        if restored.returncode == 0:
+            print("Restored the previous site.")
+        else:
+            print(f"Restored source files from {backup}. The rollback build failed.")
         raise
     print(f"Original files backed up in {backup}.")
 
@@ -272,7 +294,10 @@ def main():
         for path in updates:
             print(f"  {path}", flush=True)
         if args.apply:
-            deploy(updates)
+            try:
+                deploy(updates)
+            except subprocess.CalledProcessError as error:
+                parser.exit(error.returncode, "SEO deployment failed. See the error above.\n")
         else:
             print("Preview complete. Run again with --apply to deploy.")
 
