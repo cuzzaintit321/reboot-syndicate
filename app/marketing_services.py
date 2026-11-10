@@ -640,19 +640,19 @@ SERVICES = {
   }
 }
 
-# User-selected entry-level pricing. Displayed as estimates; individual scopes are quoted.
+# Published entry-level prices. Each offer is limited to its agreed starter scope; larger work is quoted.
 SERVICE_PRICING = {
-    "website-design": {"starting": "$995", "unit": "/ project", "range": "$750–$1,500 / project"},
-    "local-seo": {"starting": "$399", "unit": "/ mo", "range": "$300–$600 / mo"},
-    "google-business-profile": {"starting": "$199", "unit": "/ setup", "range": "$150–$350 / setup"},
-    "social-media": {"starting": "$399", "unit": "/ mo", "range": "$300–$700 / mo"},
-    "digital-advertising": {"starting": "$399", "unit": "/ mo", "range": "$300–$650 / mo"},
-    "lead-automation": {"starting": "$499", "unit": "/ setup", "range": "$400–$1,000 / setup"},
-    "branding-design": {"starting": "$349", "unit": "/ project", "range": "$250–$700 / project"},
-    "content-marketing": {"starting": "$125", "unit": "/ article", "range": "$80–$200 / article"},
-    "email-sms": {"starting": "$249", "unit": "/ mo", "range": "$150–$400 / mo"},
-    "reputation-management": {"starting": "$149", "unit": "/ mo", "range": "$100–$250 / mo"},
-    "ecommerce": {"starting": "$1,499", "unit": "/ project", "range": "$1,200–$3,000 / project"},
+    "website-design": {"starting": "$299", "unit": "/ project", "range": "$299–$1,299 / project"},
+    "local-seo": {"starting": "$249", "unit": "/ mo", "range": "$249–$600 / mo"},
+    "google-business-profile": {"starting": "$99", "unit": "/ setup", "range": "$99–$350 / setup"},
+    "social-media": {"starting": "$299", "unit": "/ mo", "range": "$299–$700 / mo"},
+    "digital-advertising": {"starting": "$249", "unit": "/ mo", "range": "$249–$650 / mo"},
+    "lead-automation": {"starting": "$299", "unit": "/ setup", "range": "$299–$1,000 / setup"},
+    "branding-design": {"starting": "$199", "unit": "/ project", "range": "$199–$700 / project"},
+    "content-marketing": {"starting": "$99", "unit": "/ article", "range": "$99–$200 / article"},
+    "email-sms": {"starting": "$149", "unit": "/ mo", "range": "$149–$400 / mo"},
+    "reputation-management": {"starting": "$99", "unit": "/ mo", "range": "$99–$250 / mo"},
+    "ecommerce": {"starting": "$999", "unit": "/ project", "range": "$999–$3,000 / project"},
     "analytics-conversion": {"starting": "$299", "unit": "/ setup", "range": "$200–$500 / setup"},
     "business-technology": {"starting": "$249", "unit": "/ setup", "range": "$150–$500 / setup"},
     "it-support": {"starting": "$95", "unit": "/ hr remote", "range": "$75–$150 / hr", "secondary": "$125 / hr onsite"},
