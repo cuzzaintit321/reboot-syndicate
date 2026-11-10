@@ -42,9 +42,17 @@
       <span class="agency-detail-price-unit">{{ pricing.unit }}</span>
       <span class="agency-detail-price-link">ASK FOR A QUOTE ↗</span>
     </a>
+    {% if slug == "website-design" %}
+    <div style="margin:16px 0 8px;padding:16px;border:1px solid rgba(255,255,255,.25);border-radius:12px">
+      <strong style="display:block;margin-bottom:8px">CHOOSE YOUR WEBSITE PACKAGE</strong>
+      <p style="margin:0 0 8px">Starter — <b>$299</b> / 1 page · Business — <b>$699</b> / up to 5 pages · Premium — <b>$1,299</b> / up to 10 pages</p>
+      <p style="margin:0 0 8px">Responsive design, basic SEO and a contact method included. Optional website care starts at <b>$49/month</b>. Domain, hosting, copywriting and advanced features are separate.</p>
+      <a href="/#website-packages">COMPARE PACKAGES &amp; INCLUSIONS ↗</a>
+    </div>
+    {% endif %}
     <div class="agency-detail-actions">
       <form method="post" action="/checkout/{{ slug }}"><button class="primary" type="submit" style="cursor:pointer;border:0;padding:16px 22px;font:inherit">BUY STARTER {{ pricing.starting }} ↗</button></form>
-      <p style="font-size:0.85rem;opacity:.85">Starter pricing only. Scope and deliverables require written agreement before work begins. Monthly services renew until canceled. If checkout is not yet enabled, request a consultation instead.</p>
+      <p style="font-size:0.85rem;opacity:.85">Entry-level pricing covers only the defined starter scope. Other packages require a separate written quote. Scope and deliverables require written agreement before work begins. Monthly services renew until canceled. If checkout is not yet enabled, request a consultation instead.</p>
       <a class="primary" href="/?service={{ service.form|urlencode }}#request">DISCUSS YOUR PROJECT <span>↗</span></a>
       <a class="secondary" href="/#services">← EXPLORE OTHER SERVICES</a>
     </div>
