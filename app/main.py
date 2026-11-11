@@ -30,24 +30,24 @@ def privacy_policy(request: Request):
 def terms_of_use(request: Request):
     return templates.TemplateResponse(request, 'terms.html', {})
 
+from functools import lru_cache
+
+@lru_cache(maxsize=1)
+def render_optimized_logo():
+    """Create the 2x display-size logo once per application process."""
+    from io import BytesIO
+    from PIL import Image
+    source = Path(__file__).resolve().parent / 'static/images/reboot-logo.png'
+    with Image.open(source) as logo:
+        logo.thumbnail((500, 180), Image.Resampling.LANCZOS)
+        buffer = BytesIO()
+        logo.save(buffer, format='WEBP', quality=82, method=6)
+        return buffer.getvalue()
+
 @app.get('/logo-optimized.webp', include_in_schema=False)
 def optimized_logo():
-    """Deliver a browser-sized, cached WebP instead of the 746 KB full-size logo."""
-    from io import BytesIO
-    from functools import lru_cache
-    from PIL import Image
     from fastapi.responses import Response
-
-    @lru_cache(maxsize=1)
-    def render():
-        source = Path(__file__).resolve().parent / 'static/images/reboot-logo.png'
-        with Image.open(source) as logo:
-            logo.thumbnail((500, 180), Image.Resampling.LANCZOS)
-            buffer = BytesIO()
-            logo.save(buffer, format='WEBP', quality=82, method=6)
-            return buffer.getvalue()
-
-    return Response(content=render(), media_type='image/webp',
+    return Response(content=render_optimized_logo(), media_type='image/webp',
                     headers={'Cache-Control': 'public, max-age=604800'})
 
 DB = Path(os.getenv('DATABASE_PATH', '/data/requests.sqlite3'))
