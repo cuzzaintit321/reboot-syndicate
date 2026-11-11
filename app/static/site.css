@@ -884,3 +884,24 @@ a.marketing-tile:focus-visible {
   .agency-home .rs-about-cert-grid li { gap: 11px; align-items: center; }
 }
 /* R/S credentials list - end */
+
+/* Break Squad accessibility/hero refinements (2026-11-11). */
+.rs-hero-price{display:flex;gap:9px;align-items:baseline;flex-wrap:wrap;margin:15px 0 0!important;font:700 14px/1.5 'DM Sans',Arial,sans-serif!important;color:#f0f2ed!important}
+.rs-hero-price strong{color:var(--accent);font:900 32px/1 'Barlow Condensed',Impact,sans-serif}
+.rs-hero-price span{font-size:13px}
+.rs-hero-price a{color:var(--accent);text-decoration:underline;text-underline-offset:4px}
+.agency-home .agency-hero-photo{min-height:510px}
+.agency-home .agency-hero-photo-img{aspect-ratio:1 / 1}
+@media(max-width:800px){
+  .agency-home{font-size:16px}
+  .agency-home :is(p,li){font-size:max(16px,1em)}
+  .agency-home :is(.topline,.rs-phone-top,.section-index,.site-header nav,.menu-toggle,
+    .agency-hero-stats span,.agency-visual-header,.agency-dashboard,.agency-service-top,
+    .agency-card-pricing-label,.agency-arrow,.agency-package>span,.agency-package small,
+    .rs-about-cert-top,.rs-about-cert-copy strong,.rs-about-cert-copy small,
+    .rs-call-contact>span,.rs-call-contact>small,.contact-aside b,.form-heading,
+    .request-form label,.agency-steps article>span,footer small){font-size:12px}
+  .agency-home .agency-hero-stats{margin-top:0;padding-top:20px}
+  .rs-hero-price{font-size:16px!important}
+  .rs-hero-price span{font-size:12px}
+}
