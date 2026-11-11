@@ -21,6 +21,35 @@ def favicon():
     return FileResponse(Path(__file__).resolve().parent / 'static/favicon.ico', media_type='image/x-icon')
 
 templates = Jinja2Templates(directory='app/templates')
+
+@app.get('/privacy', response_class=HTMLResponse, include_in_schema=True)
+def privacy_policy(request: Request):
+    return templates.TemplateResponse(request, 'privacy.html', {})
+
+@app.get('/terms', response_class=HTMLResponse, include_in_schema=True)
+def terms_of_use(request: Request):
+    return templates.TemplateResponse(request, 'terms.html', {})
+
+@app.get('/logo-optimized.webp', include_in_schema=False)
+def optimized_logo():
+    """Deliver a browser-sized, cached WebP instead of the 746 KB full-size logo."""
+    from io import BytesIO
+    from functools import lru_cache
+    from PIL import Image
+    from fastapi.responses import Response
+
+    @lru_cache(maxsize=1)
+    def render():
+        source = Path(__file__).resolve().parent / 'static/images/reboot-logo.png'
+        with Image.open(source) as logo:
+            logo.thumbnail((500, 180), Image.Resampling.LANCZOS)
+            buffer = BytesIO()
+            logo.save(buffer, format='WEBP', quality=82, method=6)
+            return buffer.getvalue()
+
+    return Response(content=render(), media_type='image/webp',
+                    headers={'Cache-Control': 'public, max-age=604800'})
+
 DB = Path(os.getenv('DATABASE_PATH', '/data/requests.sqlite3'))
 DB.parent.mkdir(parents=True, exist_ok=True)
 security = HTTPBasic(auto_error=False)
