@@ -622,7 +622,7 @@ SERVICES = {
       "Basic verification of the completed task"
     ],
     "bestFor": [
-      "Titusville and nearby customers",
+      "Customers in Brevard County",
       "Small offices needing practical tech help",
       "People dealing with device or network problems"
     ],
@@ -642,17 +642,17 @@ SERVICES = {
 
 # User-selected entry-level pricing. Displayed as estimates; individual scopes are quoted.
 SERVICE_PRICING = {
-    "website-design": {"starting": "$995", "unit": "/ project", "range": "$750–$1,500 / project"},
-    "local-seo": {"starting": "$399", "unit": "/ mo", "range": "$300–$600 / mo"},
-    "google-business-profile": {"starting": "$199", "unit": "/ setup", "range": "$150–$350 / setup"},
-    "social-media": {"starting": "$399", "unit": "/ mo", "range": "$300–$700 / mo"},
-    "digital-advertising": {"starting": "$399", "unit": "/ mo", "range": "$300–$650 / mo"},
-    "lead-automation": {"starting": "$499", "unit": "/ setup", "range": "$400–$1,000 / setup"},
-    "branding-design": {"starting": "$349", "unit": "/ project", "range": "$250–$700 / project"},
-    "content-marketing": {"starting": "$125", "unit": "/ article", "range": "$80–$200 / article"},
-    "email-sms": {"starting": "$249", "unit": "/ mo", "range": "$150–$400 / mo"},
-    "reputation-management": {"starting": "$149", "unit": "/ mo", "range": "$100–$250 / mo"},
-    "ecommerce": {"starting": "$1,499", "unit": "/ project", "range": "$1,200–$3,000 / project"},
+    "website-design": {"starting": "$299", "unit": "/ project", "range": "$299–$1,299 / project"},
+    "local-seo": {"starting": "$249", "unit": "/ mo", "range": "$249–$600 / mo"},
+    "google-business-profile": {"starting": "$99", "unit": "/ setup", "range": "$99–$350 / setup"},
+    "social-media": {"starting": "$299", "unit": "/ mo", "range": "$299–$700 / mo"},
+    "digital-advertising": {"starting": "$249", "unit": "/ mo", "range": "$249–$650 / mo"},
+    "lead-automation": {"starting": "$299", "unit": "/ setup", "range": "$299–$1,000 / setup"},
+    "branding-design": {"starting": "$199", "unit": "/ project", "range": "$199–$700 / project"},
+    "content-marketing": {"starting": "$99", "unit": "/ article", "range": "$99–$200 / article"},
+    "email-sms": {"starting": "$149", "unit": "/ mo", "range": "$149–$400 / mo"},
+    "reputation-management": {"starting": "$99", "unit": "/ mo", "range": "$99–$250 / mo"},
+    "ecommerce": {"starting": "$999", "unit": "/ project", "range": "$999–$3,000 / project"},
     "analytics-conversion": {"starting": "$299", "unit": "/ setup", "range": "$200–$500 / setup"},
     "business-technology": {"starting": "$249", "unit": "/ setup", "range": "$150–$500 / setup"},
     "it-support": {"starting": "$95", "unit": "/ hr remote", "range": "$75–$150 / hr", "secondary": "$125 / hr onsite"},
@@ -718,59 +718,32 @@ SEO_METADATA = {
 }
 
 # REBOOT_SEO_14_START
-LOCAL_SEO = {'website-design': {'title': 'Web Design in Titusville & Brevard County | Reboot Syndicate',
-                    'description': 'Website design and redesign for Titusville, Mims and Brevard '
-                                   'County businesses. Responsive pages, landing pages and clear '
-                                   'customer contact paths.',
+LOCAL_SEO = {'website-design': {'title': 'Space Coast Web Design | Reboot Syndicate',
+                    'description': 'Responsive website design, redesigns and landing pages for Brevard County businesses. Give customers a clear way to contact you or request a quote.',
                     'heading': 'WEBSITE DESIGN',
                     'emphasis': 'FOR REAL BUSINESSES.',
-                    'copy': 'Need a business website in Titusville, Mims or elsewhere in Brevard '
-                            'County? We help plan responsive websites, useful service pages, '
-                            'focused landing pages and straightforward quote or contact forms. '
-                            'Remote website projects are also available.',
+                    'copy': 'Need a business website on the Space Coast? We help plan responsive websites, useful service pages, focused landing pages and straightforward quote or contact forms. Remote website projects are also available.',
                     'related': ['local-seo', 'google-business-profile', 'ecommerce']},
- 'local-seo': {'title': 'Local SEO Services in Titusville, FL | Reboot Syndicate',
-               'description': 'Local SEO for Titusville and Brevard County businesses: page '
-                              'titles, useful service content, internal links, technical checks '
-                              'and local search strategy.',
+ 'local-seo': {'title': 'Space Coast Local SEO Services | Reboot Syndicate',
+               'description': 'Help customers find your Brevard County business with local SEO, technical checks, useful service pages and clearer internal links.',
                'heading': 'LOCAL SEO',
                'emphasis': 'THAT MAKES SENSE.',
-               'copy': 'For Titusville and Brevard County businesses, local SEO starts with '
-                       'searchable service information, clear site structure and accurate business '
-                       'details. We review indexing, page relevance, technical issues and '
-                       'practical opportunities for improving search visibility without promising '
-                       'rankings.',
+               'copy': 'For Brevard County businesses, local SEO starts with searchable service information, clear site structure and accurate business details. We review indexing, page relevance, technical issues and practical opportunities for improving search visibility without promising rankings.',
                'related': ['website-design', 'google-business-profile', 'content-marketing']},
- 'google-business-profile': {'title': 'Google Business Profile Help | Titusville FL | Reboot '
-                                      'Syndicate',
-                             'description': 'Google Business Profile setup and optimization help '
-                                            'for eligible Titusville and Brevard County '
-                                            'businesses. Categories, services, photos and listing '
-                                            'accuracy.',
+ 'google-business-profile': {'title': 'Google Business Profile Help | Space Coast',
+                             'description': 'Google Business Profile setup and optimization for eligible Brevard County businesses. Get help with categories, services, photos and listing accuracy.',
                              'heading': 'GOOGLE BUSINESS',
                              'emphasis': 'PROFILE SUPPORT.',
-                             'copy': 'We help eligible businesses in Titusville, Mims and the '
-                                     'surrounding Brevard County area review Google Business '
-                                     'Profile categories, service information, contact details, '
-                                     'photos and customer review responses. The owner keeps '
-                                     'control of the profile, and Google makes verification '
-                                     'decisions.',
+                             'copy': 'We help eligible businesses across Brevard County review Google Business Profile categories, service information, contact details, photos and customer review responses. The owner keeps control of the profile, and Google makes verification decisions.',
                              'related': ['local-seo', 'reputation-management', 'website-design']},
- 'social-media': {'title': 'Social Media Management | Titusville FL | Reboot Syndicate',
-                  'description': 'Social media content planning and branded graphics for '
-                                 'Titusville and Brevard County small businesses. Consistent '
-                                 'posts, captions and publishing plans.',
+ 'social-media': {'title': 'Space Coast Social Media Management | Reboot Syndicate',
+                  'description': 'Social media planning, branded graphics, captions and publishing calendars for small businesses across Brevard County.',
                   'heading': 'SOCIAL MEDIA',
                   'emphasis': 'WITH PURPOSE.',
-                  'copy': 'Titusville and Brevard County small businesses need social content that '
-                          'clearly reflects their brand. We plan campaign themes, create graphics '
-                          'and captions, organize content calendars and help with approved '
-                          'publishing and performance reviews.',
+                  'copy': 'Space Coast small businesses need social content that clearly reflects their brand. We plan campaign themes, create graphics and captions, organize content calendars and help with approved publishing and performance reviews.',
                   'related': ['content-marketing', 'branding-design', 'digital-advertising']},
- 'digital-advertising': {'title': 'Google Ads & Meta Ads Management | Titusville FL',
-                         'description': 'Google Ads and Meta ad campaign planning for Titusville '
-                                        'and Brevard County businesses. Strategy, creative, '
-                                        'landing pages and conversion tracking.',
+ 'digital-advertising': {'title': 'Google & Meta Ads Management | Space Coast',
+                         'description': 'Google Ads and Meta ad campaign planning for Brevard County businesses, including creative, landing pages and conversion tracking.',
                          'heading': 'PAID ADS',
                          'emphasis': 'WITH CLEAR GOALS.',
                          'copy': 'For Brevard County businesses exploring Google Ads, Facebook or '
@@ -790,28 +763,17 @@ LOCAL_SEO = {'website-design': {'title': 'Web Design in Titusville & Brevard Cou
                              'notifications and approved follow-up workflows for businesses in '
                              'Brevard County and remote teams, with clear oversight and testing.',
                      'related': ['email-sms', 'business-technology', 'analytics-conversion']},
- 'branding-design': {'title': 'Logo & Branding Design in Titusville FL | Reboot Syndicate',
-                     'description': 'Logo concepts, brand identity and graphic design for '
-                                    'Titusville and Brevard County businesses. Visual systems, '
-                                    'social graphics and marketing assets.',
+ 'branding-design': {'title': 'Space Coast Logo & Branding Design | Reboot Syndicate',
+                     'description': 'Logo concepts, visual identities and branded graphics for Brevard County businesses launching or updating their brands.',
                      'heading': 'BRANDING & LOGOS',
                      'emphasis': 'BUILT TO FIT.',
-                     'copy': 'From new Titusville businesses to established Brevard County brands, '
-                             'we can help create an organized visual identity with logos, color '
-                             'palettes, typography and useful graphics for websites, social posts, '
-                             'promotions and print materials.',
+                     'copy': 'From new businesses to established brands across the Space Coast, we can help create an organized visual identity with logos, color palettes, typography and useful graphics for websites, social posts, promotions and print materials.',
                      'related': ['website-design', 'social-media', 'content-marketing']},
  'content-marketing': {'title': 'Website Copywriting & Content Marketing | Brevard County',
-                       'description': 'Website copywriting, service page content, articles and '
-                                      'campaign messaging for Titusville and Brevard County '
-                                      'businesses, with remote projects available.',
+                       'description': 'Website copy, service pages, articles and campaign messaging for Space Coast businesses and remote clients.',
                        'heading': 'CONTENT & COPY',
                        'emphasis': 'THAT EXPLAINS VALUE.',
-                       'copy': 'We help Titusville and Brevard County businesses explain their '
-                               'services clearly through original website copy, service pages, '
-                               'articles, customer-focused messages and content plans. The aim is '
-                               'useful writing that fits your voice and answers real customer '
-                               'questions.',
+                       'copy': 'We help Brevard County businesses explain their services clearly through original website copy, service pages, articles, customer-focused messages and content plans. The aim is useful writing that fits your voice and answers real customer questions.',
                        'related': ['local-seo', 'website-design', 'social-media']},
  'email-sms': {'title': 'Email & SMS Marketing Services | Reboot Syndicate',
                'description': 'Permission-based email and SMS marketing for small businesses: '
@@ -824,28 +786,17 @@ LOCAL_SEO = {'website-design': {'title': 'Web Design in Titusville & Brevard Cou
                        'touch. We help organize opted-in audiences, messaging, sending workflows '
                        'and unsubscribe or opt-out checks.',
                'related': ['lead-automation', 'content-marketing', 'analytics-conversion']},
- 'reputation-management': {'title': 'Online Review & Reputation Management | Titusville FL',
-                           'description': 'Review monitoring, ethical customer review requests and '
-                                          'response assistance for Titusville and Brevard County '
-                                          'small businesses.',
+ 'reputation-management': {'title': 'Review & Reputation Management | Space Coast',
+                           'description': 'Review monitoring, ethical review requests and response assistance for small businesses across Brevard County.',
                            'heading': 'ONLINE REVIEWS',
                            'emphasis': 'HANDLED WELL.',
-                           'copy': 'For local businesses in Titusville and Brevard County, real '
-                                   'customer reviews and thoughtful responses help visitors '
-                                   'understand the experience you provide. We help organize honest '
-                                   'review requests, review monitoring and professional response '
-                                   'workflows—never fabricated reviews.',
+                           'copy': 'For local businesses across the Space Coast, real customer reviews and thoughtful responses help visitors understand the experience you provide. We help organize honest review requests, review monitoring and professional response workflows—never fabricated reviews.',
                            'related': ['google-business-profile', 'local-seo', 'social-media']},
- 'ecommerce': {'title': 'E-Commerce Website Design | Titusville FL | Reboot Syndicate',
-               'description': 'E-commerce website design for Titusville and Brevard County small '
-                              'businesses: product catalogs, online store setup, checkout '
-                              'integration and mobile shopping.',
+ 'ecommerce': {'title': 'Space Coast E-Commerce Web Design | Reboot Syndicate',
+               'description': 'E-commerce website design for Brevard County businesses, including product catalogs, checkout integration and mobile shopping.',
                'heading': 'E-COMMERCE',
                'emphasis': "THAT'S EASY TO USE.",
-               'copy': 'We help small brands in Titusville, Mims and across Brevard County set up '
-                       'or improve online stores. That can include product and category pages, '
-                       'navigation, product listings, responsive shopping experiences and '
-                       'supported payment integrations.',
+               'copy': 'We help small brands across the Space Coast set up or improve online stores. That can include product and category pages, navigation, product listings, responsive shopping experiences and supported payment integrations.',
                'related': ['website-design', 'analytics-conversion', 'digital-advertising']},
  'analytics-conversion': {'title': 'Website Analytics & Conversion Tracking | Brevard County',
                           'description': 'Analytics setup, website conversion tracking and '
@@ -859,28 +810,17 @@ LOCAL_SEO = {'website-design': {'title': 'Web Design in Titusville & Brevard Cou
                                   'We help plan measurement, configure supported tools and review '
                                   'opportunities to improve visitor experience.',
                           'related': ['digital-advertising', 'website-design', 'local-seo']},
- 'business-technology': {'title': 'Small Business Technology Setup | Titusville FL',
-                         'description': 'Small business technology help in Titusville and Brevard '
-                                        'County: business email, domains, DNS, hosting, SSL, '
-                                        'backups and connected software.',
+ 'business-technology': {'title': 'Small Business Technology Setup | Brevard County',
+                         'description': "Business email, domains, DNS, hosting, SSL, backups and software setup for small businesses across Florida's Space Coast.",
                          'heading': 'BUSINESS TECH',
                          'emphasis': 'THAT STAYS CONNECTED.',
-                         'copy': 'Behind a working business website are domains, DNS, hosting, SSL '
-                                 'certificates, professional email and connected software. We help '
-                                 'Titusville and Brevard County businesses plan, configure and '
-                                 'troubleshoot these essential systems with clear ownership and '
-                                 'handoff.',
+                         'copy': 'Behind a working business website are domains, DNS, hosting, SSL certificates, professional email and connected software. We help Brevard County businesses plan, configure and troubleshoot these essential systems with clear ownership and handoff.',
                          'related': ['website-design', 'it-support', 'lead-automation']},
- 'it-support': {'title': 'Computer Repair & IT Support in Titusville FL | Reboot Syndicate',
-                'description': 'Computer troubleshooting, Wi-Fi networking, backups and '
-                               'small-business IT support for Titusville, Mims and nearby Brevard '
-                               'County customers; availability confirmed.',
+ 'it-support': {'title': 'Computer Repair & IT Support | Space Coast',
+                'description': 'Computer troubleshooting, Wi-Fi, backups and small-business IT support in Brevard County. On-site availability is confirmed when you contact us.',
                 'heading': 'COMPUTER REPAIR',
                 'emphasis': '& LOCAL IT HELP.',
-                'copy': 'Reboot Syndicate provides practical IT help for Titusville, Mims and '
-                        'nearby Brevard County customers, subject to availability. We review '
-                        'computer and laptop issues, Wi-Fi problems, backups, upgrades and common '
-                        'office technology needs before agreeing on a scope.',
+                'copy': 'Reboot Syndicate provides practical IT help for Brevard County customers, subject to availability. We review computer and laptop issues, Wi-Fi problems, backups, upgrades and common office technology needs before agreeing on a scope.',
                 'related': ['business-technology', 'website-design', 'lead-automation']}}
 for _slug, _seo in LOCAL_SEO.items():
     SEO_METADATA[_slug].update(title=_seo['title'], description=_seo['description'])

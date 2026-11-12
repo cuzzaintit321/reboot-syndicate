@@ -7,7 +7,7 @@
 <title>{{ seo_title }}</title>
 <link rel="canonical" href="{{ canonical_url }}">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Reboot Syndicate | {{ seo_title | replace(' | Reboot Syndicate', '') }}">
+<meta property="og:title" content="{{ seo_title }}">
 <meta property="og:description" content="{{ seo_description }}">
 <meta property="og:url" content="{{ canonical_url }}">
 <script type="application/ld+json">
@@ -34,7 +34,7 @@
 <div class="topline"><span>REBOOT SYNDICATE / DIGITAL MARKETING & BUSINESS SOLUTIONS</span><div class="rs-top-actions"><a class="rs-phone-top" href="tel:+13212913097">CALL / (321) 291-3097</a><span class="live"><i></i> LET'S BUILD YOUR NEXT MOVE</span></div></div>
 <header class="site-header">
   <a class="wordmark" href="/" aria-label="Reboot Syndicate home"><img class="rs-brand-logo-image" src="/static/images/reboot-logo.png" alt="Reboot Syndicate"></a>
-  <nav aria-label="Primary navigation">
+  <nav aria-label="Primary navigation"><a href="/locations">LOCATIONS</a><a href="/industries">INDUSTRIES</a>
     <a href="/#services">ALL SERVICES</a><a href="/#approach">OUR APPROACH</a><a href="/#packages">PACKAGES</a>
     <a class="nav-cta" href="/?service={{ service.form|urlencode }}#request">LET'S TALK <span>↗</span></a>
   </nav>

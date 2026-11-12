@@ -1,0 +1,266 @@
+{
+  "titusville": {
+    "name": "Titusville",
+    "alt": "Rocket launch across a sunset lagoon",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "3d5a418bb11df0e8c094b7b0053c517be1af5d2aaf771ff951b3c6bfaef91666",
+    "native_crop": [
+      2083,
+      755
+    ]
+  },
+  "port-st-john": {
+    "name": "Port St. John",
+    "alt": "Waterfront dock and tropical lagoon at golden hour",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "113cc0c795d491a71fe3a5a7538e19fd469f729b0e324e4c201c6579e0658920",
+    "native_crop": [
+      1672,
+      941
+    ]
+  },
+  "mims": {
+    "name": "Mims",
+    "alt": "Horses in a shaded live-oak pasture",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "ddba4a7ce5bc6f13ef2e87364f3226a23d1a312fe9e844ce0dbdf1b9a3f3e0f2",
+    "native_crop": [
+      312,
+      112
+    ]
+  },
+  "scottsmoor": {
+    "name": "Scottsmoor",
+    "alt": "Orange grove and rural Florida countryside",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "3a60731c071a3465dbb1547bf743e5248d2cac9b1807c671927eaa2e811b107e",
+    "native_crop": [
+      311,
+      112
+    ]
+  },
+  "cocoa": {
+    "name": "Cocoa",
+    "alt": "Historic-style downtown storefronts and sidewalk cafes",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "fead646ae1943d51de24ffa3c29125698e43b1b89da4a40e28b3c5b7ccfed84f",
+    "native_crop": [
+      1672,
+      941
+    ]
+  },
+  "rockledge": {
+    "name": "Rockledge",
+    "alt": "Palm-lined residential waterfront and docks",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "80763a5eadb89ffbfeb1e2c80ae8ec0dc9248ba016c5dfd04078864e4ce4a85f",
+    "native_crop": [
+      1192,
+      941
+    ]
+  },
+  "merritt-island": {
+    "name": "Merritt Island",
+    "alt": "Egret, marsh grasses and a boardwalk beside a lagoon",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "292ca1c8056038cbf9a28c1ad01fae1589f920dd6f9df4d698de1df8c4da1865",
+    "native_crop": [
+      1774,
+      887
+    ]
+  },
+  "viera": {
+    "name": "Viera",
+    "alt": "Palm-lined outdoor shopping district",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "52366a83af8f5417a2e314f7f3e602f7d6da06a18d81ac4e57cb864ee0d6099b",
+    "native_crop": [
+      540,
+      301
+    ]
+  },
+  "melbourne": {
+    "name": "Melbourne",
+    "alt": "Waterfront downtown dining, shops and a bridge at sunset",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "ffe73c344bb9832001f36b8dd2b164bc7fa21efb4e71f0e12a2339c19dfab211",
+    "native_crop": [
+      1774,
+      887
+    ]
+  },
+  "west-melbourne": {
+    "name": "West Melbourne",
+    "alt": "Contemporary shopping storefronts and tropical landscaping",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "35b4ab5aad6ed69514f8404e5470fe3f0deb7db3ca1c1c49cfdd2e70c08f5bfb",
+    "native_crop": [
+      341,
+      456
+    ]
+  },
+  "melbourne-village": {
+    "name": "Melbourne Village",
+    "alt": "Residential street shaded by Spanish moss and live oaks",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "446e7dd55906ee61ecb6b4b0d60484b3c161ab25c8a8d5a2319c201e14d318dc",
+    "native_crop": [
+      1672,
+      941
+    ]
+  },
+  "palm-shores": {
+    "name": "Palm Shores",
+    "alt": "Covered pier and calm riverfront at dusk",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "7ff75630e07fa05f23f502b2c433e67eac357805d8e99db4783ab580da472528",
+    "native_crop": [
+      340,
+      447
+    ]
+  },
+  "suntree": {
+    "name": "Suntree",
+    "alt": "Green golf course, lakes and landscaped homes",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "c4890263b70d4bb0b7a4f97e99ad847b013dfb9792a6fc928d6888cecf1330ac",
+    "native_crop": [
+      230,
+      103
+    ]
+  },
+  "palm-bay": {
+    "name": "Palm Bay",
+    "alt": "Natural lagoon, waterfront dock and a wading bird",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "2384026e112bf24a154600c6a0a042c4a93a999523d98288ea391ba3f3ba4fe8",
+    "native_crop": [
+      620,
+      444
+    ]
+  },
+  "malabar": {
+    "name": "Malabar",
+    "alt": "Wooded nature boardwalk among tropical vegetation",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "87f3af249d2b60e629f685d1fe1813e0edce6f7bea1ff544bcfeb641577e897d",
+    "native_crop": [
+      832,
+      832
+    ]
+  },
+  "grant-valkaria": {
+    "name": "Grant-Valkaria",
+    "alt": "Fishing boat, kayaks and a quiet waterfront",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "558e52cbf3adb4d00a64a15a0e47003e2cb659baa29e902baff3016912c9b132",
+    "native_crop": [
+      1016,
+      887
+    ]
+  },
+  "cocoa-beach": {
+    "name": "Cocoa Beach",
+    "alt": "Ocean pier and beach at sunset",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "229eaad99815fe82026f3f6abb9a181a70a9c5bd94dea9a6e3d6b521dcaae674",
+    "native_crop": [
+      551,
+      305
+    ]
+  },
+  "cape-canaveral": {
+    "name": "Cape Canaveral",
+    "alt": "Cruise ship and harbor at the port",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "0d0c45d3a7188faea8e7733f224d24b6a8311d24b07e41966295000c907bacb3",
+    "native_crop": [
+      344,
+      455
+    ]
+  },
+  "satellite-beach": {
+    "name": "Satellite Beach",
+    "alt": "Sea oats, beach dunes and rolling Atlantic surf",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "6fad337001b7c8ad09a0f84fef041204c8fe9385a40eec02d9ad2c4d60e0f8db",
+    "native_crop": [
+      1672,
+      941
+    ]
+  },
+  "indian-harbour-beach": {
+    "name": "Indian Harbour Beach",
+    "alt": "Lifeguard stand and Atlantic surf in warm morning light",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "f31501d80fa9ece8213d431094d37b40d886136673518c7b210e4e8cf4471c50",
+    "native_crop": [
+      1263,
+      887
+    ]
+  },
+  "indialantic": {
+    "name": "Indialantic",
+    "alt": "Coastal homes and a wooden beach boardwalk",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "6ca43ed0198dbdad17d22b79cc80abffe6fd06882b1460146c09493b0e2d2f89",
+    "native_crop": [
+      1672,
+      941
+    ]
+  },
+  "melbourne-beach": {
+    "name": "Melbourne Beach",
+    "alt": "Aerial view of a sandy coastline and coastal neighborhoods",
+    "width": 1200,
+    "height": 675,
+    "source_kind": "AI-generated illustration",
+    "sha256": "f1dd8b3bc51e04c317c3087a71e823d9ca4013b9826171b09cb81a812b26c956",
+    "native_crop": [
+      621,
+      442
+    ]
+  }
+}

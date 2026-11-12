@@ -10,6 +10,8 @@ from fastapi.responses import Response
 from fastapi.templating import Jinja2Templates
 
 from app.marketing_services import SERVICES
+from app.industries import INDUSTRIES
+from app.locations import LOCATIONS
 
 router = APIRouter()
 templates = Jinja2Templates(directory="app/templates")
@@ -30,7 +32,9 @@ def robots_txt():
 def sitemap_xml():
     # Generated from the actual service route registry so new services appear
     # automatically without manually editing XML.
-    urls = ["/", "/marketing", "/brevard-county"] + [f"/marketing/{slug}" for slug in SERVICES]
+    urls = ["/", "/marketing", "/brevard-county", "/work", "/pricing"] + [f"/marketing/{slug}" for slug in SERVICES]
+    urls += ["/industries"] + [f"/industries/{slug}" for slug in INDUSTRIES]
+    urls += ["/locations"] + [f"/locations/{slug}" for slug in LOCATIONS]
     root = Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     for path in urls:
         url = SubElement(root, "url")

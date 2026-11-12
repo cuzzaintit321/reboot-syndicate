@@ -40,3 +40,15 @@ Thumbs.db
 *.pre-stripe
 __pycache__/
 *.pyc
+
+# Local environment and backups
+.env
+.venv/
+__pycache__/
+*.pyc
+backups/
+*.backup*
+*.bak
+*.before-*
+*.pre-ssl*
+install_rs_*.py

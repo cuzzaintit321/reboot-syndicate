@@ -1051,3 +1051,61 @@ a.marketing-tile:focus-visible {
 @media(max-width:800px){.rs-related-links {grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.rs-related-links {grid-template-columns:1fr}.rs-related-links a{min-height:62px}}
 /* REBOOT_SEO_14_END */
+
+/* R/S credentials list - begin */
+/* Original About layout retained; credentials fit neatly under existing copy. */
+.agency-about .rs-about-content{min-width:0}
+.rs-about-certifications{margin-top:23px;padding-top:15px;border-top:1px solid #3e4c4e}
+.rs-about-cert-top{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:0 0 12px;
+  font:700 10px 'DM Mono',monospace;letter-spacing:.09em;color:var(--accent)}
+.rs-about-cert-grid{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  column-gap:17px;row-gap:8px}
+.rs-about-cert-grid li{display:flex;gap:10px;align-items:center;min-width:0;min-height:42px}
+.rs-about-issuer-mark{width:32px;height:32px;flex:0 0 32px;border-radius:5px;display:grid;place-items:center;
+  background:#f8f9f6;position:relative;overflow:hidden}
+.rs-about-issuer-mark img{width:23px;height:23px;position:absolute;inset:4.5px;object-fit:contain}
+.rs-about-issuer-mark>span{font:800 11px 'DM Sans',Arial,sans-serif;color:#182226}
+.rs-about-mark-hootsuite{background:#f36b32}
+.rs-about-mark-hootsuite>span{color:#fff}
+.rs-about-mark-mailchimp{background:#ffe01b}
+.rs-about-mark-moz>span{font-size:9px}
+.rs-about-mark-cmi>span{font-size:9px}
+.rs-about-cert-copy{min-width:0;display:flex;flex-direction:column;gap:3px}
+.rs-about-cert-copy strong{font:700 12px/1.22 'DM Sans',Arial,sans-serif;color:#f0f2ed}
+.rs-about-cert-copy small{font:10px/1.3 'DM Sans',Arial,sans-serif;color:#aebfb6}
+@media(max-width:1250px){.rs-about-cert-grid{grid-template-columns:1fr;row-gap:11px}}
+@media(max-width:800px){.rs-about-cert-grid{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:12px}}
+@media(max-width:600px){.rs-about-cert-grid{grid-template-columns:1fr;row-gap:9px}}
+
+/* Mobile About and credentials layout: avoid percentage row gaps and clipped text. */
+@media (max-width: 800px) {
+  .agency-home .agency-about {
+    grid-template-columns: minmax(0,1fr);
+    column-gap: 0;
+    row-gap: 26px;
+    padding-top: 55px;
+    padding-bottom: 55px;
+  }
+  .agency-home .agency-about > div,
+  .agency-home .agency-about .rs-about-content,
+  .agency-home .rs-about-certifications { min-width: 0; width: 100%; max-width: 100%; }
+  .agency-home .agency-about h2 {
+    font-size: clamp(44px, 9vw, 72px);
+    line-height: .96;
+    max-width: 100%;
+  }
+  .agency-home .rs-about-cert-grid {
+    grid-template-columns: minmax(0,1fr);
+    gap: 10px;
+  }
+  .agency-home .rs-about-cert-grid li { width: 100%; min-width: 0; }
+  .agency-home .rs-about-cert-copy { flex: 1 1 auto; min-width: 0; }
+  .agency-home .rs-about-cert-copy strong { overflow-wrap: break-word; }
+}
+@media (max-width: 420px) {
+  .agency-home .agency-about h2 { font-size: clamp(39px, 10vw, 44px); }
+  .agency-home .agency-about { row-gap: 22px; padding-top: 45px; padding-bottom: 45px; }
+  .agency-home .rs-about-certifications { margin-top: 18px; }
+  .agency-home .rs-about-cert-grid li { gap: 11px; align-items: center; }
+}
+/* R/S credentials list - end */
