@@ -10,7 +10,7 @@
 <meta property="og:title" content="Web Design & Marketing Pricing in Brevard County | Reboot Syndicate">
 <meta property="og:description" content="Compare Reboot Syndicate starting prices for web design, local SEO, Google Business Profile and marketing services in Brevard County.">
 <meta property="og:url" content="https://rebootsyndicate.com/pricing">
-<link rel="stylesheet" href="/static/site.css?v=brevard-seo-20261031">
+<link rel="stylesheet" href="/static/site.css?v=pricing-click-1794479446">
 <script type="application/ld+json">{{ page_schema | tojson }}</script>
 <link rel="icon" type="image/svg+xml" href="/static/favicon.svg?v=angular-transparent-20261031"></head>
 <body class="agency-local-page">
@@ -22,7 +22,7 @@
 <main>
 <section class="agency-local-hero section-wrap"><span class="section-index">BREVARD COUNTY / PROJECT PLANNING</span><h1>CLEAR PRICES.<br><em>A CLEAR START.</em></h1><p>Plan your website or marketing budget with Reboot Syndicate's starting prices. These are entry points for a conversation, not fixed quotes. Your final scope, deliverables and fees are agreed before work begins.</p><div class="agency-local-actions"><a class="primary" href="/#request">REQUEST A SCOPED QUOTE ↗</a><a class="secondary" href="/work">EXPLORE OUR WORK ↗</a></div></section>
 <section class="section-wrap agency-local-services"><h2>CHOOSE THE HELP YOUR BUSINESS NEEDS.</h2><div class="agency-local-grid">
-{% for slug, service in services.items() %}<article><span>STARTING AT {{ pricing[slug].starting }} {{ pricing[slug].unit }}</span><h3>{{ service.name }}</h3><p>{{ service.lead }}</p><a href="/marketing/{{ slug }}">VIEW SCOPE &amp; DELIVERABLES ↗</a></article>{% endfor %}
+{% for slug, service in services.items() %}<article class="rs-pricing-card" data-service="{{ slug }}"><span>STARTING AT {{ pricing[slug].starting }} {{ pricing[slug].unit }}</span><h3>{{ service.name }}</h3><p>{{ service.lead }}</p><a href="/marketing/{{ slug }}">VIEW SCOPE &amp; DELIVERABLES ↗</a></article>{% endfor %}
 </div></section>
 <section class="section-wrap agency-local-context"><div><span class="section-index">COMPARE THE FULL SCOPE</span><h2>WHAT CHANGES<br><em>THE PRICE?</em></h2></div><div><p><strong>Website size and content.</strong> The number of pages, copywriting, photography, custom functionality and work needed to migrate an existing website affect the estimate.</p><p><strong>Integrations and ongoing care.</strong> Booking tools, store functionality, hosting, domain fees, paid software and maintenance should each be identified in your quote. Do not assume every ongoing cost is included in a build fee.</p><p><strong>Campaign costs.</strong> Advertising management and the budget paid to Google or Meta are different expenses. Confirm both before starting a campaign.</p><p><strong>Deliverables and ownership.</strong> Compare the actual page list, revision scope, account access, handoff and reporting when evaluating proposals. A lower headline price may cover a different amount of work.</p></div></section>
 <section class="section-wrap agency-local-faq"><h2>BEFORE YOU COMMIT.</h2>

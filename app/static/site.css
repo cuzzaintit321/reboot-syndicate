@@ -1109,3 +1109,202 @@ a.marketing-tile:focus-visible {
   .agency-home .rs-about-cert-grid li { gap: 11px; align-items: center; }
 }
 /* R/S credentials list - end */
+
+
+/* BEGIN RS MARKETING HOVER */
+
+.marketing-services > .marketing-service {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.marketing-services > .marketing-service::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(7,11,13,.30),
+            rgba(7,11,13,.76)
+        ),
+        var(--marketing-photo);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transform: scale(1);
+    transition: opacity .3s ease, transform .4s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .marketing-services > .marketing-service:hover::before {
+        opacity: 1;
+        transform: scale(1.035);
+    }
+
+    .marketing-services > .marketing-service:hover {
+        box-shadow: inset 0 0 0 1px var(--accent);
+    }
+
+    .marketing-service:hover h3,
+    .marketing-service:hover p {
+        color: #fff;
+    }
+}
+
+.marketing-service:focus-visible::before {
+    opacity: 1;
+}
+
+.marketing-service:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+}
+
+.marketing-service > * {
+    position: relative;
+    z-index: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .marketing-service::before {
+        transition: none;
+        transform: none;
+    }
+}
+
+.marketing-service[href="/marketing/website-design"]{--marketing-photo:url("/static/images/website-design.webp?v=779ba32cb46a")}
+.marketing-service[href="/marketing/local-seo"]{--marketing-photo:url("/static/images/local-seo.webp?v=8ff2fe26bc9d")}
+.marketing-service[href="/marketing/google-business-profile"]{--marketing-photo:url("/static/images/google-business-profile.webp?v=3478532c291a")}
+.marketing-service[href="/marketing/social-media"]{--marketing-photo:url("/static/images/social-media.webp?v=9eb42b7bf121")}
+.marketing-service[href="/marketing/digital-advertising"]{--marketing-photo:url("/static/images/digital-advertising.webp?v=3f91c473a405")}
+.marketing-service[href="/marketing/lead-automation"]{--marketing-photo:url("/static/images/lead-automation.webp?v=8fca3f521d0c")}
+.marketing-service[href="/marketing/branding-design"]{--marketing-photo:url("/static/images/branding-design.webp?v=2cdffd366645")}
+.marketing-service[href="/marketing/content-marketing"]{--marketing-photo:url("/static/images/content-marketing.webp?v=21311cc011e0")}
+.marketing-service[href="/marketing/email-sms"]{--marketing-photo:url("/static/images/email-sms.webp?v=df0fae4b1486")}
+.marketing-service[href="/marketing/reputation-management"]{--marketing-photo:url("/static/images/reputation-management.webp?v=e6fbfc0b427d")}
+.marketing-service[href="/marketing/ecommerce"]{--marketing-photo:url("/static/images/ecommerce.webp?v=da2b36f4044e")}
+.marketing-service[href="/marketing/analytics-conversion"]{--marketing-photo:url("/static/images/analytics-conversion.webp?v=d6cfc2e1bf7b")}
+.marketing-service[href="/marketing/business-technology"]{--marketing-photo:url("/static/images/business-technology.webp?v=4b25cd867bee")}
+.marketing-service[href="/marketing/it-support"]{--marketing-photo:url("/static/images/it-support.webp?v=276d49d44d98")}
+/* END RS MARKETING HOVER */
+
+
+/* RS PRICING PREFIX */
+.rs-price-prefix {
+    display: block !important;
+    margin: 0 0 8px !important;
+    font: 11px 'DM Mono', monospace !important;
+    letter-spacing: .08em;
+    color: var(--muted);
+    text-transform: uppercase;
+}
+/* END RS PRICING PREFIX */
+
+
+/* BEGIN RS PRICING HOVER */
+
+.rs-pricing-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+
+.rs-pricing-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(7,11,13,.35),
+            rgba(7,11,13,.78)
+        ),
+        var(--pricing-photo);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transform: scale(1);
+    transition: opacity .3s ease, transform .4s ease;
+}
+
+.rs-pricing-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .rs-pricing-card:hover::before {
+        opacity: 1;
+        transform: scale(1.035);
+    }
+
+    .rs-pricing-card:hover {
+        box-shadow: inset 0 0 0 1px var(--accent);
+    }
+
+    .rs-pricing-card:hover h3,
+    .rs-pricing-card:hover p {
+        color: #fff;
+    }
+}
+
+.rs-pricing-card:focus-within::before {
+    opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .rs-pricing-card::before {
+        transition: none;
+        transform: none;
+    }
+}
+
+.rs-pricing-card[data-service="website-design"]{--pricing-photo:url("/static/images/website-design.webp?v=779ba32cb46a")}
+.rs-pricing-card[data-service="local-seo"]{--pricing-photo:url("/static/images/local-seo.webp?v=8ff2fe26bc9d")}
+.rs-pricing-card[data-service="google-business-profile"]{--pricing-photo:url("/static/images/google-business-profile.webp?v=3478532c291a")}
+.rs-pricing-card[data-service="social-media"]{--pricing-photo:url("/static/images/social-media.webp?v=9eb42b7bf121")}
+.rs-pricing-card[data-service="digital-advertising"]{--pricing-photo:url("/static/images/digital-advertising.webp?v=3f91c473a405")}
+.rs-pricing-card[data-service="lead-automation"]{--pricing-photo:url("/static/images/lead-automation.webp?v=8fca3f521d0c")}
+.rs-pricing-card[data-service="branding-design"]{--pricing-photo:url("/static/images/branding-design.webp?v=2cdffd366645")}
+.rs-pricing-card[data-service="content-marketing"]{--pricing-photo:url("/static/images/content-marketing.webp?v=21311cc011e0")}
+.rs-pricing-card[data-service="email-sms"]{--pricing-photo:url("/static/images/email-sms.webp?v=df0fae4b1486")}
+.rs-pricing-card[data-service="reputation-management"]{--pricing-photo:url("/static/images/reputation-management.webp?v=e6fbfc0b427d")}
+.rs-pricing-card[data-service="ecommerce"]{--pricing-photo:url("/static/images/ecommerce.webp?v=da2b36f4044e")}
+.rs-pricing-card[data-service="analytics-conversion"]{--pricing-photo:url("/static/images/analytics-conversion.webp?v=d6cfc2e1bf7b")}
+.rs-pricing-card[data-service="business-technology"]{--pricing-photo:url("/static/images/business-technology.webp?v=4b25cd867bee")}
+.rs-pricing-card[data-service="it-support"]{--pricing-photo:url("/static/images/it-support.webp?v=276d49d44d98")}
+/* END RS PRICING HOVER */
+
+
+/* BEGIN RS CLICKABLE PRICING TILES */
+
+.rs-pricing-card {
+    position: relative;
+    cursor: pointer;
+}
+
+.rs-pricing-card a[href]::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+}
+
+.rs-pricing-card > a[href] {
+    position: static;
+}
+
+.rs-pricing-card:focus-within {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+}
+
+/* END RS CLICKABLE PRICING TILES */
