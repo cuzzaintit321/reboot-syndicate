@@ -826,6 +826,28 @@ for _slug, _seo in LOCAL_SEO.items():
     SEO_METADATA[_slug].update(title=_seo['title'], description=_seo['description'])
 # REBOOT_SEO_14_END
 
+
+# BEGIN RS AI CATALOG
+from app.ai_catalog import AI
+for _ai_slug, _ai in AI.items():
+    SERVICES[_ai_slug] = {**_ai, 'form': _ai['name']}
+    SERVICE_PRICING[_ai_slug] = {'starting': _ai['price'], 'unit': _ai['unit'], 'range': _ai['price'] + ' ' + _ai['unit']}
+    _ai_title = _ai['name'] + ' | Space Coast | Reboot Syndicate'
+    SEO_METADATA[_ai_slug] = {'title': _ai_title, 'description': _ai['lead']}
+    LOCAL_SEO[_ai_slug] = {'title': _ai_title, 'description': _ai['lead'], 'heading': _ai['name'].upper(), 'emphasis': 'FOR YOUR BUSINESS.', 'copy': _ai['lead'] + ' Available for Brevard County businesses and remote clients.', 'related': ['lead-automation', 'business-technology', 'local-seo']}
+# END RS AI CATALOG
+
+# BEGIN RS AI LEGACY REDIRECTS
+from fastapi.responses import RedirectResponse as _AIRedirectResponse
+@router.get('/marketing/ai-business-consultation', include_in_schema=False)
+@router.get('/marketing/ai-training', include_in_schema=False)
+@router.get('/marketing/ai-team-workshops', include_in_schema=False)
+@router.get('/marketing/ai-assistants', include_in_schema=False)
+@router.get('/marketing/ai-search-optimization', include_in_schema=False)
+def _legacy_ai_service():
+    return _AIRedirectResponse('/marketing/ai-consulting', status_code=301)
+# END RS AI LEGACY REDIRECTS
+
 @router.get('/marketing/{slug}')
 def marketing_service(request: Request, slug: str):
     service = SERVICES.get(slug)
@@ -848,3 +870,8 @@ def marketing_service(request: Request, slug: str):
         'seo_title': SEO_METADATA[slug]['title'],
         'image_version': image_version,
     })
+
+
+# BEGIN RS SERVICE ORDER
+SERVICES["it-support"] = SERVICES.pop("it-support")
+# END RS SERVICE ORDER

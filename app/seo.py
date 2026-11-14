@@ -35,6 +35,8 @@ def sitemap_xml():
     urls = ["/", "/marketing", "/brevard-county", "/work", "/pricing"] + [f"/marketing/{slug}" for slug in SERVICES]
     urls += ["/industries"] + [f"/industries/{slug}" for slug in INDUSTRIES]
     urls += ["/locations"] + [f"/locations/{slug}" for slug in LOCATIONS]
+    # RS AI SITEMAP
+    urls += ["/ai-solutions", "/ai-readiness"]
     root = Element("urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9")
     for path in urls:
         url = SubElement(root, "url")

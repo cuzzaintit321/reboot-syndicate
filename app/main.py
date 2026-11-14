@@ -144,3 +144,10 @@ app.include_router(industries_router)
 
 from app.locations import router as locations_router
 app.include_router(locations_router)
+
+# BEGIN RS AI ROUTER
+from app.ai_solutions import router as ai_router
+app.include_router(ai_router)
+# END RS AI ROUTER
+
+

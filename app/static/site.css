@@ -1308,3 +1308,58 @@ a.marketing-tile:focus-visible {
 }
 
 /* END RS CLICKABLE PRICING TILES */
+
+/* BEGIN RS AI EXPANSION */
+.rs-ai-page{color:#e9eeeb;background:#14191b}.rs-ai-page h1{font-size:clamp(48px,7vw,104px);line-height:.96;letter-spacing:-.035em;margin:22px 0}.rs-ai-page h2{font-size:clamp(32px,4.4vw,64px);line-height:1.05;margin:18px 0 25px}.rs-ai-page em{color:var(--accent,#ff6338);font-style:normal}.rs-ai-page p{font-size:17px;line-height:1.65;color:#bac5c0;max-width:760px}.rs-ai-hero{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center;padding-top:70px;padding-bottom:70px}.rs-ai-hero img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border:1px solid #455255}.rs-ai-actions,.rs-ai-intro{display:flex;flex-wrap:wrap;gap:12px;margin:25px 0}.rs-ai-section{padding-top:65px;padding-bottom:65px;border-top:1px solid #3c494b}.rs-ai-grid,.rs-ai-principles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.rs-ai-tile{display:flex;flex-direction:column;border:1px solid #455255;background:#1c2628;color:#f1f4f0;text-decoration:none;overflow:hidden}.rs-ai-tile img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}.rs-ai-tile>div,.rs-ai-principles>div{padding:24px}.rs-ai-tile h3{font-size:25px;margin:12px 0}.rs-ai-tile p{font-size:15px}.rs-ai-tile strong{color:var(--accent,#ff6338);display:block;margin-top:18px}.rs-ai-tile:hover,.rs-ai-tile:focus-visible{border-color:var(--accent,#ff6338)}.rs-ai-principles>div{border:1px solid #455255;margin-bottom:24px}.rs-ai-page .request-form{max-width:760px}.rs-ai-page .request-form label{display:block;margin-bottom:16px}.rs-ai-page .request-form input,.rs-ai-page .request-form select,.rs-ai-page .request-form textarea{width:100%;font-size:16px}.rs-ai-quiz{max-width:780px}.rs-ai-quiz fieldset{border:1px solid #455255;padding:20px;margin:24px 0;min-width:0}.rs-ai-quiz legend{color:#fff;font-weight:700;padding:0 8px}.rs-ai-quiz label{display:inline-flex;align-items:center;gap:8px;margin:12px 24px 12px 0;font-size:17px}.rs-ai-quiz input{accent-color:#ff6338}.rs-ai-result{border:1px solid #455255;padding:24px;margin-top:32px;max-width:780px;scroll-margin-top:20px}.rs-ai-result li{margin:12px 0;line-height:1.5}.rs-ai-result a{display:inline-flex;margin:10px 8px 0 0}.rs-ai-card{position:relative;isolation:isolate;overflow:hidden}.rs-ai-card::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(7,11,13,.58),rgba(7,11,13,.88)),var(--ai-photo) center/cover;opacity:0;pointer-events:none;transition:opacity .2s}.rs-ai-card:hover::before,.rs-ai-card:focus-visible::before{opacity:1}.rs-ai-card:hover,.rs-ai-card:focus-visible{color:#fff}.rs-ai-card>*{position:relative}.rs-ai-intro a{color:var(--accent,#ff6338)}.rs-ai-intro a.primary{color:#13191b}.rs-ai-page :focus-visible{outline:2px solid #ff6338;outline-offset:3px}@media(max-width:950px){.rs-ai-grid,.rs-ai-principles{grid-template-columns:repeat(2,minmax(0,1fr))}.rs-ai-hero{grid-template-columns:1fr 1fr;gap:24px}}@media(max-width:650px){.rs-ai-grid,.rs-ai-principles,.rs-ai-hero{grid-template-columns:1fr}.rs-ai-hero,.rs-ai-section{padding-top:38px;padding-bottom:38px}.rs-ai-quiz label{display:flex}.rs-ai-hero img{aspect-ratio:16/10}}@media(prefers-reduced-motion:reduce){.rs-ai-card::before{transition:none}}
+
+.agency-service-card[href="/marketing/ai-consulting"]{--ai-photo:url("/static/images/ai-consulting.webp")}
+.marketing-service[href="/marketing/ai-consulting"]{--marketing-photo:url("/static/images/ai-consulting.webp")}
+.rs-pricing-card[data-service="ai-consulting"]{--pricing-photo:url("/static/images/ai-consulting.webp")}
+
+/* END RS AI EXPANSION */
+
+
+/* BEGIN RS AI HOVER */
+
+.agency-home .agency-service-card[href="/marketing/ai-consulting"] {
+    --card-photo: url("/static/images/ai-consulting.webp?v=a918667d0e28") !important;
+}
+
+.marketing-service[href="/marketing/ai-consulting"] {
+    --marketing-photo: url("/static/images/ai-consulting.webp?v=a918667d0e28");
+}
+
+.rs-pricing-card[data-service="ai-consulting"] {
+    --pricing-photo: url("/static/images/ai-consulting.webp?v=a918667d0e28");
+}
+
+/* END RS AI HOVER */
+
+/* BEGIN RS SITE THEME PREVIEW */
+/* Brand framing only: original photos, logos, demo contents and page layout remain intact. */
+:root{--rs-theme-orange:#ff5c2a;--rs-theme-frame:polygon(0 24px,24px 0,100% 0,100% calc(100% - 24px),calc(100% - 24px) 100%,0 100%)}
+/* Angular frame is an overlay on photographic panels, not a crop of the subject. */
+.agency-home .agency-hero-photo::after,
+.agency-detail-page .agency-detail-visual::after,
+.rs-demo-preview::after{
+  content:"";position:absolute;inset:8px;z-index:3;pointer-events:none;
+  background:var(--rs-theme-orange);clip-path:polygon(0 24px,24px 0,100% 0,100% calc(100% - 24px),calc(100% - 24px) 100%,0 100%,0 24px,2px 25px,2px calc(100% - 2px),calc(100% - 25px) calc(100% - 2px),calc(100% - 2px) calc(100% - 25px),calc(100% - 2px) 2px,25px 2px,2px 25px);
+  opacity:.85;
+}
+/* Keep the homepage headline/analytics and service detail labels above the frame. */
+.agency-hero-photo .agency-visual-header,.agency-hero-photo .agency-dashboard,.agency-detail-page .agency-detail-visual-label{z-index:4}
+.agency-home .agency-hero-photo > .agency-hero-photo-img{filter:brightness(.83) contrast(1.08) saturate(.92) sepia(.10)}
+.agency-detail-page .agency-detail-visual{box-shadow:inset 0 0 80px rgba(12,10,9,.25)}
+/* Existing tile photos remain hidden until hover/focus, exactly as before. */
+@media (hover:hover) and (pointer:fine){
+  .agency-home .agency-service-card:hover,.marketing-services>.marketing-service:hover,.rs-pricing-card:hover{box-shadow:inset 0 0 0 2px var(--rs-theme-orange)}
+}
+.agency-home .agency-service-card:focus-visible,.marketing-services>.marketing-service:focus-visible,.rs-pricing-card:focus-within{outline:2px solid var(--rs-theme-orange);outline-offset:-2px}
+/* Local and industry photography retains its original content, including recognizable scenery. */
+main img[src^="/static/industries/"],main img[src^="/static/locations/"]{outline:2px solid var(--rs-theme-orange);outline-offset:-2px;clip-path:var(--rs-theme-frame)}
+/* Portfolio iframe contents are deliberately not styled or filtered. */
+.rs-demo-tile{border-color:#495154}
+.rs-demo-tile:hover,.rs-demo-tile:focus-visible{border-color:var(--rs-theme-orange)}
+@media(max-width:600px){.agency-home .agency-hero-photo::after,.agency-detail-page .agency-detail-visual::after,.rs-demo-preview::after{inset:4px}}
+/* END RS SITE THEME PREVIEW */
+

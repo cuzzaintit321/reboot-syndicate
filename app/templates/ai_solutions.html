@@ -1,0 +1,178 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI Consulting, Training & Automation | Space Coast | Reboot Syndicate</title><meta name="description" content="Practical AI consulting, team workshops, training, custom assistants and AI search optimization for Brevard County businesses and remote teams."><link rel="canonical" href="https://rebootsyndicate.com/ai-solutions"><link rel="stylesheet" href="/static/site.css?v=rs-theme-37523a572f89"><link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+<style>
+.rs-ai-capability {
+    border: 1px solid #455255;
+    background: #1b2123;
+    min-width: 0;
+    transition: border-color .2s, background .2s;
+    margin-bottom: 24px;
+}
+.rs-ai-capability:hover,
+.rs-ai-capability[open],
+.rs-ai-capability:focus-within {
+    border-color: var(--accent, #ff5833);
+    background: #222b2e;
+}
+.rs-ai-capability summary {
+    padding: 24px;
+    cursor: pointer;
+    list-style: none;
+}
+.rs-ai-capability summary::-webkit-details-marker {
+    display: none;
+}
+.rs-ai-capability summary h3 {
+    margin: 0 0 16px;
+}
+.rs-ai-expand {
+    display: block;
+    color: var(--accent, #ff5833);
+    font: 700 12px monospace;
+    margin-top: 22px;
+}
+.rs-ai-capability-body {
+    padding: 0 24px 24px;
+    border-top: 1px solid #455255;
+}
+.rs-ai-capability-body li {
+    margin: 12px 0;
+    line-height: 1.5;
+}
+.rs-ai-capability-body a {
+    color: var(--accent, #ff5833);
+    font-weight: 700;
+    font-size: 13px;
+}
+.rs-ai-principles {
+    align-items: start;
+}
+</style>
+
+<style>
+/* BEGIN RS EQUAL AI TILES */
+
+.rs-ai-principles {
+    align-items: stretch !important;
+    grid-auto-rows: 1fr;
+}
+
+.rs-ai-capability {
+    margin-bottom: 0 !important;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.rs-ai-capability summary {
+    display: flex;
+    flex-direction: column;
+    min-height: 190px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.rs-ai-capability summary p {
+    flex-grow: 1;
+}
+
+.rs-ai-capability .rs-ai-expand {
+    margin-top: auto;
+    padding-top: 16px;
+}
+
+.rs-ai-capability[open] summary {
+    height: auto;
+}
+
+@media (max-width: 600px) {
+    .rs-ai-principles {
+        grid-auto-rows: auto;
+    }
+}
+
+/* END RS EQUAL AI TILES */
+</style>
+<style>/* RS AI THEME PREVIEW */
+.rs-ai-capability summary .rs-ai-preview-card-image{display:block;width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;margin:0 0 20px;flex:none}
+.rs-ai-capability summary{height:auto!important;min-height:0!important;flex:1;display:flex;flex-direction:column}
+.rs-ai-capability{height:auto!important;display:flex;flex-direction:column}
+.rs-ai-capability:not([open]) summary{flex:1}
+.rs-ai-capability .rs-ai-expand{margin-top:auto}
+.rs-ai-principles{grid-auto-rows:auto!important;align-items:stretch!important}
+.rs-ai-preview-support{display:block;width:min(100%,720px);height:auto;margin:24px auto 32px;object-fit:contain}
+.rs-ai-preview-roadmap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;align-items:start}
+.rs-ai-preview-roadmap .request-form{width:100%;max-width:none;min-width:0}
+.rs-ai-preview-roadmap>img{width:100%;height:auto;display:block}
+@media(max-width:800px){.rs-ai-preview-roadmap{grid-template-columns:1fr}}
+</style></head><body class="agency-local-page rs-ai-page"><div class="topline"><span>REBOOT SYNDICATE / AI & BUSINESS TECHNOLOGY</span><a class="rs-phone-top" href="tel:+13212913097">CALL / (321) 291-3097</a></div><header class="site-header"><a class="wordmark" href="/"><img class="rs-brand-logo-image" src="/static/images/reboot-logo.png" alt="Reboot Syndicate"></a><nav aria-label="Primary navigation"><a href="/">HOME</a><a href="/marketing">SERVICES</a><a href="/ai-readiness">AI READINESS</a><a href="/pricing">PRICING</a><a href="/work">OUR WORK</a><a class="nav-cta" href="#ai-request">LET'S TALK ↗</a></nav><button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false" onclick="const n=document.querySelector('nav');this.setAttribute('aria-expanded',n.classList.toggle('open'))">MENU ☰</button></header><main><section class="rs-ai-hero section-wrap"><div><span class="section-index">SPACE COAST / ARTIFICIAL INTELLIGENCE</span><h1>WORK SMARTER.<br><em>GROW FASTER.</em></h1><p>Practical AI for real businesses. Get a clear adoption plan, train your team, build useful assistants and improve the workflows that keep your business moving.</p><div class="rs-ai-actions"><a class="primary" href="#ai-request">REQUEST A CONSULTATION ↗</a><a class="secondary" href="/ai-readiness">CHECK YOUR AI READINESS ↗</a></div></div><img src="/static/images/ai-theme-preview/hero.webp?v=5dd06e305eaf" alt="Illustration of an illuminated AI processor" width="512" height="512"></section><section class="section-wrap rs-ai-section"><span class="section-index">01 / AI CAPABILITIES</span><h2>FROM FIRST STEPS TO <em>IMPLEMENTATION.</em></h2><p>One service, tailored to your business. Start with a consultation and choose the capabilities you need.</p><div class="rs-ai-principles">{% for slug, service in services.items() %}{% for title, description in service.features %}
+{% set capability_details = [
+    ["AI readiness and workflow assessment",
+     "AI tool selection and recommendations",
+     "Practical adoption roadmap"],
+    ["ChatGPT, Gemini and Microsoft Copilot training",
+     "Prompt writing and everyday productivity",
+     "Hands-on exercises for your business"],
+    ["Customized team training sessions",
+     "Department-specific AI use cases",
+     "Responsible AI adoption guidelines"],
+    ["Customer support chatbots",
+     "Custom knowledge-base assistants",
+     "Internal business workflow assistants"],
+    ["Business software integrations",
+     "Workflow implementation and testing",
+     "Permissions, security and human oversight"],
+    ["Answer Engine Optimization (AEO)",
+     "Generative Engine Optimization (GEO)",
+     "Technical SEO and structured content"]
+] %}
+<details class="rs-ai-capability">
+    <summary>
+        {% set preview_names = ['strategy','training','workshop','assistants','integration','search'] %}<img class="rs-ai-preview-card-image" src="/static/images/ai-theme-preview/{{ preview_names[loop.index0] }}.webp?v=5dd06e305eaf" alt="" width="1400" height="1050" loading="lazy"><h3>{{ title }}</h3>
+        <p>{{ description }}</p>
+        <span class="rs-ai-expand">CLICK TO EXPLORE ↗</span>
+    </summary>
+    <div class="rs-ai-capability-body">
+        <ul>
+        {% for item in capability_details[loop.index0] %}
+            <li>{{ item }}</li>
+        {% endfor %}
+        </ul>
+        <a href="#ai-request">DISCUSS THIS CAPABILITY ↗</a>
+    </div>
+</details>
+{% endfor %}{% endfor %}</div><p>Initial consultation from $149. Training, workshops, custom development and ongoing services are quoted separately.</p><a class="primary" href="/marketing/ai-consulting">VIEW SCOPE &amp; DELIVERABLES ↗</a></section><section class="section-wrap rs-ai-section"><span class="section-index">02 / RESPONSIBLE ADOPTION</span><h2>BUILD WITH <em>CONTROL.</em></h2><div class="rs-ai-principles">
+<details class="rs-ai-capability">
+    <summary>
+        <h3>Start with the work</h3>
+        <p>Identify a specific task, define a baseline and agree on a useful outcome.</p>
+        <span class="rs-ai-expand">CLICK TO EXPLORE ↗</span>
+    </summary>
+    <div class="rs-ai-capability-body">
+        <ul><li>Identify repetitive business tasks</li><li>Establish measurable objectives</li><li>Prioritize practical AI opportunities</li></ul>
+        <a href="#ai-request">DISCUSS YOUR PROJECT ↗</a>
+    </div>
+</details>
+
+<details class="rs-ai-capability">
+    <summary>
+        <h3>Protect your data</h3>
+        <p>Review permissions, vendor terms, sensitive information and human oversight before rollout.</p>
+        <span class="rs-ai-expand">CLICK TO EXPLORE ↗</span>
+    </summary>
+    <div class="rs-ai-capability-body">
+        <ul><li>Review access permissions and privacy</li><li>Evaluate AI provider data policies</li><li>Establish human oversight and safeguards</li></ul>
+        <a href="#ai-request">DISCUSS YOUR PROJECT ↗</a>
+    </div>
+</details>
+
+<details class="rs-ai-capability">
+    <summary>
+        <h3>Measure and improve</h3>
+        <p>Test a small pilot for accuracy and usefulness before extending its reach.</p>
+        <span class="rs-ai-expand">CLICK TO EXPLORE ↗</span>
+    </summary>
+    <div class="rs-ai-capability-body">
+        <ul><li>Test small-scale AI implementations</li><li>Evaluate accuracy and business value</li><li>Refine workflows before expanding</li></ul>
+        <a href="#ai-request">DISCUSS YOUR PROJECT ↗</a>
+    </div>
+</details>
+</div><a class="secondary" href="/ai-readiness">TAKE THE FREE ASSESSMENT ↗</a></section><section class="section-wrap rs-ai-section" id="ai-request"><span class="section-index">03 / LET'S TALK</span><h2>YOUR AI <em>ROADMAP STARTS HERE.</em></h2><div class="rs-ai-preview-roadmap"><form class="request-form" method="post" action="/request"><label>YOUR NAME <input name="name" maxlength="100" required></label><label>EMAIL ADDRESS <input name="email" type="email" maxlength="200" required></label><label>PHONE (OPTIONAL) <input name="phone" type="tel" maxlength="40"></label><label>SERVICE <select name="device" required>{% for slug, service in services.items() %}<option value="{{ service.name }}">{{ service.name }}</option>{% endfor %}</select></label><label>YOUR GOALS <textarea name="issue" rows="5" minlength="10" maxlength="2000" required placeholder="What would you like AI to help your business accomplish?"></textarea></label><input type="hidden" name="service_area" value="Online / Remote"><div class="trap" aria-hidden="true"><label>Company website<input name="company_website" tabindex="-1" autocomplete="off"></label></div><button type="submit">REQUEST CONSULTATION ↗</button><small>Do not submit confidential information, passwords or customer records. Requests are not bookings or purchases.</small></form><img src="/static/images/ai-theme-preview/roadmap.webp?v=5dd06e305eaf" alt="Illustration of a connected implementation roadmap" width="1400" height="1050" loading="lazy"></div></section></main><footer><a class="footer-brand" href="/">REBOOT <span>SYNDICATE</span></a><div>AI • WEB DESIGN • DIGITAL MARKETING • BUSINESS TECHNOLOGY</div><a href="/pricing">PRICING ↗</a><small>© 2026 Reboot Syndicate.</small></footer></body></html>

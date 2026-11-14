@@ -17,7 +17,7 @@
 "provider":{"@id":"https://rebootsyndicate.com/#organization"},
 "areaServed":{"@type":"AdministrativeArea","name":"Brevard County, Florida"}}
 </script>
-<link rel="stylesheet" href="/static/site.css?v=pricing-1794470861">
+<link rel="stylesheet" href="/static/site.css?v=rs-theme-37523a572f89">
 
 <link rel="icon" type="image/svg+xml" href="/static/favicon.svg?v=24606b0cdc04">
 <script defer src="/static/meta-consent.js"></script>
@@ -34,7 +34,7 @@
 <div class="topline"><span>REBOOT SYNDICATE / DIGITAL MARKETING & BUSINESS SOLUTIONS</span><div class="rs-top-actions"><a class="rs-phone-top" href="tel:+13212913097">CALL / (321) 291-3097</a><span class="live"><i></i> LET'S BUILD YOUR NEXT MOVE</span></div></div>
 <header class="site-header">
   <a class="wordmark" href="/" aria-label="Reboot Syndicate home"><img class="rs-brand-logo-image" src="/static/images/reboot-logo.png" alt="Reboot Syndicate"></a>
-  <nav aria-label="Primary navigation"><a href="/locations">LOCATIONS</a><a href="/industries">INDUSTRIES</a>
+  <nav aria-label="Primary navigation"><!-- RS AI NAV START --><a href="/ai-solutions">AI SOLUTIONS</a><!-- RS AI NAV END --><a href="/locations">LOCATIONS</a><a href="/industries">INDUSTRIES</a>
     <a href="/#services">ALL SERVICES</a><a href="/#approach">OUR APPROACH</a><a href="/#packages">PACKAGES</a>
     <a class="nav-cta" href="/?service={{ service.form|urlencode }}#request">LET'S TALK <span>↗</span></a>
   </nav>
@@ -54,11 +54,11 @@
     </a>
     <div class="agency-detail-actions">
       <a class="primary" href="/?service={{ service.form|urlencode }}#request">DISCUSS YOUR PROJECT <span>↗</span></a>
-      <form action="/checkout/{{ slug }}" method="post" style="display:inline-flex;margin:0">
+      {% if not slug.startswith("ai-") %}<form action="/checkout/{{ slug }}" method="post" style="display:inline-flex;margin:0">
         <button type="submit" class="primary" style="cursor:pointer;font:inherit;border:0">
           GET STARTED <span>↗</span>
         </button>
-      </form>
+      </form>{% endif %}
       <a class="secondary" href="/#services">← EXPLORE OTHER SERVICES</a>
     </div>
     <a class="rs-detail-phone" href="tel:+13212913097">PREFER TO CALL? (321) 291-3097 ↗</a><div class="agency-detail-micro">DESIGNED AROUND YOUR GOALS / CLEAR SCOPE / NO GUARANTEED OUTCOMES</div>
