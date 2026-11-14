@@ -67,6 +67,7 @@
     <div class="agency-detail-visual-label"><span>R/S • DIGITAL SERVICES</span><span>{{ service.name|upper }}</span></div>
   </div>
 </section>
+{% if slug == "lead-automation" %}{% include "automation_packages.html" %}{% endif %}
 <section class="agency-detail-section section-wrap" id="included">
   <div class="agency-section-heading">
     <span class="section-index">01 / WHAT WE DO</span>
